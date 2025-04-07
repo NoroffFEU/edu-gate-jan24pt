@@ -39,3 +39,4 @@ In your VS Code settings (`.vscode/settings.json`), add:
     $ Install the dependencies `npm i`
     $ Start the server `npm run dev`
     $ Browse to `http://127.0.0.1:8181`
+    
