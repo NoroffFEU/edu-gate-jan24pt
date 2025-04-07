@@ -8,7 +8,9 @@
 	},
 	"main": "app.js",
 	"scripts": {
-		"build": "npx @tailwindcss/cli -i ./css/styles.css -o ./dist/output.css --watch"
+		"build": "npx @tailwindcss/cli -i ./css/styles.css -o ./dist/output.css",
+		"tailwind:watch": "npx @tailwindcss/cli -i ./css/styles.css -o ./dist/output.css --watch",
+		"dev": "npm run build && node ./src/index.js && open ."
 	},
 	"repository": {
 		"type": "git",
@@ -29,8 +31,7 @@
 	},
 	"keywords": [],
 	"devDependencies": {
-		"tailwindcss": "^4.0.17",
-		"lightningcss": "^1.29.3",
+		"live-server": "^1.2.0",
 		"tailwindcss": "^4.0.14"
 	}
 }
