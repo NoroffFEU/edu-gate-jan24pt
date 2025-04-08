@@ -11,15 +11,17 @@ type-of-change-change-keyword-ticket-number
 ```
 
 Where:
+
 - `type-of-change` can be: `feature`, `fix`, or `chore`
 - `change-keyword` briefly describes the change
 - `ticket-number` refers to the related task or issue number (if applicable)
 
-**Example:**  
+**Example:**
+
 ```
 feature-setup-server-111
 ```
----
 
+---
 
 Let’s all stick to this format to make collaboration smoother. Thanks!
