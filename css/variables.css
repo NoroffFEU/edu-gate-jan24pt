@@ -1,1 +1,24 @@
-/* variables should be defined in this file */
+/* Variables for the design system */
+/* This file contains the CSS variables used throughout the design system. */
+
+/* This section is created by Emil, primarily for the "Your results" page. */
+:root {
+    /* Palette */
+    --eg-primary: #4CAF50;
+    --eg-primary-dark: #388E3C;
+    --eg-secondary: #2196F3;
+    --eg-accent: #FF5722;
+    --eg-light: #F5F5F5;
+    --eg-dark: #333333;
+    --eg-medium: #757575;
+  
+    /* 8-point spacing */
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 40px;
+    --space-6: 48px;
+  
+    --header-h: 72px;
+  }

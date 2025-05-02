@@ -3,9 +3,245 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>index</title>
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- 1 » reset / base rules -->
+    <link rel="stylesheet" href="/css/base.css">
+    <!-- 2 » tokens (colours, spacing, fonts) -->
+    <link rel="stylesheet" href="/css/variables.css">
+    <!-- 3 » utilities & helpers -->
+    <link rel="stylesheet" href="/css/basics.css">
+    <!-- 4 » components / layout (header, footer, table, etc.) -->
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <title>Your results – Edugate</title>
   </head>
+
   <body>
-    <h1>This is a placeholder.</h1>
+
+    <!-- =============== HEADER =================================================== -->
+    <header>
+      <nav>
+        <a href="/templates/index.html"><img src="/public/img/logo-header.png" alt="Edugate logo"></a>
+
+        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links">
+          <li><a href="/templates/dashboard.html">Dashboard</a></li>
+          <li><a href="#" class="active">Results</a></li>
+          <li><a href="/templates/about.html">About</a></li>
+          <li><a href="/templates/contact.html">Contact</a></li>
+        </ul>
+
+        <div class="user-avatar" title="Profile">JD</div>
+      </nav>
+    </header>
+
+    <!-- =============== MAIN ===================================================== -->
+    <main class="results-page">
+
+      <!-- breadcrumbs -->
+      <nav aria-label="Breadcrumb" class="breadcrumbs">
+        <a href="/templates/dashboard.html">Dashboard</a>
+        <span>Your results</span>
+      </nav>
+
+      <!-- Page heading -->
+      <h1 class="page-title">Your Results</h1>
+      <p class="page-subtitle">View your results</p>
+
+      <!-- Search bar -->
+      <div class="results-search-wrapper">
+        <input type="search"
+               id="resultSearch"
+               placeholder="Search for results…"
+               aria-label="Search results">
+        <button id="searchBtn" aria-label="Search">
+          <img src="/public/img/icon-search.svg" alt="">
+        </button>
+      </div>
+
+      <!-- Results table -->
+      <div class="table-wrapper">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Term</th>
+              <th>Subject</th>
+              <th>Exam</th>
+              <th>Result</th>
+              <th>Grade</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody">
+            <!-- injected rows -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination controls -->
+      <div class="pagination" id="pagination">
+        <!-- injected by JS -->
+      </div>
+
+      <!-- Back button -->
+      <p style="text-align:center;margin-top:var(--space-5)">
+        <a href="/templates/dashboard.html" class="btn-secondary">Back to dashboard</a>
+      </p>
+    </main>
+
+    <!-- =============== FOOTER =================================================== -->
+    <footer>
+      <img src="/public/img/Circles_illustration_mobile.png" alt="" aria-hidden="true">
+      <img src="/public/img/circle-footer.png"            alt="" aria-hidden="true">
+    </footer>
+
+    <!-- =============== JS  ====================================================== -->
+    <script>
+      /* ------------------------------------------------------------------
+         Small helper: create an element once instead of building long strings
+      ------------------------------------------------------------------ */
+      function el(tag, attrs = {}, ...children) {
+        const node = document.createElement(tag);
+        for (const [k, v] of Object.entries(attrs)) k.startsWith('on')
+          ? node.addEventListener(k.substring(2).toLowerCase(), v)
+          : node.setAttribute(k, v);
+        node.append(...children);
+        return node;
+      }
+
+      /* ------------------------------------------------------------------
+         Dummy data (fallback)  – exactly what appears in the screenshot
+      ------------------------------------------------------------------ */
+      const fallbackResults = [
+        {year: 2019, term: 3, subject:'Mathematics', exam:'M1',  score: 90, total:120, grade:'B'},
+        {year: 2019, term: 3, subject:'Physics',     exam:'P3',  score:102, total:120, grade:'A'},
+        {year: 2019, term: 3, subject:'English',     exam:'E2',  score: 80, total:110, grade:'B'},
+        {year: 2019, term: 2, subject:'English',     exam:'E1',  score: 95, total:130, grade:'B'},
+        {year: 2019, term: 3, subject:'Biology',     exam:'B2',  score: 73, total:120, grade:'C'},
+        {year: 2019, term: 2, subject:'Physics',     exam:'P2',  score:110, total:120, grade:'A'},
+        {year: 2019, term: 1, subject:'History',     exam:'H2',  score: 90, total:110, grade:'A'}
+      ];
+
+      /* ------------------------------------------------------------------
+         Pagination settings
+      ------------------------------------------------------------------ */
+      const PAGE_SIZE = 7;
+
+      /* ------------------------------------------------------------------
+         Fetch data – uses fallback if fetch fails or returns nothing (API has to be created, i sent a message in the group)
+      ------------------------------------------------------------------ */
+      async function loadResults() {
+        try {
+          const res   = await fetch('/api/v1/results');
+          if (!res.ok) throw new Error('Network response failed');
+          const data  = await res.json();
+          return (Array.isArray(data) && data.length) ? data : fallbackResults;
+        } catch (err) {
+          console.warn('Using fallback data:', err.message);
+          return fallbackResults;
+        }
+      }
+
+      /* ------------------------------------------------------------------
+         Table body rendering – injects rows into the table body
+      ------------------------------------------------------------------ */
+      function renderTablePage(data, page = 1) {
+        const start = (page - 1) * PAGE_SIZE;
+        const slice = data.slice(start, start + PAGE_SIZE);
+        const tbody = document.getElementById('resultsBody');
+        tbody.innerHTML = '';                 // clear
+
+        slice.forEach(r => {
+          tbody.append(
+            el('tr', {}, 
+              el('td', {}, r.year),
+              el('td', {}, r.term),
+              el('td', {}, r.subject),
+              el('td', {}, r.exam),
+              el('td', {}, `${r.score}/${r.total}`),
+              el('td', {}, r.grade)
+            )
+          );
+        });
+
+        renderPagination(data.length, page);
+      }
+
+      /* ------------------------------------------------------------------
+         Pagination controls
+      ------------------------------------------------------------------ */
+      function renderPagination(totalItems, currentPage) {
+        const pages = Math.ceil(totalItems / PAGE_SIZE);
+        const container = document.getElementById('pagination');
+        container.innerHTML = '';
+
+        function addBtn(label, page, disabled = false) {
+          container.append(
+            el('button',
+              {
+                class: disabled ? 'disabled' : '',
+                ...(disabled ? {} : {onClick: () => renderTablePage(window.__ALL_RESULTS, page)})
+              },
+              label
+            )
+          );
+        }
+
+        addBtn('«', 1, currentPage === 1);
+        addBtn('‹', currentPage - 1, currentPage === 1);
+
+        for (let p = 1; p <= pages; p++) {
+          const btn = el('button',
+            {class: p === currentPage ? 'active' : '',
+             onClick: () => renderTablePage(window.__ALL_RESULTS, p)},
+            p
+          );
+          container.append(btn);
+        }
+
+        addBtn('›', currentPage + 1, currentPage === pages);
+        addBtn('»', pages,          currentPage === pages);
+      }
+
+      /* ------------------------------------------------------------------
+         Simple search/filter (client-side)
+      ------------------------------------------------------------------ */
+      function hookSearchBox(data) {
+        const input = document.getElementById('resultSearch');
+        input.addEventListener('input', e => {
+          const q = e.target.value.toLowerCase();
+          const filtered = data.filter(r =>
+            Object.values(r).some(v => String(v).toLowerCase().includes(q))
+          );
+          renderTablePage(filtered, 1);
+        });
+      }
+
+      /* ------------------------------------------------------------------
+         Bootstrap everything
+      ------------------------------------------------------------------ */
+      loadResults().then(data => {
+        window.__ALL_RESULTS = data;
+        renderTablePage(data, 1);
+        hookSearchBox(data);
+      });
+
+      /* ------------------------------------------------------------------
+         Mobile menu toggle (optional)
+      ------------------------------------------------------------------ */
+      document.querySelector('.hamburger')?.addEventListener('click', e => {
+        const btn = e.currentTarget;
+        const nav = document.querySelector('.nav-links');
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        nav.classList.toggle('open');
+      });
+    </script>
   </body>
 </html>

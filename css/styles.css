@@ -1,1 +1,332 @@
 /* Styles for the entire application */
+/* =========================================================
+                            HEADER 
+   =======================================================*/
+   header {
+    background: #fff;
+    border-bottom: 1px solid var(--eg-light);
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+  }
+  
+  /* Nav container */
+  header nav {
+    max-width: 1200px; 
+    height: var(--header-h);
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* ---------- Logo ---------- */
+  header nav > a img {
+    height: 48px;
+    width: auto;
+  }
+  
+  /* ---------- Primary links ---------- */
+  header nav ul {
+    list-style: none;
+    display: flex;
+    gap: var(--space-4);
+    padding: 0;
+    margin: 0;
+  }
+  
+  header nav ul li a {
+    position: relative;
+    font-size: 16px;
+    color: var(--eg-dark);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    padding: var(--space-1) 0;
+  }
+  
+  /* Underline slide-in on hover / active */
+  header nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: var(--eg-primary);
+    transition: width 0.3s ease;
+  }
+  
+  header nav ul li a:hover,
+  header nav ul li a:focus {
+    color: var(--eg-primary);
+  }
+  
+  header nav ul li a:hover::after,
+  header nav ul li a:focus::after,
+  header nav ul li a.active::after {
+    width: 100%;
+  }
+  
+  /* ---------- Avatar / profile icon (placeholder) ---------- */
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--eg-secondary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  
+  /* ---------- Mobile hamburger ---------- */
+  .hamburger {
+    width: 24px;
+    height: 18px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  
+  .hamburger span {
+    display: block;
+    height: 3px;
+    background: var(--eg-dark);
+    border-radius: 3px;
+  }
+  
+  /* Hide big nav & show hamburger on small screens */
+  @media (max-width: 768px) {
+    header nav ul:last-of-type {
+      display: none;
+    }
+    .hamburger {
+      display: flex;
+    }
+  }
+  
+  /* =========================================================
+       FOOTER  ( <footer> … img + img )
+     =======================================================*/
+  footer {
+    position: relative;
+    background: #fff;
+    border-top: 1px solid var(--eg-light);
+    padding: var(--space-6) var(--space-3);
+    overflow: hidden; 
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: var(--eg-medium);
+  }
+  
+  /* Position the decorative circles */
+  footer img {
+    position: absolute;
+    bottom: -15%; 
+    pointer-events: none; 
+  }
+  
+  /* Left (green) circle */
+  footer img:first-of-type {
+    left: -20%;
+    width: 65vmin; 
+    max-width: 480px;
+  }
+  
+  /* Right (blue) circle */
+  footer img:last-of-type {
+    right: -20%;
+    width: 55vmin;
+    max-width: 420px;
+  }
+  
+  /* Tweak sizes on very narrow devices */
+  @media (max-width: 480px) {
+    footer img:first-of-type {
+      left: -40%;
+      width: 120vmin;
+    }
+    footer img:last-of-type {
+      right: -50%;
+      width: 110vmin;
+    }
+  }
+  
+  /* =========================================================
+     RESULTS PAGE  (breadcrumb, title, search, table, pager)
+     =======================================================*/
+  
+  /* ----  wrapper --------------------------------------------------- */
+  .results-page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: var(--space-4) var(--space-3) var(--space-6);
+  }
+  
+  /* ----  breadcrumbs ---------------------------------------------- */
+  .breadcrumbs {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem; 
+    margin-bottom: var(--space-4);
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+  }
+  
+  .breadcrumbs a + *::before {
+    content: "›";
+    color: var(--eg-medium);
+    margin-right: 0.25rem;
+  }
+  
+  .breadcrumbs a   { color: var(--eg-medium); }
+  .breadcrumbs span{ color: var(--eg-primary); font-weight: 500; }
+  
+  /* ----  page title & subtitle ------------------------------------ */
+  .page-title   { font-family: 'Poppins', sans-serif; font-size: 24px; text-align: center; margin-bottom: var(--space-1); }
+  .page-subtitle{ font-family: 'Roboto',  sans-serif; font-size: 14px; text-align: center; color: var(--eg-medium); margin-bottom: var(--space-4); }
+  
+  /* ----  search bar ------------------------------------------------ */
+  .results-search-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 0;                           
+    margin-bottom: var(--space-4);
+  }
+  
+  .results-search-wrapper input {
+    width: 240px;
+    padding: var(--space-1);
+    border: 1px solid var(--eg-primary);
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+    font-family: 'Roboto', sans-serif;
+    background: #fff;
+  }
+  
+  .results-search-wrapper input:focus {
+    border-color: var(--eg-primary-dark);
+    outline: 2px solid transparent;
+  }
+  
+  .results-search-wrapper button {
+    padding: 0 var(--space-2);
+    border: 1px solid var(--eg-primary);
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .results-search-wrapper button img {
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* ----  table ----------------------------------------------------- */
+  .table-wrapper {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.05);
+    overflow-x: auto;
+  }
+  
+  .results-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .results-table thead th {
+    padding: var(--space-2) var(--space-2);
+    text-align: left;
+    font-weight: 600;
+    color: var(--eg-primary);
+    border-bottom: 2px solid var(--eg-light);
+    font-size: 14px;
+  }
+  
+  .results-table tbody td {
+    padding: var(--space-2) var(--space-2);
+    border-bottom: 1px solid var(--eg-light);
+    font-size: 14px;
+  }
+  
+  .results-table tbody tr:nth-child(even) { background: #FAFAFA; }
+  .results-table tbody tr:hover          { background: #F2F2F2; }
+  
+  /* ----  pagination ------------------------------------------------ */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-1);
+    margin-top: var(--space-3);
+  }
+  
+  .pagination button {
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--eg-primary);
+    border-radius: 4px;
+    background: #fff;
+    font-size: 14px;
+    line-height: 1;
+  }
+  
+  .pagination button:hover:not(.active):not(.disabled) {
+    background: #F5FFF5; 
+  }
+  
+  .pagination button.active {
+    background: var(--eg-primary);
+    color: #fff;
+  }
+  
+  .pagination button.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  
+  /* ----  secondary link-button (Back to dashboard) ----------------- */
+  .btn-secondary {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    padding: var(--space-1) var(--space-3);
+    border: 1px solid var(--eg-secondary);
+    color: var(--eg-secondary);
+    border-radius: 6px;
+    transition: background 0.2s;
+  }
+  
+  .btn-secondary:hover { background: #BBDEFB; }
+  
+  /* =========================================================
+     MOBILE NAV  (show .nav-links when hamburger is open)
+     =======================================================*/
+  @media (max-width: 768px) {
+    header nav .nav-links {
+      display: none;
+      position: absolute;
+      top: var(--header-h);
+      right: 0;
+      width: 200px;
+      flex-direction: column;
+      gap: var(--space-2);
+      padding: var(--space-3);
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,.1);
+      z-index: 999;
+    }
+    header nav .nav-links.open { display: flex; }
+  }
+  
