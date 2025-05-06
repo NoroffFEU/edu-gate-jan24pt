@@ -1,0 +1,79 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 32px;
+  text-align: center;
+  color: #333333;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+a {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #000000;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+}
+
+input {
+  width: 315px;
+  height: 50px;
+  padding: 8px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 6px;
+  box-shadow: inset 0 4px 3px rgba(0, 0, 0, 0.3);
+}
+
+input::placeholder {
+  color: rgba(51, 51, 51, 0.8);
+}
+
+input[type='submit'] {
+  width: 137px;
+  height: 59px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: auto;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #ffffff;
+  background-color: #4caf50;
+  border-style: none;
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+input[type='submit']:hover {
+  background-color: #388e3c;
+}

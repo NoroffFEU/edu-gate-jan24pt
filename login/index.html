@@ -3,9 +3,111 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>index</title>
+    <title>Log In | Edugate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/login.css" />
   </head>
   <body>
-    <h1>This is a placeholder.</h1>
+    <header>
+      <div class="desktop-header">
+        <a href="index.html"><img src="/public/img/logo-header.png" /></a>
+        <ul class="navbar">
+          <a href=""><li>About</li></a>
+          <a href=""><li>Contact</li></a>
+        </ul>
+      </div>
+      <div class="mobile-header">
+        <div class="header-top">
+          <a href="index.html"><img src="../public/img/missing.png" /></a>
+          <img
+            src="../icons/desktop/menu.png"
+            class="open-menu"
+            id="open-menu"
+          />
+          <img
+            src="../icons/desktop/missing.png"
+            class="close-menu"
+            id="close-menu"
+          />
+        </div>
+        <div class="header-bottom">
+          <ul>
+            <li><a href="../login/index.html">Login</a></li>
+            <li><a href="../sign_up/index.html">Signup</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+          </ul>
+          <ul class="list-icons">
+            <li><img src="../icons/desktop/login.png" /></li>
+            <li><img src="../icons/desktop/signup.png" /></li>
+            <li><img src="../icons/desktop/about.png" /></li>
+            <li><img src="../icons/desktop/contact.png" /></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="login-container">
+        <div class="login-form" id="login-form">
+          <h1>Log in</h1>
+          <form>
+            <div class="email-container" id="email-container">
+              <label for="email">Email</label>
+              <input
+                name="email"
+                class="email"
+                id="email"
+                placeholder="example@mail.com"
+                autocomplete="example@mail.com"
+              />
+              <p class="email-error" id="email-error"></p>
+            </div>
+            <div class="password-container" id="password-container">
+              <label for="password">Password</label>
+              <input
+                name="password"
+                class="password"
+                id="password"
+                type="password"
+                placeholder="Enter password"
+              />
+              <p class="password-error" id="password-error"></p>
+            </div>
+            <p class="forgot-password">
+              Forgot your password? Click<a href="">&nbsp;here</a>
+            </p>
+            <input type="submit" id="submit" />
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <img
+        src="../public/img/Circles_illustration_mobile.png"
+        alt="Edugate footer circles"
+        class="mobile-footer-img"
+      />
+      <img
+        src="../public/img/circle-footer.png"
+        alt="Edugate footer circles"
+        class="footer-img"
+      />
+    </footer>
+    <div class="error-container">
+      <img src="../icons/desktop/missing.png" class="x-button" id="x-button" />
+      <div class="error">
+        <img src="../icons/desktop/error.png" />
+        <div class="error-msg">
+          <h2>Failed Log In!</h2>
+          <p>Wrong password or email address!</p>
+        </div>
+      </div>
+    </div>
+    <script src="../src/login-check.js" type="module"></script>
   </body>
 </html>
