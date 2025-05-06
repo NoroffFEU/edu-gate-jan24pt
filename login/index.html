@@ -15,7 +15,7 @@
   <body>
     <header>
       <div class="desktop-header">
-        <a href="index.html"><img src="/public/img/logo-header.png" /></a>
+        <a href="index.html"><img src="/assets/images/logo_header.png" /></a>
         <ul class="navbar">
           <a href=""><li>About</li></a>
           <a href=""><li>Contact</li></a>
@@ -23,14 +23,16 @@
       </div>
       <div class="mobile-header">
         <div class="header-top">
-          <a href="index.html"><img src="../public/img/missing.png" /></a>
+          <a href="index.html"
+            ><img src="../assets/images/mobile_logo.png"
+          /></a>
           <img
-            src="../icons/desktop/menu.png"
+            src="../assets/icons/nav/menu.png"
             class="open-menu"
             id="open-menu"
           />
           <img
-            src="../icons/desktop/missing.png"
+            src="../assets/icons/general/close_menu.png"
             class="close-menu"
             id="close-menu"
           />
@@ -43,10 +45,10 @@
             <li><a href="">Contact</a></li>
           </ul>
           <ul class="list-icons">
-            <li><img src="../icons/desktop/login.png" /></li>
-            <li><img src="../icons/desktop/signup.png" /></li>
-            <li><img src="../icons/desktop/about.png" /></li>
-            <li><img src="../icons/desktop/contact.png" /></li>
+            <li><img src="../assets/icons/general/login.png" /></li>
+            <li><img src="../assets/icons/general/signup.png" /></li>
+            <li><img src="../assets/icons/nav/about.png" /></li>
+            <li><img src="../assets/icons/nav/contact.png" /></li>
           </ul>
         </div>
       </div>
@@ -88,20 +90,33 @@
     </main>
     <footer>
       <img
-        src="../public/img/Circles_illustration_mobile.png"
+        src="../assets/images/footer_circles.svg"
         alt="Edugate footer circles"
         class="mobile-footer-img"
       />
       <img
-        src="../public/img/circle-footer.png"
+        src="../assets/images/footer_circles.svg"
         alt="Edugate footer circles"
         class="footer-img"
       />
     </footer>
     <div class="error-container">
-      <img src="../icons/desktop/missing.png" class="x-button" id="x-button" />
+      <svg
+        class="x-button"
+        id="x-button"
+        width="15"
+        height="20"
+        viewBox="0 0 15 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M13.3828 5.88281C13.8711 5.39453 13.8711 4.60156 13.3828 4.11328C12.8945 3.625 12.1016 3.625 11.6133 4.11328L7.5 8.23047L3.38281 4.11719C2.89453 3.62891 2.10156 3.62891 1.61328 4.11719C1.125 4.60547 1.125 5.39844 1.61328 5.88672L5.73047 10L1.61719 14.1172C1.12891 14.6055 1.12891 15.3984 1.61719 15.8867C2.10547 16.375 2.89844 16.375 3.38672 15.8867L7.5 11.7695L11.6172 15.8828C12.1055 16.3711 12.8984 16.3711 13.3867 15.8828C13.875 15.3945 13.875 14.6016 13.3867 14.1133L9.26953 10L13.3828 5.88281Z"
+          fill="#c62828"
+        />
+      </svg>
       <div class="error">
-        <img src="../icons/desktop/error.png" />
+        <img src="../assets/icons/general/error.png" />
         <div class="error-msg">
           <h2>Failed Log In!</h2>
           <p>Wrong password or email address!</p>

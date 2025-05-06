@@ -110,10 +110,18 @@ footer {
 
   .footer-img {
     display: block;
+    width: 685px;
+    height: 246px;
+    object-fit: cover;
+    object-position: top;
   }
 
   .mobile-footer-img {
     display: none;
+    width: 400px;
+    height: 209px;
+    object-fit: cover;
+    object-position: 32px 0px;
   }
 }
 
