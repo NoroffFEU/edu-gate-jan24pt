@@ -159,40 +159,82 @@ input:focus {
     text-decoration: underline;
 }
 
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 1000;
+    max-width: 350px;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
 
+.notification.show {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+.notification-content {
+    display: flex;
+    align-items: flex-start;
+    background-color: #ffebee;
+    border-radius: 4px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #d32f2f;
+}
+
+.notification-icon {
+    color: #d32f2f;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.notification-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.notification-text {
+    flex-grow: 1;
+}
+
+.notification-text h3 {
+    color: #d32f2f;
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.notification-text p {
+    color: #555;
+    font-size: 14px;
+}
+
+.close-notification {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1;
+    margin-left: 10px;
+    align-self: flex-start;
+}
 
 /* Decorative shapes */
-.decorative-shapes {
+
+.footer-circles {
+    width: 50%;
+    display: block;
     position: absolute;
-    bottom: -100px;
+    bottom: -200px; /* Increased the value to extend further down */
     left: 0;
-    width: 100%;
-    height: 300px;
-    z-index: 0;
-    overflow: hidden;
-}
-
-.shape {
-    position: absolute;
-    border-radius: 50%;
-}
-
-.green-circle {
-    width: 400px;
-    height: 400px;
-    background-color: #8bc34a;
-    opacity: 0.7;
-    bottom: -150px;
-    left: 20%;
-}
-
-.blue-circle {
-    width: 350px;
-    height: 350px;
-    background-color: #4a90e2;
-    opacity: 0.7;
-    bottom: -100px;
-    left: 45%;
 }
 
 /* Responsive styles */
@@ -216,18 +258,6 @@ input:focus {
     .form-row {
         flex-direction: column;
         gap: 0;
-    }
-    
-    .green-circle {
-        width: 300px;
-        height: 300px;
-        left: 10%;
-    }
-    
-    .blue-circle {
-        width: 250px;
-        height: 250px;
-        left: 40%;
     }
 }
 
@@ -257,14 +287,9 @@ input:focus {
         width: 100%;
     }
     
-
-    .green-circle {
-        width: 200px;
-        height: 200px;
-    }
-    
-    .blue-circle {
-        width: 180px;
-        height: 180px;
+    .notification {
+        left: 20px;
+        right: 20px;
+        max-width: none;
     }
 }
