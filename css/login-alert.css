@@ -9,7 +9,7 @@
   box-shadow: -2px 4px rgba(0, 0, 0, 0.25);
   z-index: 2;
 
-  .x-button {
+  .close-alert {
     position: absolute;
     margin-top: 15px;
     margin-left: 422px;
@@ -41,7 +41,7 @@
     width: 337px;
     height: 114px;
 
-    .x-button {
+    .close-alert {
       margin-top: 15px;
       margin-left: 309px;
     }

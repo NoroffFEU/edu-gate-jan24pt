@@ -118,10 +118,10 @@ footer {
 
   .mobile-footer-img {
     display: none;
-    width: 400px;
+    width: 375px;
     height: 209px;
     object-fit: cover;
-    object-position: 32px 0px;
+    object-position: 24px 0px;
   }
 }
 

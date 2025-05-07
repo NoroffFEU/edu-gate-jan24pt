@@ -13,7 +13,15 @@ form.addEventListener('submit', (e) => {
     password.value !== ''
   ) {
     e.preventDefault();
-    window.location.href = '../dashboard/student/index.html';
+    if (email.value.includes('student')) {
+      window.location.href = '../dashboard/student/index.html';
+    }
+    if (email.value.includes('teacher')) {
+      window.location.href = '../dashboard/teacher/index.html';
+    }
+    if (email.value.includes('admin')) {
+      window.location.href = '../dashboard/admin/index.html';
+    }
   } else {
     e.preventDefault();
     //displays alert
@@ -49,7 +57,7 @@ form.addEventListener('submit', (e) => {
 
   //close alert
   document
-    .querySelector('#x-button')
+    .querySelector('#close-alert')
     .addEventListener('click', function removeAlert() {
       document.querySelector('.error-container').style.display = 'none';
     });
