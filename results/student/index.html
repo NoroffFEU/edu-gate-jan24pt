@@ -1,247 +1,339 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- 1 » reset / base rules -->
-    <link rel="stylesheet" href="/css/base.css">
-    <!-- 2 » tokens (colours, spacing, fonts) -->
-    <link rel="stylesheet" href="/css/variables.css">
-    <!-- 3 » utilities & helpers -->
-    <link rel="stylesheet" href="/css/basics.css">
-    <!-- 4 » components / layout (header, footer, table, etc.) -->
-    <link rel="stylesheet" href="/css/styles.css">
+  <!--
+    Edugate “Your Results” page
+    Note: The real API endpoint (/api/v1/results) is included for a future experiment,
+    but it will not work during this project. We’ll fall back to `fallbackResults` dummy data.
+  -->
 
-    <title>Your results – Edugate</title>
-  </head>
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet">
 
-  <body>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/basics.css">
+  <link rel="stylesheet" href="/css/styles.css">
 
-    <!-- =============== HEADER =================================================== -->
-    <header>
-      <nav>
-        <a href="/templates/index.html"><img src="/public/img/logo-header.png" alt="Edugate logo"></a>
+  <title>Your results – Edugate</title>
+</head>
 
-        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+<body>
+  <!-- ===================================================================
+       HEADER
+       Site logo, main nav links, and mobile hamburger toggle
+  ==================================================================== -->
+  <header>
+    <nav>
+      <!-- Logo linking back to home -->
+      <a href="/templates/index.html">
+        <img src="/assets/images/logo_header.png" alt="Edugate logo">
+      </a>
 
-        <ul class="nav-links">
-          <li><a href="/templates/dashboard.html">Dashboard</a></li>
-          <li><a href="#" class="active">Results</a></li>
-          <li><a href="/templates/about.html">About</a></li>
-          <li><a href="/templates/contact.html">Contact</a></li>
-        </ul>
+      <!-- Hamburger button for mobile menu toggle -->
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
 
-        <div class="user-avatar" title="Profile">JD</div>
-      </nav>
-    </header>
+      <!-- Primary navigation links -->
+      <ul class="nav-links">
+        <li><a href="/templates/dashboard.html">Dashboard</a></li>
+        <li><a href="/templates/about.html">About</a></li>
+        <li><a href="/templates/contact.html">Contact</a></li>
+      </ul>
 
-    <!-- =============== MAIN ===================================================== -->
-    <main class="results-page">
+      <!-- User profile icon (placeholder) -->
+      <img class="user-icon"
+           src="/assets/icons/socials/profile_icon.png"
+           alt="Profile"
+           width="40"
+           height="40"
+           loading="lazy">
+    </nav>
+  </header>
 
-      <!-- breadcrumbs -->
-      <nav aria-label="Breadcrumb" class="breadcrumbs">
-        <a href="/templates/dashboard.html">Dashboard</a>
-        <span>Your results</span>
-      </nav>
+  <!-- ===================================================================
+       MAIN CONTENT
+       Breadcrumbs, page title, search/filter controls, and results table
+  ==================================================================== -->
+  <main class="results-page">
 
-      <!-- Page heading -->
-      <h1 class="page-title">Your Results</h1>
-      <p class="page-subtitle">View your results</p>
+    <!-- Breadcrumb navigation for context -->
+    <nav aria-label="Breadcrumb" class="breadcrumbs">
+      <a href="/templates/dashboard.html">Dashboard</a>
+      <span>Your results</span>
+    </nav>
 
-      <!-- Search bar -->
-      <div class="results-search-wrapper">
-        <input type="search"
-               id="resultSearch"
-               placeholder="Search for results…"
-               aria-label="Search results">
-        <button id="searchBtn" aria-label="Search">
-          <img src="/public/img/icon-search.svg" alt="">
-        </button>
-      </div>
+    <!-- Page header -->
+    <h1 class="page-title">Your Results</h1>
+    <p class="page-subtitle">View your results</p>
 
-      <!-- Results table -->
-      <div class="table-wrapper">
-        <table class="results-table">
-          <thead>
-            <tr>
-              <th>Year</th>
-              <th>Term</th>
-              <th>Subject</th>
-              <th>Exam</th>
-              <th>Result</th>
-              <th>Grade</th>
-            </tr>
-          </thead>
-          <tbody id="resultsBody">
-            <!-- injected rows -->
-          </tbody>
-        </table>
-      </div>
+    <!-- Search input -->
+    <div class="results-search-wrapper">
+      <input type="search"
+             id="resultSearch"
+             placeholder="Search for results…"
+             aria-label="Search results">
+      <button id="searchBtn" aria-label="Search">
+        <!-- Inline SVG for search icon -->
+        <svg width="18" height="18" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+      </button>
+    </div>
 
-      <!-- Pagination controls -->
-      <div class="pagination" id="pagination">
-        <!-- injected by JS -->
-      </div>
+    <!-- Filter controls -->
+    <div class="results-filter-wrapper">
+      <select id="semesterFilter" aria-label="Filter by semester">
+        <option value="">All semesters</option>
+        <option value="1">Term&nbsp;1</option>
+        <option value="2">Term&nbsp;2</option>
+        <option value="3">Term&nbsp;3</option>
+      </select>
 
-      <!-- Back button -->
-      <p style="text-align:center;margin-top:var(--space-5)">
-        <a href="/templates/dashboard.html" class="btn-secondary">Back to dashboard</a>
-      </p>
-    </main>
+      <select id="subjectFilter" aria-label="Filter by subject">
+        <option value="">All subjects</option>
+        <option value="Mathematics">Mathematics</option>
+        <option value="Physics">Physics</option>
+        <option value="English">English</option>
+        <option value="Biology">Biology</option>
+        <option value="History">History</option>
+      </select>
+    </div>
 
-    <!-- =============== FOOTER =================================================== -->
-    <footer>
-      <img src="/public/img/Circles_illustration_mobile.png" alt="" aria-hidden="true">
-      <img src="/public/img/circle-footer.png"            alt="" aria-hidden="true">
-    </footer>
+    <!-- Results table -->
+    <div class="table-wrapper">
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Term</th>
+            <th>Subject</th>
+            <th>Exam</th>
+            <th>Result</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody id="resultsBody">
+          <!-- Table rows will be injected by JavaScript -->
+        </tbody>
+      </table>
+    </div>
 
-    <!-- =============== JS  ====================================================== -->
-    <script>
-      /* ------------------------------------------------------------------
-         Small helper: create an element once instead of building long strings
-      ------------------------------------------------------------------ */
-      function el(tag, attrs = {}, ...children) {
-        const node = document.createElement(tag);
-        for (const [k, v] of Object.entries(attrs)) k.startsWith('on')
-          ? node.addEventListener(k.substring(2).toLowerCase(), v)
-          : node.setAttribute(k, v);
-        node.append(...children);
-        return node;
-      }
+    <!-- Pagination controls (populated by JS) -->
+    <div class="pagination" id="pagination"></div>
 
-      /* ------------------------------------------------------------------
-         Dummy data (fallback)  – exactly what appears in the screenshot
-      ------------------------------------------------------------------ */
-      const fallbackResults = [
-        {year: 2019, term: 3, subject:'Mathematics', exam:'M1',  score: 90, total:120, grade:'B'},
-        {year: 2019, term: 3, subject:'Physics',     exam:'P3',  score:102, total:120, grade:'A'},
-        {year: 2019, term: 3, subject:'English',     exam:'E2',  score: 80, total:110, grade:'B'},
-        {year: 2019, term: 2, subject:'English',     exam:'E1',  score: 95, total:130, grade:'B'},
-        {year: 2019, term: 3, subject:'Biology',     exam:'B2',  score: 73, total:120, grade:'C'},
-        {year: 2019, term: 2, subject:'Physics',     exam:'P2',  score:110, total:120, grade:'A'},
-        {year: 2019, term: 1, subject:'History',     exam:'H2',  score: 90, total:110, grade:'A'}
-      ];
+    <!-- Back to dashboard button -->
+    <p style="text-align:center; margin-top: var(--space-5);">
+      <a href="/templates/dashboard.html" class="btn-secondary">
+        Back to dashboard
+      </a>
+    </p>
+  </main>
 
-      /* ------------------------------------------------------------------
-         Pagination settings
-      ------------------------------------------------------------------ */
-      const PAGE_SIZE = 7;
+  <!-- ===================================================================
+       FOOTER
+       Decorative SVG (no interactive content)
+  ==================================================================== -->
+  <footer class="footer">
+    <img src="/assets/images/footer_circles.svg"
+         class="footer-circles"
+         alt=""
+         aria-hidden="true">
+  </footer>
 
-      /* ------------------------------------------------------------------
-         Fetch data – uses fallback if fetch fails or returns nothing (API has to be created, i sent a message in the group)
-      ------------------------------------------------------------------ */
-      async function loadResults() {
-        try {
-          const res   = await fetch('/api/v1/results');
-          if (!res.ok) throw new Error('Network response failed');
-          const data  = await res.json();
-          return (Array.isArray(data) && data.length) ? data : fallbackResults;
-        } catch (err) {
-          console.warn('Using fallback data:', err.message);
-          return fallbackResults;
+  <!-- ===================================================================
+       JAVASCRIPT
+       Data fetching, rendering, and UI hooks
+  ==================================================================== -->
+  <script>
+    /**
+     * Helper: Create an element with attributes and children.
+     * Usage: el('tag', { id: 'foo', onClick: handler }, child1, child2, ...)
+     */
+    function el(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      for (const [key, value] of Object.entries(attrs)) {
+        if (key.startsWith('on')) {
+          node.addEventListener(key.slice(2).toLowerCase(), value);
+        } else {
+          node.setAttribute(key, value);
         }
       }
+      node.append(...children);
+      return node;
+    }
 
-      /* ------------------------------------------------------------------
-         Table body rendering – injects rows into the table body
-      ------------------------------------------------------------------ */
-      function renderTablePage(data, page = 1) {
-        const start = (page - 1) * PAGE_SIZE;
-        const slice = data.slice(start, start + PAGE_SIZE);
-        const tbody = document.getElementById('resultsBody');
-        tbody.innerHTML = '';                 // clear
+    /** 
+     * Dummy data to use while the real API is not available.
+     * Replace with live fetch to /api/v1/results when ready.
+     */
+    const fallbackResults = [
+      { year: 2019, term: 3, subject: 'Mathematics', exam: 'M1', score: 90, total: 120, grade: 'B' },
+      { year: 2019, term: 3, subject: 'Physics',     exam: 'P3', score: 102, total: 120, grade: 'A' },
+      { year: 2019, term: 3, subject: 'English',     exam: 'E2', score: 80,  total: 110, grade: 'B' },
+      { year: 2019, term: 2, subject: 'English',     exam: 'E1', score: 95,  total: 130, grade: 'B' },
+      { year: 2019, term: 3, subject: 'Biology',     exam: 'B2', score: 73,  total: 120, grade: 'C' },
+      { year: 2019, term: 2, subject: 'Physics',     exam: 'P2', score: 110, total: 120, grade: 'A' },
+      { year: 2019, term: 1, subject: 'History',     exam: 'H2', score: 90,  total: 110, grade: 'A' }
+    ];
 
-        slice.forEach(r => {
-          tbody.append(
-            el('tr', {}, 
-              el('td', {}, r.year),
-              el('td', {}, r.term),
-              el('td', {}, r.subject),
-              el('td', {}, r.exam),
-              el('td', {}, `${r.score}/${r.total}`),
-              el('td', {}, r.grade)
-            )
-          );
-        });
+    // Number of results per page
+    const PAGE_SIZE = 7;
 
-        renderPagination(data.length, page);
+    /**
+     * Fetch results from API, falling back to dummy data on error.
+     * @returns {Promise<Array>}
+     */
+    async function loadResults() {
+      try {
+        const res = await fetch('/api/v1/results');
+        if (!res.ok) throw new Error('Network response was not ok');
+        const data = await res.json();
+        return (Array.isArray(data) && data.length) ? data : fallbackResults;
+      } catch (err) {
+        console.warn('Using fallback data:', err);
+        return fallbackResults;
       }
+    }
 
-      /* ------------------------------------------------------------------
-         Pagination controls
-      ------------------------------------------------------------------ */
-      function renderPagination(totalItems, currentPage) {
-        const pages = Math.ceil(totalItems / PAGE_SIZE);
-        const container = document.getElementById('pagination');
-        container.innerHTML = '';
+    /**
+     * Render a specific page of the results table.
+     * @param {Array} data - full results array
+     * @param {number} page - 1-based page index
+     */
+    function renderTablePage(data, page = 1) {
+      const tbody = document.getElementById('resultsBody');
+      tbody.innerHTML = ''; // clear previous rows
 
-        function addBtn(label, page, disabled = false) {
-          container.append(
-            el('button',
-              {
-                class: disabled ? 'disabled' : '',
-                ...(disabled ? {} : {onClick: () => renderTablePage(window.__ALL_RESULTS, page)})
-              },
-              label
-            )
-          );
-        }
+      // Determine slice for current page
+      const start = (page - 1) * PAGE_SIZE;
+      const end = page * PAGE_SIZE;
+      const pageItems = data.slice(start, end);
 
-        addBtn('«', 1, currentPage === 1);
-        addBtn('‹', currentPage - 1, currentPage === 1);
+      // Append rows
+      pageItems.forEach(item => {
+        const row = el('tr', {},
+          el('td', {}, item.year),
+          el('td', {}, item.term),
+          el('td', {}, item.subject),
+          el('td', {}, item.exam),
+          el('td', {}, `${item.score}/${item.total}`),
+          el('td', {}, item.grade)
+        );
+        tbody.append(row);
+      });
 
-        for (let p = 1; p <= pages; p++) {
-          const btn = el('button',
-            {class: p === currentPage ? 'active' : '',
-             onClick: () => renderTablePage(window.__ALL_RESULTS, p)},
+      // Update pagination controls
+      renderPagination(data.length, page);
+    }
+
+    /**
+     * Render pagination buttons based on total results.
+     * @param {number} totalItems
+     * @param {number} currentPage
+     */
+    function renderPagination(totalItems, currentPage) {
+      const totalPages = Math.ceil(totalItems / PAGE_SIZE);
+      const paginationEl = document.getElementById('pagination');
+      paginationEl.innerHTML = '';
+
+      // Helper to create nav buttons
+      const addBtn = (label, page, disabled = false) => {
+        paginationEl.append(
+          el('button',
+            {
+              class: disabled ? 'disabled' : '',
+              ...(disabled ? {} : { onClick: () => renderTablePage(window.__ALL_RESULTS, page) })
+            },
+            label
+          )
+        );
+      };
+
+      // First and previous
+      addBtn('«', 1, currentPage === 1);
+      addBtn('‹', currentPage - 1, currentPage === 1);
+
+      // Numbered pages
+      for (let p = 1; p <= totalPages; p++) {
+        paginationEl.append(
+          el('button',
+            {
+              class: p === currentPage ? 'active' : '',
+              onClick: () => renderTablePage(window.__ALL_RESULTS, p)
+            },
             p
-          );
-          container.append(btn);
-        }
-
-        addBtn('›', currentPage + 1, currentPage === pages);
-        addBtn('»', pages,          currentPage === pages);
+          )
+        );
       }
 
-      /* ------------------------------------------------------------------
-         Simple search/filter (client-side)
-      ------------------------------------------------------------------ */
-      function hookSearchBox(data) {
-        const input = document.getElementById('resultSearch');
-        input.addEventListener('input', e => {
-          const q = e.target.value.toLowerCase();
-          const filtered = data.filter(r =>
-            Object.values(r).some(v => String(v).toLowerCase().includes(q))
+      // Next and last
+      addBtn('›', currentPage + 1, currentPage === totalPages);
+      addBtn('»', totalPages, currentPage === totalPages);
+    }
+
+    /**
+     * Wire up live search input to filter table rows.
+     * @param {Array} data - full results array
+     */
+    function hookSearch(data) {
+      document.getElementById('resultSearch')
+        .addEventListener('input', e => {
+          const query = e.target.value.toLowerCase();
+          const filtered = data.filter(item =>
+            Object.values(item).some(val => String(val).toLowerCase().includes(query))
           );
           renderTablePage(filtered, 1);
         });
-      }
+    }
 
-      /* ------------------------------------------------------------------
-         Bootstrap everything
-      ------------------------------------------------------------------ */
-      loadResults().then(data => {
-        window.__ALL_RESULTS = data;
-        renderTablePage(data, 1);
-        hookSearchBox(data);
-      });
+    /**
+     * Hook semester and subject dropdowns to filter results.
+     * @param {Array} data - full results array
+     */
+    function hookFilters(data) {
+      const semFilter = document.getElementById('semesterFilter');
+      const subFilter = document.getElementById('subjectFilter');
 
-      /* ------------------------------------------------------------------
-         Mobile menu toggle (optional)
-      ------------------------------------------------------------------ */
-      document.querySelector('.hamburger')?.addEventListener('click', e => {
-        const btn = e.currentTarget;
-        const nav = document.querySelector('.nav-links');
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', !expanded);
-        nav.classList.toggle('open');
-      });
-    </script>
-  </body>
+      const applyFilters = () => {
+        const filtered = data.filter(item =>
+          (!semFilter.value || String(item.term) === semFilter.value) &&
+          (!subFilter.value || item.subject === subFilter.value)
+        );
+        renderTablePage(filtered, 1);
+      };
+
+      semFilter.addEventListener('change', applyFilters);
+      subFilter.addEventListener('change', applyFilters);
+    }
+
+    // Initialize: load data, render first page, and set up UI hooks
+    loadResults().then(data => {
+      window.__ALL_RESULTS = data;
+      renderTablePage(data, 1);
+      hookSearch(data);
+      hookFilters(data);
+    });
+
+    // Mobile nav toggle behavior
+    document.querySelector('.hamburger')?.addEventListener('click', e => {
+      const btn = e.currentTarget;
+      const navLinks = document.querySelector('.nav-links');
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      navLinks.classList.toggle('open');
+    });
+  </script>
+</body>
+
 </html>
