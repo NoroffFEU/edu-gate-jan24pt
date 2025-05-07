@@ -114,8 +114,11 @@ body {
 
     .forgot-password {
       display: flex;
+      justify-content: center;
       align-items: center;
       height: 43px;
+      font-size: 14px;
+      font-weight: 300;
     }
 
     div {

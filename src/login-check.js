@@ -7,12 +7,14 @@ form.addEventListener('submit', (e) => {
   let email = document.querySelector('#email');
   let password = document.querySelector('#password');
 
+  e.preventDefault();
+
   if (
     email.value.includes('@') &&
     email.value.includes('.') &&
     password.value !== ''
   ) {
-    e.preventDefault();
+    //role check
     if (email.value.includes('student')) {
       window.location.href = '../dashboard/student/index.html';
     }
@@ -23,7 +25,6 @@ form.addEventListener('submit', (e) => {
       window.location.href = '../dashboard/admin/index.html';
     }
   } else {
-    e.preventDefault();
     //displays alert
     document.querySelector('.error-container').style.display = 'block';
 
