@@ -125,7 +125,7 @@ footer {
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1024px) {
   input {
     width: 361px;
   }
