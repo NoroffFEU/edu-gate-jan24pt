@@ -23,27 +23,37 @@
   <div class="container">
     <div class="form-box">
       <h1>Register</h1>
-
       <form>
-        <div class="form-box">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name">
+        <div class="form-group">
+          <label for="school">School</label>
+          <input type="text" id="school" value="Edugate" />
         </div>
-        <div class="form-box">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email">
+ 
+        <div class="form-group">
+          <label for="address1">Address line 1</label>
+          <input type="text" id="address1" placeholder="Address" />
         </div>
+ 
+        <div class="form-group">
+          <label for="address2">Address line 2</label>
+          <input type="text" id="address2" placeholder="Address" />
+        </div>
+ 
         <div class="form-row">
-          <div class="form-box">
+          <div class="form-group">
             <label for="city">City</label>
-            <input type="text" id="city" name="city">
+            <input type="text" id="city" value="Oslo" />
           </div>
-          <div class="form-box">
-            <label for="postal-code">Postal Code</label>
-            <input type="text" id="postal-code" name="postal-code">
+ 
+          <div class="form-group">
+            <label for="postal">Postal Code</label>
+            <input type="text" id="postal" value="0000" />
           </div>
         </div>
+ 
+        <button class="submit-btn" type="submit">Submit</button>
       </form>
+
       
       
     </div>

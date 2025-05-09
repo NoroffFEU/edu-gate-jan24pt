@@ -52,12 +52,13 @@ form select {
 }
   .form-box {
     background-color: #ffffff;
-    padding: 4px;
+    padding: 8px;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
-    width: 100%;
+    width: 50%;
     flex-direction: column;
- 
+   /* max-width: 350px;
+    width: calc(50% - 10px);*/
   }
 
   .form-box h1 {
@@ -133,18 +134,16 @@ form select {
   }
 
   .circles {
-    position: relative; 
-    width: 100%; 
+    position: relative; /* Change to relative to avoid absolute positioning issues */
+    width: 100%; /* Ensure it spans the full width of the form's container */
     height: 150px;
     overflow: hidden;
     margin-top: 20px;
-    display: flex;
-    justify-content: center;
     align-items: center;
   }
 
   .circle {
-    position: relative;
+    position: absolute;
     border-radius: 50%;
     opacity: 0.6;
   }
@@ -153,6 +152,7 @@ form select {
     background-color: #6aa867;
     width: 200px;
     height: 200px;
+    left: 50px;
     bottom: -100px;
   }
 
@@ -160,6 +160,8 @@ form select {
     background-color: #4a90e2;
     width: 200px;
     height: 200px;
+    left: 200px;
+    bottom: -100px;
   }
 
   @media (max-width: 600px) {
@@ -183,7 +185,7 @@ form select {
     }
 
     form {
-        flex-direction: column; 
+        flex-direction: column; /* Stack all form-boxes vertically */
         align-items: center;
 
     }
@@ -199,3 +201,5 @@ form select {
     .row .form-group {
       width: 100%;
     }
+}
+    
