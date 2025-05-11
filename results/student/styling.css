@@ -1,0 +1,533 @@
+/*==============================================================================
+0) RESET & LAYOUT
+==============================================================================*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: #f5f5f5;
+  color: #333;
+  font-family: Segoe UI, sans-serif;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  padding: 2rem;
+}
+
+/*==============================================================================
+1) VARIABLES
+==============================================================================*/
+:root {
+  --primary: #4CAF50;
+  --primary-dark: #388E3C;
+  --secondary: #2196F3;
+  --light: #F5F5F5;
+  --medium: #757575;
+  --border: #e0e0e0;
+  --hdrh: 72px;
+  --footer-h: 300px;
+}
+
+/*==============================================================================
+2) HEADER / NAVIGATION
+==============================================================================*/
+header {
+  position: sticky;
+  top: 0;
+  background: var(--light);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+}
+
+nav.nav-bar {
+  max-width: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--hdrh);
+  padding: 0 2rem;
+}
+
+.logo img {
+  max-height: 100px; /* bumped up per design */
+  transition: max-height .2s;
+}
+
+.nav-desktop {
+  display: flex;
+  gap: 3rem;
+  margin-left: auto;
+}
+
+.nav-desktop a {
+  color: #333;
+  text-decoration: none;
+  position: relative;
+  padding: .5rem 0;
+  font-weight: 600;
+  transition: color .2s;
+}
+
+.nav-desktop a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width .3s;
+}
+
+.nav-desktop a:hover,
+.nav-desktop a:focus {
+  color: var(--primary);
+}
+
+.nav-desktop a:hover::after,
+.nav-desktop a:focus::after {
+  width: 100%;
+}
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* hamburger */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  flex-direction: column;
+  gap: 4px;
+  width: 24px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: #333;
+  border-radius: 3px;
+}
+
+/* mobile panel */
+.nav-mobile {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100vh;
+  background: #fff;
+  transform: translateX(100%);
+  transition: transform .3s ease;
+  overflow-y: auto;
+  z-index: 200;
+  text-align: right;
+}
+
+.nav-mobile.open {
+  transform: translateX(0);
+}
+
+.mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.mobile-header img {
+  max-height: 40px;
+}
+
+.mobile-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.nav-mobile ul {
+  list-style: none;
+  padding: 1rem 1.5rem;
+}
+
+.nav-mobile li {
+  border-bottom: 1px solid #eee;
+  padding: 1rem 0;
+}
+
+.nav-mobile li.logout {
+  margin-top: 2rem;
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+
+.nav-mobile a {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  color: #333;
+  text-decoration: none;
+  padding: .25rem 0;
+  transition: color .2s;
+}
+
+.nav-mobile a:hover {
+  color: var(--primary);
+}
+
+.nav-mobile img {
+  width: 24px;
+  height: 24px;
+}
+
+/* desktop/mobile toggle */
+@media (max-width: 768px) {
+  .nav-desktop,
+  .profile-icon {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+/*==============================================================================
+3) BREADCRUMBS & TITLES
+==============================================================================*/
+.breadcrumbs {
+  font-size: .95rem;
+  letter-spacing: .02em;
+  color: var(--medium);
+  margin-bottom: 1.5rem;
+  display: inline-flex;
+  gap: .5rem;
+}
+
+.breadcrumbs a + span::before {
+  content: "›";
+  margin: 0 .5rem;
+  color: var(--medium);
+}
+
+.breadcrumbs span {
+  color: var(--primary);
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--medium);
+  margin-bottom: 2rem;
+}
+
+.view-icon {
+  display: block;
+  margin: 0 auto 1rem;
+  width: 48px;
+}
+
+@media (min-width: 769px) {
+  .view-icon {
+    display: none;
+  }
+}
+
+/*==============================================================================
+4) SEARCH
+==============================================================================*/
+.search-wrap {
+  display: flex;
+  max-width: 480px;
+  margin: 0 auto 2rem;
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--light);
+}
+
+.search-wrap input {
+  flex: 1;
+  border: none;
+  padding: .75rem 1rem;
+  font-size: 1rem;
+  background: var(--light);
+}
+
+.search-wrap button {
+  background: var(--primary);
+  border: none;
+  padding: 0 .75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.search-wrap img {
+  width: 20px;
+  height: 20px;
+  filter: invert(1);
+}
+
+/*==============================================================================
+5) TABLE
+==============================================================================*/
+.table-wrap {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .05);
+  overflow-x: auto;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .95rem;
+}
+
+thead th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--primary);
+  border-bottom: 2px solid var(--light);
+}
+
+tbody td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--light);
+  position: relative;
+}
+
+tbody tr:nth-child(even) {
+  background: #FAFAFA;
+}
+
+tbody tr:hover {
+  background: #F2F2F2;
+}
+
+/* info button */
+.info-btn {
+  display: none; /* only on mobile */
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .info-btn {
+    display: flex;
+  }
+  /* hide desktop columns */
+  thead th:nth-child(1),
+  thead th:nth-child(2),
+  thead th:nth-child(5),
+  tbody td:nth-child(1),
+  tbody td:nth-child(2),
+  tbody td:nth-child(5) {
+    display: none;
+  }
+}
+
+/*==============================================================================
+6) PAGINATION
+==============================================================================*/
+.pagination {
+  display: flex;
+  gap: .5rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.pagination button {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  border: 1px solid var(--medium);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--medium);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.pagination button:hover:not(.active):not(:disabled) {
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.pagination button.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.pagination button:disabled {
+  opacity: .4;
+  cursor: default;
+}
+
+.ellipsis {
+  display: flex;
+  align-items: center;
+  padding: 0 .5rem;
+  color: var(--medium);
+}
+
+/*==============================================================================
+7) BACK BUTTON
+==============================================================================*/
+.btn-back {
+  display: block;
+  margin: 2rem auto;
+  padding: .75rem 2rem;
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  text-align: center;
+  transition: background .2s;
+}
+
+.btn-back:hover {
+  background: rgba(33, 150, 243, 0.1);
+}
+
+/*==============================================================================
+8) INFO OVERLAY
+==============================================================================*/
+.info-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 300;
+}
+
+.info-overlay.open {
+  display: flex;
+}
+
+.info-dialog {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  max-width: 320px;
+  width: 90%;
+  position: relative;
+}
+
+.info-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.info-grid h4 {
+  margin-bottom: .25rem;
+  color: var(--primary);
+}
+
+/*==============================================================================
+9) FOOTER WITH RESPONSIVE CIRCULAR OVERLAY
+==============================================================================*/
+footer {
+  position: relative;
+  flex-shrink: 0;
+  margin-top: auto;
+  height: var(--footer-h);
+  background: var(--light);
+  overflow: hidden;
+  background-image: url('/assets/images/footer_circles.svg');
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: auto 150%;
+}
+
+@media (max-width: 480px) {
+  footer {
+    background-position: 80% 0;
+    background-size: auto 140%;
+  }
+}
+@media (min-width: 481px) and (max-width: 1024px) {
+  footer {
+    background-position: 50% 0;
+    background-size: auto 150%;
+  }
+}
+@media (min-width: 1025px) {
+  footer {
+    background-position: 50% 0;
+    background-size: auto 160%;
+  }
+}
+
+/*==============================================================================
+10) FOCUS STATES
+==============================================================================*/
+a:focus,
+button:focus,
+input:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
