@@ -27,6 +27,36 @@ main {
   padding: 2rem;
 }
 
+a:link,
+a:visited {
+  color: inherit;
+  /* use whatever text color is inherited */
+  text-decoration: none;
+  /* or underline, etc. if you prefer */
+}
+
+/* Breadcrumbs specifically */
+.breadcrumbs a,
+.breadcrumbs a:visited {
+  color: var(--medium);
+  /* your grey */
+  text-decoration: none;
+}
+
+/* Desktop nav specifically */
+.nav-desktop a,
+.nav-desktop a:visited {
+  color: #333;
+  /* your default nav color */
+}
+
+/* Back‐to‐dashboard button */
+.btn-back,
+.btn-back:visited {
+  color: var(--secondary);
+  /* keep it blue both before/after visit */
+}
+
 /*==============================================================================
 1) VARIABLES
 ==============================================================================*/
@@ -63,7 +93,7 @@ nav.nav-bar {
 }
 
 .logo img {
-  max-height: 100px; /* bumped up per design */
+  max-height: 100px;
   transition: max-height .2s;
 }
 
@@ -71,6 +101,8 @@ nav.nav-bar {
   display: flex;
   gap: 3rem;
   margin-left: auto;
+  list-style: none;
+  padding: 0;
 }
 
 .nav-desktop a {
@@ -108,6 +140,7 @@ nav.nav-bar {
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
+  margin-left: 2rem;
 }
 
 /* hamburger */
@@ -134,7 +167,8 @@ nav.nav-bar {
   position: fixed;
   top: 0;
   right: 0;
-  width: 280px;
+  width: 100vw;
+  max-width: none;
   height: 100vh;
   background: #fff;
   transform: translateX(100%);
@@ -157,7 +191,8 @@ nav.nav-bar {
 }
 
 .mobile-header img {
-  max-height: 40px;
+  max-height: 100px;
+  width: auto;
 }
 
 .mobile-close {
@@ -168,18 +203,20 @@ nav.nav-bar {
 }
 
 .nav-mobile ul {
+  width: 100%;
   list-style: none;
   padding: 1rem 1.5rem;
+  margin: 0;
 }
 
 .nav-mobile li {
-  border-bottom: 1px solid #eee;
-  padding: 1rem 0;
+  border-bottom: none;
+  padding: 0;
 }
 
 .nav-mobile li.logout {
   margin-top: 2rem;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #eee;
   padding-top: 1rem;
 }
 
@@ -199,17 +236,27 @@ nav.nav-bar {
   color: var(--primary);
 }
 
-.nav-mobile img {
+.nav-mobile ul img {
   width: 24px;
   height: 24px;
 }
 
+.nav-mobile ul li a {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  padding: .75rem 1.5rem;
+}
+
 /* desktop/mobile toggle */
 @media (max-width: 768px) {
+
   .nav-desktop,
   .profile-icon {
     display: none;
   }
+
   .hamburger {
     display: flex;
   }
@@ -227,7 +274,7 @@ nav.nav-bar {
   gap: .5rem;
 }
 
-.breadcrumbs a + span::before {
+.breadcrumbs a+span::before {
   content: "›";
   margin: 0 .5rem;
   color: var(--medium);
@@ -268,23 +315,24 @@ h1 {
   display: flex;
   max-width: 480px;
   margin: 0 auto 2rem;
-  border: 1px solid var(--primary);
+  border: none;
   border-radius: 4px;
   overflow: hidden;
-  background: var(--light);
+  background: #fff;
 }
 
 .search-wrap input {
   flex: 1;
-  border: none;
+  border: 1px solid var(--medium);
+  border-right: none;
   padding: .75rem 1rem;
   font-size: 1rem;
-  background: var(--light);
+  background: #fff;
 }
 
 .search-wrap button {
-  background: var(--primary);
-  border: none;
+  border: 1px solid var(--primary);
+  background: #fff;
   padding: 0 .75rem;
   display: flex;
   align-items: center;
@@ -295,7 +343,13 @@ h1 {
 .search-wrap img {
   width: 20px;
   height: 20px;
-  filter: invert(1);
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
 }
 
 /*==============================================================================
@@ -339,7 +393,7 @@ tbody tr:hover {
 
 /* info button */
 .info-btn {
-  display: none; /* only on mobile */
+  display: none;
   position: absolute;
   top: 50%;
   right: 1rem;
@@ -361,6 +415,7 @@ tbody tr:hover {
   .info-btn {
     display: flex;
   }
+
   /* hide desktop columns */
   thead th:nth-child(1),
   thead th:nth-child(2),
@@ -399,9 +454,9 @@ tbody tr:hover {
 }
 
 .pagination button.active {
-  background: var(--primary);
-  color: #fff;
-  border-color: var(--primary);
+  background: #fff;
+  border: 2px solid var(--primary);
+  color: var(--primary);
 }
 
 .pagination button:disabled {
@@ -416,19 +471,37 @@ tbody tr:hover {
   color: var(--medium);
 }
 
+/* — only grey “«”/“‹” when they’re really disabled — */
+.pagination button:nth-child(1):disabled,
+.pagination button:nth-child(2):disabled {
+  color: #ccc;
+  border-color: #eee;
+}
+
+/* — dark grey “›”/“»” when they’re enabled (and not active) — */
+.pagination button:nth-last-child(2):not(:disabled):not(.active),
+.pagination button:nth-last-child(1):not(:disabled):not(.active) {
+  color: #424242;
+}
+
+.pagination button:disabled:focus {
+  outline: none;
+}
+
 /*==============================================================================
 7) BACK BUTTON
 ==============================================================================*/
 .btn-back {
   display: block;
+  width: fit-content;
   margin: 2rem auto;
-  padding: .75rem 2rem;
   border: 1px solid var(--secondary);
   color: var(--secondary);
   text-decoration: none;
   border-radius: 6px;
   font-weight: 500;
   text-align: center;
+  padding: .75rem 2rem;
   transition: background .2s;
 }
 
@@ -509,12 +582,14 @@ footer {
     background-size: auto 140%;
   }
 }
+
 @media (min-width: 481px) and (max-width: 1024px) {
   footer {
     background-position: 50% 0;
     background-size: auto 150%;
   }
 }
+
 @media (min-width: 1025px) {
   footer {
     background-position: 50% 0;
