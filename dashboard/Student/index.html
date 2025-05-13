@@ -3,9 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>index</title>
+    <link rel="stylesheet" href="/css/dashboard/student.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Student dashboard</title>
   </head>
+
   <body>
-    <h1>This is a placeholder.</h1>
-  </body>
+    <header>
+      <nav class="nav-items">
+        <div class="logo-header">
+          <img src="/assets/images/logo_header.png" alt="Logo">
+        </div>
+        <a href="#" class="hideOnMobile active">Dashboard</a>
+        <a href="#" class="hideOnMobile">About</a>
+        <a href="#" class="hideOnMobile">Contact</a>
+        <a href="#" class="hideOnMobile">
+          <img src="/assets/icons/socials/profile_icon.png" alt="profile-icon" class="profile-icon">
+        </a>
+        <div class="menu-icon hideOnMobile" onclick="showSidebar()">
+          <img src="/assets/icons/nav/menu.png" alt="menu">
+        </div>
+      </nav>
+      
+    
+      <div class="sidebar">
+        <div onclick="hideSidebar()"><a href="#"><i class="fa-solid fa-xmark"></i></a></div>
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#"><img src="/assets/icons/socials/profile_icon.png" alt="profile-icon"></a>
+      </div>
+      
+    </header>
+
+  <main>
+  <section class="dashboard-section">
+    <h1>Dashboard</h1>
+    <div class="avatar">JB</div>
+    <div class="name">Joe Bloggs</div>
+    <div class="subtitle">Student at Edugate school</div>
+
+    <div class="actions">
+      <a href="#" class="action-item">
+        <img src="/assets/icons/socials/profile_icon.png" alt="Profile">
+        See profile
+      </a>
+      <a href="#" class="action-item">
+        <img src="/assets/icons/general/view_results.png" alt="Results">
+        My results
+      </a>
+      <a href="#" class="action-item logout">
+        <img src="/assets/icons/general/sign_out.png" alt="Logout">
+        Log out
+      </a>
+    </div>
+  </section>
+  </main>
+  
+  <footer>
+    <img src="/assets/images/footer_circles.svg" alt="circles" class="img">
+  </footer>
+
+  <script src="student.js"></script>
+
+</body>
 </html>
