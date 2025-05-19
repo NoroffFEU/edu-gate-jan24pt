@@ -223,23 +223,6 @@ body {
     box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
 }
 
-.login-link {
-    text-align: center;
-    margin-top: 16px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-.login-link a {
-    font-weight: 500;
-    color: #2196F3;
-    text-decoration: none;
-}
-
-.login-link a:hover {
-    text-decoration: underline;
-}
 
 .notification {
     position: fixed;
