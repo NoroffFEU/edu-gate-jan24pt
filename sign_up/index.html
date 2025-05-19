@@ -3,75 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edugate School - Sign Up</title>
+    <title>Edugate - Sign Up</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <header>
-            <div class="logo">
+        <header class="site-header">
+            <div class="site-logo">
                 <img src="../assets/images/logo_header.png" alt="Edugate School Logo">
             </div>
-            <nav>
+            <nav class="main-nav">
                 <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li class="main-nav-item"><a href="#about" class="main-nav-link"><strong>About</strong></a></li>
+                    <li class="main-nav-item"><a href="#contact" class="main-nav-link"><strong>Contact</strong></a></li>
                 </ul>
             </nav>
         </header>
 
-        <main>
+        <main class="main-content">
             <div class="signup-container">
-                <h1>Sign up</h1>
-                <form id="signup-form">
+                <h1 class="page-title">Sign up</h1>
+                <form class="signup-form">
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+                        <label for="email" class="form-label form-label-required">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="example@mail.com">
                         <span class="error-message" id="email-error"></span>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="firstname">First name</label>
-                            <input type="text" id="firstname" name="firstname" placeholder="Ola" required>
+                            <label for="firstname" class="form-label form-label-required">First name</label>
+                            <input type="text" id="firstname" name="firstname" class="form-input" placeholder="Ola">
                             <span class="error-message" id="firstname-error"></span>
                         </div>
                         <div class="form-group">
-                            <label for="surname">Surname</label>
-                            <input type="text" id="surname" name="surname" placeholder="Nordmann" required>
+                            <label for="surname" class="form-label form-label-required">Surname</label>
+                            <input type="text" id="surname" name="surname" class="form-input" placeholder="Nordmann">
                             <span class="error-message" id="surname-error"></span>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" placeholder="Choose password" required>
+                        <label for="password" class="form-label form-label-required">Password</label>
+                        <input type="password" id="password" name="password" class="form-input" placeholder="Choose password">
                         <span class="error-message" id="password-error"></span>
                     </div>
 
                     <div class="form-group">
-                        <label for="confirm-password">Confirm password</label>
-                        <input type="password" id="confirm-password" name="confirm-password" placeholder="Repeat password" required>
+                        <label for="confirm-password" class="form-label form-label-required">Confirm password</label>
+                        <input type="password" id="confirm-password" name="confirm-password" class="form-input" placeholder="Repeat password">
                         <span class="error-message" id="confirm-password-error"></span>
                     </div>
 
                     <button type="submit" class="submit-btn">Submit</button>
                 </form>
-                <p class="login-link">Already have an account? <a href="#login">Login</a></p>
             </div>
 
-            <div class="notification" id="notification">
+            <div class="notification">
                 <div class="notification-content">
                     <div class="notification-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm0-8h2v6h-2V7z"/>
-                        </svg>
+                        <img src="../assets/icons/general/error.png" alt="Error">
                     </div>
                     <div class="notification-text">
-                        <h3>Failed Sign Up!</h3>
-                        <p id="notification-message">Wrong password or email address!</p>
+                        <h3 class="notification-heading">Failed Sign Up!</h3>
+                        <p class="notification-message">Wrong password or email address!</p>
                     </div>
-                    <button class="close-notification" id="close-notification">×</button>
+                    <button class="notification-close">×</button>
                 </div>
             </div>
         </main>
