@@ -1,205 +1,67 @@
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    background-color: #f5f5f3;
-  }
+@import url(register-form.css);
+@import url(register-header-footer.css);
+@import url(variables.css);
 
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background-color: white;
-    border-bottom: 1px solid #ddd;
-  }
-
-  .logo img {
-    height: 80px;
-
-  }
-
-  nav a {
-    margin-left: 40px;
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-  }
-
-  nav a:hover {
-    text-decoration: underline;
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 60px 20px;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px; 
-
-  }
-
-  form input,
-form textarea,
-form select {
-  color: #808080;
-}
-  .form-box {
-    background-color: #ffffff;
-    padding: 8px;
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
-    width: 50%;
-    flex-direction: column;
-   /* max-width: 350px;
-    width: calc(50% - 10px);*/
-  }
-
-  .form-box h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 24px;
-    color: #333;
-  }
-
-  .form-box:last-child {
-    width: calc(50% - 10px); 
-  }
-
-  .form-group {
-    margin-bottom: 15px;
-  }
-
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #757575;
-    font-size: 12px;
-  }
-
-  .form-group input {
-    width: 100%;
-    padding: 8px 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-
-  .form-row {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    flex-direction: column;
-    gap: 20px; 
-    width: 100%; 
+:root {
+    --text-color: #333333;
+    --bg-color: #ffffff;
+    --link-hover-color: #0070f3;
+  
+    --max-width: 1200px;
   }
   
-  .form-row .form-box {
-    width: calc(50% - 10px); 
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
-  .row {
-    display: flex;
-    gap: 10px;
+  
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
   }
-
-  .row .form-group {
-    flex: 1;
+  
+  body {
+    font-family: var(--primary-font, poppins), sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
   }
-
-  .submit-btn {
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  a:hover {
+    color: var(--link-hover-color);
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 0.5em;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
     display: block;
-    width: 40%;
-    font-family: 'Poppins', sans-serif;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 26px;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 20px;
-    position: relative;
-    z-index: 1;
-    text-align: center;
   }
 
-  .submit-btn:hover {
-    background-color: #388E3C;
+  ul,
+  ol {
+    list-style: none;
   }
+  
 
-  .circles {
-    position: relative; /* Change to relative to avoid absolute positioning issues */
-    width: 100%; /* Ensure it spans the full width of the form's container */
-    height: 150px;
-    overflow: hidden;
-    margin-top: 20px;
-    align-items: center;
-  }
-
-  .circle {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.6;
-  }
-
-  .green-circle {
-    background-color: #6aa867;
-    width: 200px;
-    height: 200px;
-    left: 50px;
-    bottom: -100px;
-  }
-
-  .blue-circle {
-    background-color: #4a90e2;
-    width: 200px;
-    height: 200px;
-    left: 200px;
-    bottom: -100px;
-  }
-
-  @media (max-width: 600px) {
-    header {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 20px;
-    }
-
-    nav {
-      margin-top: 10px;
-    }
-
-    nav a {
-      margin-left: 0;
-      margin-right: 20px;
-    }
-
-    .container {
-      padding: 30px 15px;
-    }
-
-    form {
-        flex-direction: column; /* Stack all form-boxes vertically */
-        align-items: center;
-
-    }
-
-    .form-box {
-      padding: 20px;
-    }
-
-    .row {
-      flex-direction: column;
-      gap: 0;
-    }
-    .row .form-group {
-      width: 100%;
-    }
-}
+ 
     
