@@ -307,7 +307,8 @@ body {
     }
     
     .site-header .site-logo img {
-        height: 48px;
+        width: 120px !important;
+        height: auto !important;
     }
     
     .site-header .main-nav .main-nav-item {
@@ -342,7 +343,8 @@ body {
     }
     
     .site-header .site-logo img {
-        height: 40px;
+        width: 64px !important;
+        height: 64px !important;
     }
     
     .site-header .main-nav .main-nav-link {
