@@ -5,6 +5,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const notificationHeading = document.querySelector('.notification-heading');
     const notificationMessage = document.querySelector('.notification-message');
     
+    // Mobile menu functionality
+    const openMenu = document.querySelector('#open-menu');
+    const closeMenu = document.querySelector('#close-menu');
+
+    if (openMenu && closeMenu) {
+        openMenu.addEventListener('click', function() {
+            document.querySelector('.mobile-header').style.height = '100vh';
+            document.querySelector('.open-menu').style.display = 'none';
+            document.querySelector('.close-menu').style.display = 'block';
+        });
+
+        closeMenu.addEventListener('click', function() {
+            document.querySelector('.mobile-header').style.height = '70px';
+            document.querySelector('.close-menu').style.display = 'none';
+            document.querySelector('.open-menu').style.display = 'block';
+        });
+    }
+    
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         
