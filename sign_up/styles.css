@@ -288,7 +288,7 @@ body {
     line-height: 1;
     background: none;
     border: none;
-    color: #888;
+    color: #C62828; /* Changed from #888 to #C62828 to match notification text */
     cursor: pointer;
 }
 
