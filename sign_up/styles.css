@@ -1,0 +1,485 @@
+/* =========================
+   Edugate Sign Up Page CSS
+   ========================= */
+
+/* 1. Imports & Variables */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap');
+@import url('../css/variables.css');
+
+/* 2. Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  background-color: #f5f5f5;
+  color: var(--text);
+}
+
+/* 3. Header */
+header {
+  position: sticky;
+  top: 0;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #cccccc;
+  z-index: 1000;
+}
+
+.desktop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 176px;
+  padding: 0 80px 0 48px;
+}
+
+.desktop-header .site-logo img {
+  height: 100%;
+}
+
+.mobile-header {
+  display: none;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  overflow-y: hidden;
+}
+
+.mobile-header .header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding: 8px 16px;
+  background-color: #f5f5f5;
+}
+
+.mobile-header .open-menu,
+.mobile-header .close-menu {
+  cursor: pointer;
+}
+
+.mobile-header .close-menu {
+  display: none;
+}
+
+/* 4. Navigation */
+.mobile-header .header-bottom {
+  display: flex;
+  justify-content: flex-end;
+  gap: 32px;
+  width: 100%;
+  height: 100%;
+  padding-right: 16px;
+  background-color: #fff;
+}
+
+.mobile-header .header-bottom li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 94px;
+}
+
+.mobile-header .header-bottom a {
+  width: 80px;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: right;
+}
+
+.navbar {
+  display: flex;
+  padding: 0;
+}
+
+.navbar li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 247.67px;
+  height: 74px;
+  font-size: 20px;
+  font-weight: 600;
+  list-style: none;
+  border-bottom: 1px solid #f5f5f5;
+  transition: border-color 0.5s;
+}
+
+.navbar li:hover {
+  border-color: var(--primary);
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--text);
+}
+
+.navbar a:visited {
+  color: var(--text);
+}
+
+/* 5. Main Content & Form */
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+  padding: 40px 24px;
+  min-height: calc(100vh - 176px - 246px);
+}
+
+.signup-container {
+  width: 100%;
+  max-width: 600px;
+  padding: 32px;
+  background-color: #f5f5f5;
+  border: 3px solid #cccccc;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin: 48px auto;
+  position: relative;
+  z-index: 10;
+}
+
+.page-title,
+h1 {
+  text-align: center;
+  margin-bottom: 48px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 32px;
+  letter-spacing: 0.5px;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 456px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 8px;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.form-row .form-group {
+  flex: 1;
+  min-width: 0;
+}
+
+.form-label {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  margin-bottom: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.form-input {
+  width: 100%;
+  height: 50px;
+  padding: 8px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: var(--text);
+  background-color: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: inset 0 4px 3px rgba(0, 0, 0, 0.3);
+  transition: border-color 0.3s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.1);
+}
+
+.form-input::placeholder {
+  color: rgba(51, 51, 51, 0.8);
+  opacity: 1;
+}
+
+.form-input-invalid {
+  border-color: var(--error);
+  background-color: rgba(255, 87, 34, 0.03);
+}
+
+.form-input-valid {
+  border-color: var(--primary);
+  background-color: rgba(76, 175, 80, 0.03);
+}
+
+.error-message {
+  display: block;
+  margin-top: 8px;
+  min-height: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--error);
+}
+
+/* 6. Submit Button */
+.submit-btn {
+  width: 137px;
+  height: 59px;
+  padding: 10px 20px;
+  margin: 0 auto 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: var(--primary-dark);
+}
+
+.submit-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.submit-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
+}
+
+/* 7. Notification */
+.notification {
+  display: none;
+  position: fixed;
+  top: 144px;
+  right: 0;
+  width: 450px;
+  height: 167px;
+  background-color: var(--error-bg);
+  box-shadow: -2px 4px rgba(0, 0, 0, 0.25);
+  z-index: 2000;
+  opacity: 0;
+  transform: translateX(100%);
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.notification-visible {
+  display: block;
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.notification-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  font-family: 'Arial', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--error);
+  cursor: pointer;
+  line-height: 1;
+  z-index: 10;
+  padding: 0;
+}
+
+.notification-content {
+  position: relative;
+  display: flex;
+  gap: 18px;
+  margin-top: 43px;
+  margin-left: 26px;
+  color: #c62828;
+}
+
+.notification-icon {
+  flex-shrink: 0;
+}
+
+.notification-icon img {
+  width: 72px;
+  height: 72px;
+}
+
+.notification-text {
+  flex-grow: 1;
+}
+
+.notification-heading {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #c62828;
+}
+
+.notification-message {
+  font-size: 16px;
+  line-height: 1.5;
+  height: 49px;
+  margin-left: 0;
+  color: #c62828;
+}
+
+/* 8. Footer */
+footer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: auto;
+}
+
+.footer-img {
+  display: block;
+  width: 685px;
+  height: 246px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.mobile-footer-img {
+  display: none;
+  width: 375px;
+  height: 209px;
+  object-fit: cover;
+  object-position: 24px 0;
+}
+
+/* 9. Responsive Styles */
+/* Tablet */
+@media only screen and (max-width: 1024px) {
+  header .desktop-header {
+    display: none;
+  }
+  .mobile-header {
+    display: block;
+    transition: height 0.3s;
+    z-index: 1000;
+  }
+  .main-content {
+    flex: 1;
+    flex-direction: column;
+    padding: 24px;
+  }
+  .signup-container {
+    width: 480px;
+    padding: 24px;
+    border: none;
+    box-shadow: none;
+    margin: 0 auto;
+  }
+  .signup-container .page-title {
+    font-size: 32px;
+    margin-bottom: 48px;
+  }
+  .signup-form {
+    gap: 8px;
+    max-width: 352px;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .submit-btn {
+    width: 110px;
+    height: 44px;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 16px auto 0;
+  }
+  .notification {
+    top: 90px;
+    width: 337px;
+    height: 114px;
+  }
+  .notification-content {
+    margin-top: 19px;
+    margin-left: 8px;
+    gap: 8px;
+  }
+  .notification-icon img {
+    width: 32px;
+    height: 32px;
+  }
+  .notification-heading {
+    font-size: 24px;
+  }
+  .notification-message {
+    margin-left: -40px;
+    margin-top: 12px;
+  }
+  footer {
+    justify-content: flex-end;
+  }
+  .footer-img {
+    display: none;
+  }
+  .mobile-footer-img {
+    display: block;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .main-content {
+    padding: 16px;
+  }
+  .signup-container {
+    width: 100%;
+    max-width: 380px;
+    padding: 16px;
+    margin: 16px auto;
+  }
+  .signup-container .page-title {
+    font-size: 24px;
+    margin-bottom: 32px;
+  }
+  .form-input {
+    height: 48px;
+  }
+  .submit-btn {
+    width: 110px;
+    height: 44px;
+    font-size: 16px;
+    margin: 16px auto 0;
+  }
+  .notification {
+    left: 16px;
+    right: 16px;
+    width: auto;
+    max-width: none;
+    top: 90px;
+  }
+  footer {
+    justify-content: flex-end;
+  }
+}
