@@ -39,7 +39,7 @@
     justify-content: end;
     gap: 32px;
     ul li {
-        height: 94px;
+        display: flex;
         justify-content: center;
         align-items: center;
         height: 94px;
