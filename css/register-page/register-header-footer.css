@@ -32,13 +32,16 @@
   }
 
   .header-bottom {
-    display: flex;
+    display: none;
     flex-direction: end;
-    background-color: #f5f5f5;
+    background-color: #fff;
     padding: 10px 16px;
     justify-content: end;
     gap: 32px;
     ul li {
+        height: 94px;
+        justify-content: center;
+        align-items: center;
         height: 94px;
     }
   }
