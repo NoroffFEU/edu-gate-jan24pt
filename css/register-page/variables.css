@@ -1,0 +1,12 @@
+:root {
+    --color-primary: #4CAF50;
+    --color-secondary: #2196F3;
+    --accent-color: #FF5722;
+    --text-color: black;
+    --background-color: #F5F5F5;
+    --secondary-text-border-color: #757575;
+
+    --max-width: 1100px;
+    --primary-font: 'poppins', sans-serif;
+    --secondary-font: 'roboto', sans-serif;
+  }
