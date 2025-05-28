@@ -3,9 +3,128 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>index</title>
+    <title>Log In | Edugate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/login-page/login.css" />
   </head>
   <body>
-    <h1>This is a placeholder.</h1>
+    <header>
+      <div class="desktop-header">
+        <a href="../index.html"
+          ><img src="../assets/images/logo_header.png"
+        /></a>
+        <ul class="navbar">
+          <a href=""><li>About</li></a>
+          <a href=""><li>Contact</li></a>
+        </ul>
+      </div>
+      <div class="mobile-header">
+        <div class="header-top">
+          <a href="index.html"
+            ><img src="../assets/images/mobile_logo.png"
+          /></a>
+          <img
+            src="../assets/icons/nav/menu.png"
+            class="open-menu"
+            id="open-menu"
+          />
+          <img
+            src="../assets/icons/general/close_menu.png"
+            class="close-menu"
+            id="close-menu"
+          />
+        </div>
+        <div class="header-bottom">
+          <ul>
+            <li><a href="../login/index.html">Login</a></li>
+            <li><a href="../sign_up/index.html">Signup</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+          </ul>
+          <ul class="list-icons">
+            <li><img src="../assets/icons/general/login.png" /></li>
+            <li><img src="../assets/icons/general/signup.png" /></li>
+            <li><img src="../assets/icons/nav/about.png" /></li>
+            <li><img src="../assets/icons/nav/contact.png" /></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="login-container">
+        <div class="login-form" id="login-form">
+          <h1>Log in</h1>
+          <form>
+            <div class="email-container" id="email-container">
+              <label for="email">Email</label>
+              <input
+                name="email"
+                class="email"
+                id="email"
+                placeholder="example@mail.com"
+                autocomplete="example@mail.com"
+              />
+              <p class="email-error" id="email-error"></p>
+            </div>
+            <div class="password-container" id="password-container">
+              <label for="password">Password</label>
+              <input
+                name="password"
+                class="password"
+                id="password"
+                type="password"
+                placeholder="Enter password"
+              />
+              <p class="password-error" id="password-error"></p>
+            </div>
+            <p class="forgot-password">
+              Forgot your password? Click<a href="">&nbsp;here</a>
+            </p>
+            <input type="submit" id="submit" value="Submit" />
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <img
+        src="../assets/images/footer_circles.svg"
+        alt="Edugate footer circles"
+        class="mobile-footer-img"
+      />
+      <img
+        src="../assets/images/footer_circles.svg"
+        alt="Edugate footer circles"
+        class="footer-img"
+      />
+    </footer>
+    <div class="error-container">
+      <svg
+        class="close-alert"
+        id="close-alert"
+        width="15"
+        height="20"
+        viewBox="0 0 15 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M13.3828 5.88281C13.8711 5.39453 13.8711 4.60156 13.3828 4.11328C12.8945 3.625 12.1016 3.625 11.6133 4.11328L7.5 8.23047L3.38281 4.11719C2.89453 3.62891 2.10156 3.62891 1.61328 4.11719C1.125 4.60547 1.125 5.39844 1.61328 5.88672L5.73047 10L1.61719 14.1172C1.12891 14.6055 1.12891 15.3984 1.61719 15.8867C2.10547 16.375 2.89844 16.375 3.38672 15.8867L7.5 11.7695L11.6172 15.8828C12.1055 16.3711 12.8984 16.3711 13.3867 15.8828C13.875 15.3945 13.875 14.6016 13.3867 14.1133L9.26953 10L13.3828 5.88281Z"
+          fill="#c62828"
+        />
+      </svg>
+      <div class="error">
+        <img src="../assets/icons/general/error.png" />
+        <div class="error-msg">
+          <h2>Failed Log In!</h2>
+          <p>Wrong password or email address!</p>
+        </div>
+      </div>
+    </div>
+    <script src="../src/login-check.js" type="module"></script>
   </body>
 </html>
