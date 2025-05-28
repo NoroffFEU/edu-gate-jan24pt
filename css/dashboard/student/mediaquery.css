@@ -1,0 +1,25 @@
+@media(max-width: 768px) {
+    .hideOnMobile {
+      display: none;
+    }
+  
+    .menu-icon {
+      display: block;
+    }
+  
+    .logo-header img{
+    width: 64px;
+    height: auto;
+    object-fit: contain;
+    }
+  }
+  
+  @media(max-width: 480px) {
+    .sidebar {
+      width: 100%;
+    }
+  
+    .sidebar a {
+      padding-left: 20px;
+    }
+  }

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/dashboard/student.css">
+    <link rel="stylesheet" href="/css/dashboard/student/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Student dashboard</title>
@@ -21,20 +21,45 @@
         <a href="#" class="hideOnMobile">
           <img src="/assets/icons/socials/profile_icon.png" alt="profile-icon" class="profile-icon">
         </a>
-        <div class="menu-icon hideOnMobile" onclick="showSidebar()">
+        <div class="menu-icon" onclick="showSidebar()">
           <img src="/assets/icons/nav/menu.png" alt="menu">
         </div>
       </nav>
-      
-    
-      <div class="sidebar">
-        <div onclick="hideSidebar()"><a href="#"><i class="fa-solid fa-xmark"></i></a></div>
-        <a href="#" class="active">Dashboard</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a href="#"><img src="/assets/icons/socials/profile_icon.png" alt="profile-icon"></a>
+  
+      <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <img src="/assets/images/logo_header.png" alt="Logo" class="sidebar-logo">
+          <div class="sidebar-close" onclick="hideSidebar()">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </div>
+
+        <div class="sidebar-links">
+          <a href="#" class="active">
+            <span>Dashboard</span>
+            <img src="/assets/icons/nav/home.png" alt="Home">
+          </a>
+          <a href="#">
+            <span>Profile</span>
+            <img src="/assets/icons/socials/profile_icon.png" alt="Profile">
+          </a>
+          <a href="#">
+            <span>About</span>
+            <img src="/assets/icons/nav/about.png" alt="About">
+          </a>
+          <a href="#">
+            <span>Contact</span>
+            <img src="/assets/icons/nav/contact.png" alt="Contact">
+          </a>
+        </div>
+  
+        <div class="sidebar-divider"></div>
+        
+        <a href="#" class="logout">
+          <span>Log out</span>
+          <img src="/assets/icons/general/sign_out.png" alt="Logout">
+        </a>
       </div>
-      
     </header>
 
   <main>
