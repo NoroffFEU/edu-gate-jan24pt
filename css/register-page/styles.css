@@ -1,6 +1,6 @@
-@import url(register-form.css);
-@import url(register-header-footer.css);
-@import url(variables.css);
+@import url(/css/register-page/register-form.css);
+@import url(/css/register-page/register-header-footer.css);
+@import url(/css/register-page/variables.css);
 
 :root {
     --text-color: #333333;

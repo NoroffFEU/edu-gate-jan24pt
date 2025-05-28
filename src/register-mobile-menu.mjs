@@ -1,13 +1,12 @@
 // register-mobile-menu.mjs
 export function mobileMenu() {
-
   const openMenuBtn = document.getElementById('open-menu');
   const closeMenuBtn = document.getElementById('close-menu');
   const mobileMenu = document.querySelector('.header-bottom');
 
   if (openMenuBtn && closeMenuBtn && mobileMenu) {
     openMenuBtn.addEventListener('click', () => {
-      mobileMenu.style.display = 'block';
+      mobileMenu.style.display = 'flex';
       openMenuBtn.style.display = 'none';
       closeMenuBtn.style.display = 'block';
     });
