@@ -23,7 +23,7 @@
       <div class="mobile-header">
         <div class="header-top">
           <a href="index.html"
-            ><img src="/assets/images/mobile_logo.png"
+            ><img class="logo" src="/assets/images/mobile_logo.png"
           /></a>
           <img
             src="/assets/icons/nav/menu.png"
@@ -34,6 +34,7 @@
             src="/assets/icons/general/close_menu.png"
             class="close-menu"
             id="close-menu"
+            style="display: none;"
           />
         </div>
         <div class="header-bottom">
@@ -60,28 +61,28 @@
       <form>
         <div class="form-group">
           <label for="school">School</label>
-          <input type="text" id="school" value="Edugate" />
+          <input type="text" class="form-content" value="Edugate" />
         </div>
  
         <div class="form-group">
           <label for="address1">Address line 1</label>
-          <input type="text" id="address1" placeholder="Address" />
+          <input type="text" class="form-content" placeholder="Address" />
         </div>
  
         <div class="form-group">
           <label for="address2">Address line 2</label>
-          <input type="text" id="address2" placeholder="Address" />
+          <input type="text" class="form-content" placeholder="Address" />
         </div>
  
         <div class="form-row">
           <div class="form-group">
             <label for="city">City</label>
-            <input type="text" id="city" value="Oslo" />
+            <input type="text" class="form-content" placeholder="Oslo" />
           </div>
  
           <div class="form-group">
             <label for="postal">Postal Code</label>
-            <input type="text" id="postal" value="0000" />
+            <input type="text" class="form-content" value="0000" />
           </div>
         </div>
  
@@ -104,6 +105,6 @@
       class="footer-img"
     />
   </footer>
-  <script src="register.js"></script>
+  <script type="module" src="/src/register-mobile-menu.mjs"></script>
   </body>
 </html>

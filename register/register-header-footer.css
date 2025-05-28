@@ -1,5 +1,6 @@
 .register-header {
     font-family: 'Roboto', sans-serif;
+    font-weight: bold;
   }
 
   header {
@@ -29,6 +30,14 @@
     height: 70px;
     overflow-y: hidden;
   }
+
+  .header-bottom {
+    display: block;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    padding: 10px 16px;
+  }
+  
   
     .header-top {
       display: flex;
@@ -40,6 +49,7 @@
       padding-left: 16px;
       padding-right: 16px;
       background-color: #f5f5f5;
+      
   
       .open-menu {
         display: block;
@@ -101,7 +111,53 @@
     }
   }
 
-  @media (max-width: 600px) {
+
+  
+ @media (max-width: 768px) {
+    input {
+      width: 361px;
+    }
+  
+    header {
+      .desktop-header {
+        display: none;
+      }
+  
+      .mobile-header {
+        display: block;
+        justify-content: space-between;
+
+      
+      }
+    }
+  
+    footer {
+      justify-content: flex-end;
+  
+      .footer-img {
+        display: none;
+      }
+  
+      .mobile-footer-img {
+        display: block;
+      }
+    }
+
+    .close-menu {
+        display: none;
+        cursor: pointer;
+      }
+    
+      .open-menu {
+        display: block;
+        cursor: pointer;
+      }
+}
+
+
+
+
+ /* @media (max-width: 768px) {
     header {
       flex-direction: column;
       align-items: flex-start;

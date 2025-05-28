@@ -1,2 +1,5 @@
-import { mobileMenu } from "./register-mobile-menu.mjs";
-mobileMenu();
+import { mobileMenu } from './register-mobile-menu.mjs';
+
+document.addEventListener('DOMContentLoaded', () => {
+  mobileMenu();
+});
