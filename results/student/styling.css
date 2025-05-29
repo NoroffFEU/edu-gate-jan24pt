@@ -1,89 +1,98 @@
-/*==============================================================================
-0) RESET & LAYOUT
-==============================================================================*/
+/*------------------------------------------------------------------
+  0. RESET & LAYOUT
+  Reset default browser styles and set up the basic page layout
+-------------------------------------------------------------------*/
 * {
+  /* Make width/height include padding and border */
   box-sizing: border-box;
+  /* Clear out all default spacing */
   margin: 0;
   padding: 0;
 }
 
 html,
 body {
+  /* Light grey background for the whole page */
   background: #f5f5f5;
+  /* Dark grey text that's easy on the eyes */
   color: #333;
+  /* Use a clean, modern sans-serif font */
   font-family: Segoe UI, sans-serif;
   height: 100%;
 }
 
 body {
+  /* Stack header, main, footer vertically */
   display: flex;
   flex-direction: column;
+  /* Ensure footer sticks to bottom if not enough content */
   min-height: 100vh;
 }
 
 main {
+  /* Main content fills available space */
   flex: 1;
   width: 100%;
-  padding: 2rem;
+  /* Comfortable padding around the content */
+  padding: 2rem 4rem;
 }
 
 a:link,
 a:visited {
+  /* Links inherit text color and remove underlines by default */
   color: inherit;
-  /* use whatever text color is inherited */
   text-decoration: none;
-  /* or underline, etc. if you prefer */
 }
 
-/* Breadcrumbs specifically */
+/* Breadcrumb links should be a softer grey */
 .breadcrumbs a,
 .breadcrumbs a:visited {
   color: var(--medium);
-  /* your grey */
-  text-decoration: none;
 }
 
-/* Desktop nav specifically */
+/* Desktop nav links default color */
 .nav-desktop a,
 .nav-desktop a:visited {
   color: #333;
-  /* your default nav color */
 }
 
-/* Back‐to‐dashboard button */
+/* “Back to dashboard” button color */
 .btn-back,
 .btn-back:visited {
   color: var(--secondary);
-  /* keep it blue both before/after visit */
 }
 
-/*==============================================================================
-1) VARIABLES
-==============================================================================*/
+
+/*------------------------------------------------------------------
+  1. CSS VARIABLES
+  Define colors, spacing, and sizing variables for easy theming
+-------------------------------------------------------------------*/
 :root {
-  --primary: #4CAF50;
-  --primary-dark: #388E3C;
-  --secondary: #2196F3;
-  --light: #F5F5F5;
-  --medium: #757575;
-  --border: #e0e0e0;
-  --hdrh: 72px;
-  --footer-h: 300px;
+  --primary: #4CAF50;        /* Brand green */
+  --primary-dark: #388E3C;   /* Darker shade of the green */
+  --secondary: #2196F3;      /* Accent blue */
+  --light: #F5F5F5;          /* Very light grey for backgrounds */
+  --medium: #757575;         /* Mid-tone grey for text */
+  --border: #e0e0e0;         /* Subtle border color */
+  --hdrh: 72px;              /* Header height */
+  --footer-h: 300px;         /* Footer height */
 }
 
-/*==============================================================================
-2) HEADER / NAVIGATION
-==============================================================================*/
+
+/*------------------------------------------------------------------
+  2. HEADER & NAVIGATION
+  Sticky header with desktop and mobile navigation styles
+-------------------------------------------------------------------*/
 header {
   position: sticky;
   top: 0;
   background: var(--light);
   border-bottom: 1px solid var(--border);
-  z-index: 1000;
+  z-index: 1000; /* Stay above other content */
 }
 
 nav.nav-bar {
-  max-width: none;
+  /* Full-width flex container for logo and nav items */
   width: 100%;
   display: flex;
   align-items: center;
@@ -93,21 +102,20 @@ nav.nav-bar {
 }
 
 .logo img {
+  /* Limit logo size and add a subtle transition */
   max-height: 100px;
   transition: max-height .2s;
 }
 
 .nav-desktop {
+  /* Horizontal list of nav links */
   display: flex;
   gap: 3rem;
   margin-left: auto;
   list-style: none;
-  padding: 0;
 }
 
 .nav-desktop a {
-  color: #333;
-  text-decoration: none;
   position: relative;
   padding: .5rem 0;
   font-weight: 600;
@@ -115,6 +123,7 @@ nav.nav-bar {
 }
 
 .nav-desktop a::after {
+  /* Underline effect on hover/focus */
   content: '';
   position: absolute;
   left: 0;
@@ -136,6 +145,7 @@ nav.nav-bar {
 }
 
 .profile-icon {
+  /* Round profile picture */
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -143,7 +153,7 @@ nav.nav-bar {
   margin-left: 2rem;
 }
 
-/* hamburger */
+/* Hamburger menu button hidden on desktop */
 .hamburger {
   display: none;
   background: none;
@@ -156,19 +166,19 @@ nav.nav-bar {
 }
 
 .hamburger span {
+  /* Three bars for the hamburger */
   display: block;
   height: 3px;
   background: #333;
   border-radius: 3px;
 }
 
-/* mobile panel */
+/* Mobile nav panel (hidden by default) */
 .nav-mobile {
   position: fixed;
   top: 0;
   right: 0;
   width: 100vw;
-  max-width: none;
   height: 100vh;
   background: #fff;
   transform: translateX(100%);
@@ -179,55 +189,61 @@ nav.nav-bar {
 }
 
 .nav-mobile.open {
+  /* Slide in when active */
   transform: translateX(0);
 }
 
 .mobile-header {
+  /* Header area inside mobile menu */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.5rem;
   border-bottom: 1px solid #eee;
+  background: var(--light);
+  height: var(--hdrh);
+  padding: 0rem 1rem 0rem 0rem;
 }
 
 .mobile-header img {
+  /* Logo inside mobile menu */
   max-height: 100px;
-  width: auto;
+  width: 100px;
+  object-fit: contain;
 }
 
 .mobile-close {
+  /* Close “✕” button styles */
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }
 
 .nav-mobile ul {
-  width: 100%;
+  /* Vertical list in mobile nav */
   list-style: none;
-  padding: 1rem 1.5rem;
-  margin: 0;
-}
-
-.nav-mobile li {
-  border-bottom: none;
-  padding: 0;
+  padding: 1rem;
 }
 
 .nav-mobile li.logout {
+  /* Separate logout link visually */
   margin-top: 2rem;
   border-top: 1px solid #eee;
   padding-top: 1rem;
 }
 
 .nav-mobile a {
+  /* Flex layout so icon and text align */
   display: flex;
-  flex-direction: row-reverse;
   justify-content: flex-end;
   align-items: center;
-  gap: 1rem;
-  color: #333;
-  text-decoration: none;
+  gap: 1.5rem;
   padding: .25rem 0;
   transition: color .2s;
 }
@@ -237,34 +253,36 @@ nav.nav-bar {
 }
 
 .nav-mobile ul img {
-  width: 24px;
-  height: 24px;
+  /* Icons in the mobile menu */
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
 
 .nav-mobile ul li a {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 1rem;
-  padding: .75rem 1.5rem;
+  /* Extra bottom padding for touch targets */
+  padding-bottom: 3rem;
 }
 
-/* desktop/mobile toggle */
+/* Show hamburger instead of desktop nav at smaller sizes */
 @media (max-width: 768px) {
-
   .nav-desktop,
   .profile-icon {
     display: none;
   }
-
   .hamburger {
     display: flex;
   }
+  nav.nav-bar {
+    padding: 0rem 1rem 0rem 0rem;
+  }
 }
 
-/*==============================================================================
-3) BREADCRUMBS & TITLES
-==============================================================================*/
+
+/*------------------------------------------------------------------
+  3. BREADCRUMBS & PAGE TITLES
+  Styling for the small navigation trail and headings
+-------------------------------------------------------------------*/
 .breadcrumbs {
   font-size: .95rem;
   letter-spacing: .02em;
@@ -274,13 +292,15 @@ nav.nav-bar {
   gap: .5rem;
 }
 
-.breadcrumbs a+span::before {
+.breadcrumbs a + span::before {
+  /* Separator arrow between crumbs */
   content: "›";
   margin: 0 .5rem;
   color: var(--medium);
 }
 
 .breadcrumbs span {
+  /* Current page in primary color */
   color: var(--primary);
 }
 
@@ -297,28 +317,28 @@ h1 {
 }
 
 .view-icon {
+  /* Small icon under the title on mobile */
   display: block;
   margin: 0 auto 1rem;
   width: 48px;
 }
-
 @media (min-width: 769px) {
   .view-icon {
     display: none;
   }
 }
 
-/*==============================================================================
-4) SEARCH
-==============================================================================*/
+
+/*------------------------------------------------------------------
+  4. SEARCH FIELD
+  Styled search input with icon button
+-------------------------------------------------------------------*/
 .search-wrap {
   display: flex;
   max-width: 480px;
   margin: 0 auto 2rem;
-  border: none;
-  border-radius: 4px;
-  overflow: hidden;
   background: #fff;
+  border-radius: 999px;
 }
 
 .search-wrap input {
@@ -327,7 +347,8 @@ h1 {
   border-right: none;
   padding: .75rem 1rem;
   font-size: 1rem;
-  background: #fff;
+  border-radius: 6px 0 0 6px;
+  appearance: none; /* Remove default search styling */
 }
 
 .search-wrap button {
@@ -338,6 +359,7 @@ h1 {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  border-radius: 0 6px 6px 0;
 }
 
 .search-wrap img {
@@ -345,6 +367,7 @@ h1 {
   height: 20px;
 }
 
+/* Hide default browser “x” clear button */
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
@@ -352,13 +375,15 @@ input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
 
-/*==============================================================================
-5) TABLE
-==============================================================================*/
+
+/*------------------------------------------------------------------
+  5. RESULTS TABLE
+  White card with shadow, striped rows, hover effects
+-------------------------------------------------------------------*/
 .table-wrap {
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, .05);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   overflow-x: auto;
   width: 100%;
 }
@@ -384,14 +409,14 @@ tbody td {
 }
 
 tbody tr:nth-child(even) {
-  background: #FAFAFA;
+  background: #FAFAFA; /* Light stripe on even rows */
 }
 
 tbody tr:hover {
-  background: #F2F2F2;
+  background: #F2F2F2; /* Highlight row on hover */
 }
 
-/* info button */
+/* Info button appears only on mobile for details overlay */
 .info-btn {
   display: none;
   position: absolute;
@@ -415,8 +440,7 @@ tbody tr:hover {
   .info-btn {
     display: flex;
   }
-
-  /* hide desktop columns */
+  /* Hide less important columns on extra-small screens */
   thead th:nth-child(1),
   thead th:nth-child(2),
   thead th:nth-child(5),
@@ -427,9 +451,11 @@ tbody tr:hover {
   }
 }
 
-/*==============================================================================
-6) PAGINATION
-==============================================================================*/
+
+/*------------------------------------------------------------------
+  6. PAGINATION
+  Centered buttons with active and disabled states
+-------------------------------------------------------------------*/
 .pagination {
   display: flex;
   gap: .5rem;
@@ -450,10 +476,11 @@ tbody tr:hover {
 }
 
 .pagination button:hover:not(.active):not(:disabled) {
-  background: rgba(76, 175, 80, 0.1);
+  background: rgba(76,175,80,0.1);
 }
 
 .pagination button.active {
+  /* Highlight the current page */
   background: #fff;
   border: 2px solid var(--primary);
   color: var(--primary);
@@ -467,18 +494,28 @@ tbody tr:hover {
 .ellipsis {
   display: flex;
   align-items: center;
-  padding: 0 .5rem;
-  color: var(--medium);
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--medium);
+  border-radius: 4px;
+  background: #fff;
+  color: #bbb;
+  font-weight: 500;
+  font-size: 1rem;
+  pointer-events: none;
+  user-select: none;
+  margin: 0;
 }
 
-/* — only grey “«”/“‹” when they’re really disabled — */
+/* Grey out the first two arrows when disabled */
 .pagination button:nth-child(1):disabled,
 .pagination button:nth-child(2):disabled {
   color: #ccc;
   border-color: #eee;
 }
 
-/* — dark grey “›”/“»” when they’re enabled (and not active) — */
+/* Darker arrows when they're active and clickable */
 .pagination button:nth-last-child(2):not(:disabled):not(.active),
 .pagination button:nth-last-child(1):not(:disabled):not(.active) {
   color: #424242;
@@ -488,9 +525,11 @@ tbody tr:hover {
   outline: none;
 }
 
-/*==============================================================================
-7) BACK BUTTON
-==============================================================================*/
+
+/*------------------------------------------------------------------
+  7. BACK-TO-DASHBOARD BUTTON
+  Standalone button to return to the main page
+-------------------------------------------------------------------*/
 .btn-back {
   display: block;
   width: fit-content;
@@ -506,19 +545,21 @@ tbody tr:hover {
 }
 
 .btn-back:hover {
-  background: rgba(33, 150, 243, 0.1);
+  background: rgba(33,150,243,0.1);
 }
 
-/*==============================================================================
-8) INFO OVERLAY
-==============================================================================*/
+
+/*------------------------------------------------------------------
+  8. INFO OVERLAY (MODAL)
+  Semi-transparent backdrop with centered dialog
+-------------------------------------------------------------------*/
 .info-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, .4);
+  background: rgba(0,0,0,0.4);
   display: none;
   justify-content: center;
   align-items: center;
@@ -539,6 +580,7 @@ tbody tr:hover {
 }
 
 .info-close {
+  /* “✕” button inside the modal */
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -560,9 +602,11 @@ tbody tr:hover {
   color: var(--primary);
 }
 
-/*==============================================================================
-9) FOOTER WITH RESPONSIVE CIRCULAR OVERLAY
-==============================================================================*/
+
+/*------------------------------------------------------------------
+  9. FOOTER & DECORATIVE OVERLAY
+  Fixed-size footer with circular SVG pattern
+-------------------------------------------------------------------*/
 footer {
   position: relative;
   flex-shrink: 0;
@@ -578,28 +622,31 @@ footer {
 
 @media (max-width: 480px) {
   footer {
-    background-position: 80% 0;
-    background-size: auto 140%;
+    background-position: -32% 16px;
+    background-size: auto 120%;
+  }
+  main {
+    padding: 1rem;
   }
 }
 
 @media (min-width: 481px) and (max-width: 1024px) {
   footer {
-    background-position: 50% 0;
     background-size: auto 150%;
   }
 }
 
 @media (min-width: 1025px) {
   footer {
-    background-position: 50% 0;
     background-size: auto 160%;
   }
 }
 
-/*==============================================================================
-10) FOCUS STATES
-==============================================================================*/
+
+/*------------------------------------------------------------------
+  10. FOCUS STATES
+  Make interactive elements more accessible
+-------------------------------------------------------------------*/
 a:focus,
 button:focus,
 input:focus {

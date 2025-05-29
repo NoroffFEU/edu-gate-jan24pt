@@ -10,10 +10,12 @@
 
 <body>
 
-  <!-- HEADER -->
+  <!-- Site header with main navigation and profile icon -->
   <header>
     <nav class="nav-bar">
-      <a href="/dashboard.html" class="logo"><img src="/assets/images/logo_header.png" alt="Edugate logo"></a>
+      <a href="/dashboard.html" class="logo">
+        <img src="/assets/images/logo_header.png" alt="Edugate logo">
+      </a>
       <ul class="nav-desktop">
         <li><a href="/dashboard.html">Dashboard</a></li>
         <li><a href="/about.html">About</a></li>
@@ -25,25 +27,25 @@
       </button>
     </nav>
 
-    <!-- MOBILE PANEL -->
+    <!-- Hidden mobile nav panel that slides in when hamburger is clicked -->
     <div class="nav-mobile" aria-hidden="true">
       <div class="mobile-header">
-        <a href="/dashboard.html"><img src="/assets/images/logo_header.png" alt="Edugate logo"></a>
+        <a href="/dashboard.html">
+          <img src="/assets/images/logo_header.png" alt="Edugate logo">
+        </a>
         <button class="mobile-close" aria-label="Close menu">✕</button>
       </div>
       <ul>
-        <li><a href="/dashboard.html"><img src="/assets/icons/nav/home.png" alt="" aria-hidden="true">Dashboard</a></li>
-        <li><a href="/profile.html"><img src="/assets/icons/socials/profile_icon.png" alt=""
-              aria-hidden="true">Profile</a></li>
-        <li><a href="/about.html"><img src="/assets/icons/nav/about.png" alt="" aria-hidden="true">About</a></li>
-        <li><a href="/contact.html"><img src="/assets/icons/nav/contact.png" alt="" aria-hidden="true">Contact</a></li>
-        <li class="logout"><a href="/logout.html"><img src="/assets/icons/general/sign_out.png" alt=""
-              aria-hidden="true">Log out</a></li>
+        <li><a href="/dashboard.html">Dashboard<img src="/assets/icons/nav/home.png" alt="" aria-hidden="true"></a></li>
+        <li><a href="/profile.html">Profile<img src="/assets/icons/socials/profile_icon.png" alt="" aria-hidden="true"></a></li>
+        <li><a href="/about.html">About<img src="/assets/icons/nav/about.png" alt="" aria-hidden="true"></a></li>
+        <li><a href="/contact.html">Contact<img src="/assets/icons/nav/contact.png" alt="" aria-hidden="true"></a></li>
+        <li class="logout"><a href="/logout.html">Log out<img src="/assets/icons/general/sign_out.png" alt="" aria-hidden="true"></a></li>
       </ul>
     </div>
   </header>
 
-  <!-- MAIN -->
+  <!-- Main content area: breadcrumbs, page title, search box, and results table -->
   <main>
     <nav class="breadcrumbs" aria-label="Breadcrumb">
       <a href="/dashboard.html">Dashboard</a><span>Your results</span>
@@ -80,11 +82,11 @@
     <a href="/dashboard.html" class="btn-back">Back to dashboard</a>
   </main>
 
-  <!-- FOOTER -->
+  <!-- Empty footer for future content or links -->
   <footer>
   </footer>
 
-  <!-- INFO OVERLAY -->
+  <!-- Overlay dialog for viewing detailed info about a single result entry -->
   <div id="infoOverlay" class="info-overlay" aria-hidden="true">
     <div class="info-dialog" role="dialog" aria-modal="true">
       <button class="info-close" aria-label="Close details">✕</button>
@@ -117,113 +119,141 @@
     </div>
   </div>
 
-
-  <!-- JAVASCRIPT -->
+  <!-- JavaScript to power the dummy results table, search, pagination, overlay, and mobile menu -->
+  <!-- NOTE: We're using dummy data here since the real API isn't hooked up yet.
+       This script generates 50 fake entries by cycling through:
+       - Years 2019–2021
+       - Terms 1–3
+       - A list of five subjects
+       - Three exam codes (M1, P2, E3)
+       - Results as a score between 80 and 120 out of 120
+       - Grades A, B, or C -->
   <script>
     (function () {
-      // --- dummy data (50 entries for 8 pages @7/page) ---
+      // Generate 50 mock results to simulate what we'll get from the API later
       const DATA = Array.from({ length: 50 }, (_, i) => ({
-        year: 2019 + (i % 3),
-        term: 1 + (i % 3),
+        year: 2019 + (i % 3),                        // cycles through 2019, 2020, 2021
+        term: 1 + (i % 3),                           // cycles through terms 1, 2, 3
         subject: ['Mathematics', 'Physics', 'English', 'Biology', 'History'][i % 5],
-        exam: ['M1', 'P2', 'E3'][i % 3],
-        result: `${80 + (i % 41)}/120`,
-        grade: ['A', 'B', 'C'][i % 3]
+        exam: ['M1', 'P2', 'E3'][i % 3],             // picks one of three exam codes
+        result: `${80 + (i % 41)}/120`,              // makes a score between 80 and 120
+        grade: ['A', 'B', 'C'][i % 3]                // cycles through grades A, B, C
       }));
-      const PAGE_SIZE = 7;
-      let filtered = [...DATA], currentPage = 1;
+      const PAGE_SIZE = 7;                           // show 7 results per page
+      let filtered = [...DATA];                      // filtered set for search
+      let currentPage = 1;                           // track which page we're on
 
-      // render table rows + info-buttons
+      // Renders one page of results into the table body
       function renderTable(page = 1) {
         currentPage = page;
         const start = (page - 1) * PAGE_SIZE;
         const slice = filtered.slice(start, start + PAGE_SIZE);
         const tbody = document.getElementById('resultsBody');
-        tbody.innerHTML = '';
+        tbody.innerHTML = '';                       // clear existing rows
+
         slice.forEach((r, idx) => {
           const tr = document.createElement('tr');
           tr.innerHTML = `
-          <td>${r.year}</td>
-          <td>${r.term}</td>
-          <td>${r.subject}</td>
-          <td>${r.exam}</td>
-          <td>${r.result}</td>
-          <td>
-            ${r.grade}
-            <button class="info-btn"
-                    data-index="${start + idx}"
-                    aria-label="View details">i</button>
-          </td>`;
+            <td>${r.year}</td>
+            <td>${r.term}</td>
+            <td>${r.subject}</td>
+            <td>${r.exam}</td>
+            <td>${r.result}</td>
+            <td>
+              ${r.grade}
+              <button class="info-btn"
+                      data-index="${start + idx}"
+                      aria-label="View details">i</button>
+            </td>`;
           tbody.appendChild(tr);
         });
-        renderPagination();
+
+        renderPagination();                          // update pagination below
       }
 
-      // pagination controls
+      // Builds and displays the pagination buttons based on total pages
       function renderPagination() {
         const total = Math.ceil(filtered.length / PAGE_SIZE);
         const wrap = document.getElementById('pagination');
-        wrap.innerHTML = '';
+        wrap.innerHTML = '';                         // clear old buttons
 
-        const btn = (label, p, disabled) => {
+        // Helper to create a button
+        const btn = (label, page, disabled) => {
           const b = document.createElement('button');
           b.textContent = label;
-          if (disabled) b.disabled = true;
-          else b.addEventListener('click', () => renderTable(p));
-          if (/^\d+$/.test(label) && p === currentPage) {
+          if (disabled) {
+            b.disabled = true;
+          } else {
+            b.addEventListener('click', () => renderTable(page));
+          }
+          if (/^\d+$/.test(label) && page === currentPage) {
             b.classList.add('active');
           }
           return b;
         };
-        const ell = () => {
-          const s = document.createElement('span');
-          s.className = 'ellipsis';
-          s.textContent = '…';
-          return s;
+        const ellipsis = () => {
+          const span = document.createElement('span');
+          span.className = 'ellipsis';
+          span.textContent = '…';
+          return span;
         };
 
-        // First / Prev
-        wrap.appendChild(btn('«', 1, currentPage === 1));
-        wrap.appendChild(btn('‹', currentPage - 1, currentPage === 1));
-
-        // Page numbers
-        if (total <= 5) {
-          // small number of pages → show them all
-          for (let i = 1; i <= total; i++) {
-            wrap.appendChild(btn(i, i, false));
-          }
-        } else {
-          // always show 1 & 2
-          wrap.appendChild(btn('1', 1, false));
-          wrap.appendChild(btn('2', 2, false));
-
-          // ellipsis before the very last two
-          wrap.appendChild(ell());
-          wrap.appendChild(btn(total - 1, total - 1, false));
-          wrap.appendChild(btn(total, total, false));
+        // Show a compact pagination on narrow screens
+        if (window.innerWidth <= 480) {
+          wrap.appendChild(btn('«', 1, currentPage === 1));
+          wrap.appendChild(btn('‹', Math.max(1, currentPage - 1), currentPage === 1));
+          wrap.appendChild(btn(String(currentPage), currentPage, true));
+          if (total > 2) wrap.appendChild(ellipsis());
+          if (total > 1) wrap.appendChild(btn(String(total), total, currentPage === total));
+          wrap.appendChild(btn('›', Math.min(total, currentPage + 1), currentPage === total));
+          wrap.appendChild(btn('»', total, currentPage === total));
+          return;
         }
 
-        // Next / Last
-        wrap.appendChild(btn('›', currentPage + 1, currentPage === total));
+        // Standard pagination layout for wider screens
+        wrap.appendChild(btn('«', 1, currentPage === 1));
+        wrap.appendChild(btn('‹', Math.max(1, currentPage - 1), currentPage === 1));
+
+        // Decide which page numbers to show beside current page
+        let pagesToShow = [];
+        if (currentPage < total - 2) {
+          pagesToShow = [currentPage, currentPage + 1];
+        } else {
+          pagesToShow = [total - 1, total];
+        }
+        pagesToShow = pagesToShow.filter(p => p >= 1 && p <= total);
+
+        pagesToShow.forEach(p => wrap.appendChild(btn(String(p), p, p === currentPage)));
+
+        if (currentPage < total - 2) {
+          wrap.appendChild(ellipsis());
+          wrap.appendChild(btn(String(total - 1), total - 1, currentPage === total - 1));
+          wrap.appendChild(btn(String(total), total, currentPage === total));
+        }
+
+        wrap.appendChild(btn('›', Math.min(total, currentPage + 1), currentPage === total));
         wrap.appendChild(btn('»', total, currentPage === total));
       }
 
-
-      // live search
+      // Live-search: filter as the user types
       document.getElementById('searchInput')
         .addEventListener('input', e => {
-          const q = e.target.value.toLowerCase();
+          const query = e.target.value.toLowerCase();
           filtered = DATA.filter(r =>
             `${r.year} ${r.term} ${r.subject} ${r.exam} ${r.result} ${r.grade}`
-              .toLowerCase().includes(q)
+              .toLowerCase().includes(query)
           );
           renderTable(1);
         });
-      // also search on click icon
-      document.getElementById('searchBtn')
-        .addEventListener('click', () => document.getElementById('searchInput').dispatchEvent(new Event('input')));
 
-      // info-overlay open/close
+      // Also fire search on clicking the search icon
+      document.getElementById('searchBtn')
+        .addEventListener('click', () => {
+          const inputEvent = new Event('input');
+          document.getElementById('searchInput').dispatchEvent(inputEvent);
+        });
+
+      // Handle opening and closing the detail overlay
       const overlay = document.getElementById('infoOverlay');
       overlay.setAttribute('aria-hidden', 'true');
       document.body.addEventListener('click', e => {
@@ -243,24 +273,36 @@
         }
       });
 
-      // mobile menu toggle
+      // Mobile menu toggle logic for hamburger and close button
       const hamb = document.querySelector('.hamburger');
       const navMob = document.querySelector('.nav-mobile');
-      const mClose = document.querySelector('.mobile-close');
+      const mobileClose = document.querySelector('.mobile-close');
       function toggleMenu() {
-        const open = hamb.getAttribute('aria-expanded') === 'true';
-        hamb.setAttribute('aria-expanded', String(!open));
+        const isOpen = hamb.getAttribute('aria-expanded') === 'true';
+        hamb.setAttribute('aria-expanded', String(!isOpen));
         navMob.classList.toggle('open');
-        navMob.setAttribute('aria-hidden', open);
+        navMob.setAttribute('aria-hidden', isOpen);
       }
       hamb.addEventListener('click', toggleMenu);
-      mClose.addEventListener('click', toggleMenu);
+      mobileClose.addEventListener('click', toggleMenu);
 
-      // kick off
+      // Kick things off by rendering the first page
       renderTable();
+
+      // Recompute pagination layout if the window size changes
+      window.addEventListener('resize', renderPagination);
     })();
   </script>
 
 </body>
 
 </html>
+<!--
+  This HTML file is a complete, self-contained page for displaying student results.
+  It includes:
+  - A responsive header with navigation and profile icon
+  - Breadcrumbs for navigation context
+  - A search box to filter results
+  - A table to display results with pagination
+  - An overlay dialog for viewing detailed result info
+  - JavaScript to handle data rendering, searching, pagination, and mobile menu behavior
