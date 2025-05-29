@@ -13,38 +13,35 @@
   <body>
     <header>
       <nav>
-        <a href="../templates/index.html">
-          <img src="assets/images/logo_header.png" alt="Edugate Logo" />
-        </a>
-        <div class="burgermenu">
-          <img src="assets/icons/nav/menu.png" alt="hamburgermenu" id="hamburgericon"/>
+        <a href="index.html" class="logo"><img src="assets/images/logo_header.png" alt="Edugate Logo"/></a>
+        <div id="hamburgericon" class="burgermenu">
+          <img src="assets/icons/nav/menu.png" alt="hamburgermenu" />
         </div>
         <div class="burgerlinks">
             <ul>
-              <li>
-                <a href="../login/index.html"> Login </a>
-              </li>
-              <li>
-                <a href="../sign_up/index.html"> Signup </a>
-              </li>
-              <li>
-                <a href="../templates/about.html"> About </a>
-              </li>
-              <li>
-                <a href="../templates/contact.html"> Contact </a>
-              </li>
-            </ul>
+                <li><a href="../login/index.html">Login</a>
+                  <img src="assets/icons/general/login.png" alt="Login icon" />
+                </li>
+                <li>
+                  <a href="../sign_up/index.html">Signup</a>
+                  <img src="assets/icons/general/signup.png" alt="Signup icon" />
+                </li>
+                <li>
+                  <a href="../templates/about.html">About</a>
+                  <img src="assets/icons/nav/about.png" alt="About icon" />
+                </li>
+                <li>
+                  <a href="../templates/contact.html">Contact</a>
+                  <img src="assets/icons/nav/contact.png" alt="Contact icon" />
+                </li>
+              </ul>
           </div>
           <div class="desktoplinks">
             <ul>
-              <li>
-                <a href="../templates/about.html"> About </a>
-              </li>
-              <li>
-                <a href="../templates/contact.html"> Contact </a>
-              </li>
+              <li><a href="../templates/about.html">About</a></li>
+              <li><a href="../templates/contact.html">Contact</a></li>
             </ul>
-        </div>
+          </div>
       </nav>
     </header>
     <main>
@@ -56,12 +53,8 @@
             results online.
           </p>
           <div class="button-wrapper">
-          <a href="../templates/sign-up.html">
-            <button id="signup">Sign Up</button>
-          </a>
-          <a href="../templates/login-page.html">
-            <button id="login">Log In</button>
-          </a>
+            <a href="../templates/sign-up.html" id="signup" class="button">Sign Up</a>
+            <a href="../templates/login-page.html" id="login" class="button">Log In</a>
         </div>
       </section>
     </main>
@@ -72,6 +65,6 @@
         alt="Edugate footer circles" id="footercircles"
       />
     </footer>
-    <script src="src/landing-page.js"></script>
+    <script src="src/landingpage-mobile.js"></script>
   </body>
 </html>
