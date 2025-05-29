@@ -1,75 +1,95 @@
 header {
-    display: flex;
-    padding: 10px 20px;
-    border-bottom: 1px solid #757575;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: #F5F5F5;
-    font-size: 20px;
-  }
-  
-  .logo-header {
-    margin-right: auto;
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo-header img {
-    width: 150px;
-  }
-  
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  nav a {
-    text-decoration: none;
-    color: #333333;
-    font-weight: bold;
-    position: relative;
-    padding: 0 30px;
-    display: flex;
-    align-items: center;
-  }
-  
-  nav.nav-items {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-  }
-  
-  nav a.active::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    height: 3px;
-    width: 100%;
-    background-color: #4CAF50;
-  }
-  
-  .profile-icon {
-    width: 50px;
-    height: 50px;
-  }
+  display: flex;
+  padding: 10px 20px;
+  border-bottom: 1px solid #757575;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #F5F5F5;
+  font-size: 20px;
+}
 
-  .menu-icon {
-    display: none;
-  }
+.logo-header {
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+}
+
+.logo-header img {
+  width: 150px;
+}
+
+.logo-desktop {
+  display: block;
+}
+
+.logo-mobile {
+  display: none;
+}
 
 
-  footer {
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-  }
-  
-  footer .img {
-    height: 100%;
-    transform: translateY(60%);
-  }
-  
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333333;
+  font-weight: bold;
+  position: relative;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+}
+
+nav.nav-items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background-color: #4CAF50;
+}
+
+.profile-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.menu-icon {
+  display: none;
+}
+
+
+footer {
+display: flex;
+justify-content: center;
+position: relative;
+margin-top: auto;
+}
+
+.footer-img {
+display: block;
+width: 685px;
+height: 246px;
+object-fit: cover;
+object-position: top;
+}
+
+.mobile-footer-img {
+display: none;
+width: 375px;
+height: 209px;
+object-fit: cover;
+object-position: 24px 0;
+}

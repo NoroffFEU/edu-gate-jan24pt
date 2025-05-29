@@ -10,10 +10,12 @@
   </head>
 
   <body>
+    <div class="wrapper">
     <header>
       <nav class="nav-items">
         <div class="logo-header">
-          <img src="/assets/images/logo_header.png" alt="Logo">
+          <img src="/assets/images/logo_header.png" class="logo-desktop" alt="Logo">
+          <img src="/assets/images/mobile_logo.png" class="logo-mobile" alt="mobile_logo">
         </div>
         <a href="#" class="hideOnMobile active">Dashboard</a>
         <a href="#" class="hideOnMobile">About</a>
@@ -28,7 +30,7 @@
   
       <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
-          <img src="/assets/images/logo_header.png" alt="Logo" class="sidebar-logo">
+          <img src="/assets/images/mobile_logo.png" alt="Logo" class="sidebar-logo">
           <div class="sidebar-close" onclick="hideSidebar()">
             <i class="fa-solid fa-xmark"></i>
           </div>
@@ -78,7 +80,7 @@
         <img src="/assets/icons/general/view_results.png" alt="Results">
         My results
       </a>
-      <a href="#" class="action-item logout">
+      <a href="#" class="action-item">
         <img src="/assets/icons/general/sign_out.png" alt="Logout">
         Log out
       </a>
@@ -87,9 +89,10 @@
   </main>
   
   <footer>
-    <img src="/assets/images/footer_circles.svg" alt="circles" class="img">
+    <img src="/assets/images/footer_circles.svg" alt="Edugate footer circles" class="footer-img"/>
+    <img src="/assets/images/footer_circles.svg" alt="Edugate footer circles" class="mobile-footer-img"/>
   </footer>
-
+  </div>
   <script src="student.js"></script>
 
 </body>
