@@ -25,8 +25,51 @@ body {
 
 main {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
+  margin: 0 auto;
   padding: 32px 64px;
+  box-sizing: border-box;
+}
+
+/* Center .table-wrap, .pagination, .btn-back, .footer on desktop */
+.table-wrap,
+.pagination,
+.btn-back {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: auto;
+  height: var(--footer-h);
+  background: var(--light);
+  overflow: hidden;
+  background-image: url('/assets/images/footer_circles.svg');
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: auto 150%;
+}
+
+.footer-img {
+  display: block;
+  width: 685px;
+  height: 246px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.mobile-footer-img {
+  display: none;
+  width: 375px;
+  height: 209px;
+  object-fit: cover;
+  object-position: 24px 0;
 }
 
 a:link,
@@ -53,83 +96,127 @@ a:visited {
   2. HEADER & NAVIGATION
 -------------------------------------------------------------------*/
 header {
+  display: flex;
+  padding: 10px 20px;
+  border-bottom: 1px solid #cccccc;
   position: sticky;
   top: 0;
-  background: var(--light);
-  border-bottom: 1px solid var(--border);
   z-index: 1000;
+  background-color: #F5F5F5;
+  font-size: 20px;
 }
 
 nav.nav-bar {
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 32px;
+  width: 100%;
 }
 
-/* Default logo sizing */
+.logo-header {
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+}
+
+.logo-header img,
 .logo img {
-  height: 176px;
-  transition: max-height .2s;
+  width: 150px;
+  height: auto;
+  display: block;
+}
+
+.logo-desktop {
+  display: block;
+  width: 176px;
+  height: auto;
+  object-fit: contain;
+}
+
+.logo-mobile {
+  display: none;
+  width: 64px;
+  height: auto;
+  object-fit: contain;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333333;
+  font-weight: bold;
+  position: relative;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  transition: color .2s;
+}
+
+.nav-bar .nav-link:first-of-type {
+  margin-left: auto;
 }
 
 .nav-desktop {
   display: flex;
+  align-items: center;
   list-style: none;
-  gap: 330px;
-  margin-left: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-desktop li {
+  display: flex;
+  align-items: center;
 }
 
 .nav-desktop a {
+  text-decoration: none;
+  color: #333333;
+  font-weight: bold;
   position: relative;
-  padding: 8px 0;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
   font-family: 'Poppins', sans-serif;
   font-size: 20px;
-  font-weight: 600;
   transition: color .2s;
 }
 
-.nav-desktop a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  background: var(--primary);
-  transition: width .3s;
+.nav-desktop a.active::after {
+  content: none;
 }
 
-.nav-desktop a:hover,
-.nav-desktop a:focus {
-  color: var(--primary);
-}
-
-.nav-desktop a:hover::after,
-.nav-desktop a:focus::after {
-  width: 100%;
+/* Optionally, remove any other border or underline for active nav links */
+.nav-desktop a.active {
+  /* Remove any border, background, or underline if present */
+  border: none;
+  background: none;
+  text-decoration: none;
 }
 
 .profile-icon {
-  width: 64px;
-  height: 64px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
-  margin-left: 100px;
+  margin-left: 0;
 }
 
 /* Hamburger menu button (mobile) */
-.hamburger {
+.hamburger,
+.menu-icon {
   display: none;
   background: none;
   border: none;
   cursor: pointer;
+  margin-left: 16px;
 }
-.hamburger img {
+.hamburger img,
+.menu-icon img {
   display: block;
-  width: 24px;
-  height: auto;
+  width: 32px;
+  height: 32px;
 }
 
 /*------------------------------------------------------------------
@@ -243,15 +330,26 @@ nav.nav-bar .logo {
 }
 
 @media (max-width: 768px) {
-  .nav-desktop,
+  .logo-desktop { display: none; }
+  .logo-mobile { display: block; }
+  .nav-link,
   .profile-icon {
     display: none;
+  }
+  .menu-icon {
+    display: block;
   }
   .hamburger {
     display: block;
   }
-  nav.nav-bar {
-    padding: 0 16px;
+  .logo-header img {
+    width: 64px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  header {
+    height: 64px;
   }
 }
 
@@ -263,8 +361,17 @@ nav.nav-bar .logo {
   letter-spacing: 0.32px;
   color: var(--medium);
   margin-bottom: 24px;
-  display: inline-flex;
+  display: flex;
   gap: 8px;
+  /* Ensure breadcrumbs are left-aligned and not centered */
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin-left: 0;
+  margin-right: auto;
+  padding-left: 0;
+  box-sizing: border-box;
 }
 
 .breadcrumbs a + span::before {
@@ -419,7 +526,8 @@ tbody tr:hover {
   justify-content: center;
 }
 
-@media (max-width: 480px) {
+/* --- Make table reduce columns and show info icon at 768px and below --- */
+@media (max-width: 768px) {
   .info-btn {
     display: flex;
   }
@@ -454,21 +562,31 @@ tbody tr:hover {
   font-weight: 500;
   cursor: pointer;
   font-size: 14px;
-}
-
-.pagination button:hover:not(.active):not(:disabled) {
-  background: rgba(76, 175, 80, 0.1);
+  transition: border 0.2s, color 0.2s, background 0.2s;
 }
 
 .pagination button.active {
   background: #fff;
   border: 2px solid var(--primary);
   color: var(--primary);
+  cursor: pointer;
+  opacity: 1;
 }
 
 .pagination button:disabled {
   opacity: 0.4;
   cursor: default;
+  color: #bbb !important;
+  border-color: #eee !important;
+}
+
+.pagination button:not(:disabled):not(.active) {
+  color: #424242;
+  border: 1px solid var(--medium);
+}
+
+.pagination button:hover:not(.active):not(:disabled) {
+  background: rgba(76, 175, 80, 0.1);
 }
 
 .ellipsis {
@@ -501,6 +619,14 @@ tbody tr:hover {
 
 .pagination button:disabled:focus {
   outline: none;
+}
+
+.pagination button img {
+  width: 20px;
+  height: 20px;
+  display: block;
+  margin: 0 auto;
+  filter: none;
 }
 
 /*------------------------------------------------------------------
@@ -618,22 +744,4 @@ button:focus,
 input:focus {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
-}
-
-/*------------------------------------------------------------------
- 12. PHONE-SPECIFIC LOGO & ICON SIZING
--------------------------------------------------------------------*/
-@media (max-width: 480px) {
-  nav.nav-bar {
-    height: 64px;
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
-  }
-  .logo img {
-    max-height: 64px;
-    width: auto;
-    display: block;
-    margin: 0;
-  }
 }

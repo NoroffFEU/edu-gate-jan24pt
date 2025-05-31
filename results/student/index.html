@@ -19,17 +19,14 @@
   <!-- Site header with main navigation and profile icon -->
   <header>
     <nav class="nav-bar">
-      <a href="/dashboard.html" class="logo">
-        <img src="/assets/images/logo_header.png" alt="Edugate logo">
-      </a>
-      <ul class="nav-desktop">
-        <li><a href="/dashboard.html">Dashboard</a></li>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-      </ul>
+      <div class="logo-header">
+        <img src="/assets/images/logo_header.png" class="logo-desktop" alt="Edugate logo">
+      </div>
+      <a href="/dashboard.html" class="nav-link">Dashboard</a>
+      <a href="/about.html" class="nav-link">About</a>
+      <a href="/contact.html" class="nav-link">Contact</a>
       <img class="profile-icon" src="/assets/icons/socials/profile_icon.png" alt="Profile">
-      <!-- Hamburger now uses your custom icon -->
-      <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <button class="hamburger" aria-label="Open menu">
         <img src="/assets/icons/nav/menu.png" alt="Menu">
       </button>
     </nav>
@@ -202,16 +199,23 @@
         const wrap = document.getElementById('pagination');
         wrap.innerHTML = '';
 
-        const btn = (label, page, disabled) => {
+        const btn = (label, page, disabled, icon) => {
           const b = document.createElement('button');
-          b.textContent = label;
+          if (icon) {
+            b.innerHTML = `<img src="${icon}" alt="${label}">`;
+          } else {
+            b.textContent = label;
+          }
+          // Only disable if it's a nav button and should be disabled
           if (disabled) {
             b.disabled = true;
           } else {
             b.addEventListener('click', () => renderTable(page));
           }
+          // Style as active if this is the current page (but don't disable)
           if (/^\d+$/.test(label) && page === currentPage) {
             b.classList.add('active');
+            // DO NOT disable the active page button!
           }
           return b;
         };
@@ -223,18 +227,18 @@
         };
 
         if (window.innerWidth <= 480) {
-          wrap.appendChild(btn('«', 1, currentPage === 1));
-          wrap.appendChild(btn('‹', Math.max(1, currentPage - 1), currentPage === 1));
-          wrap.appendChild(btn(String(currentPage), currentPage, true));
+          wrap.appendChild(btn('«', 1, currentPage === 1, '/assets/icons/general/first.svg'));
+          wrap.appendChild(btn('‹', Math.max(1, currentPage - 1), currentPage === 1, '/assets/icons/general/left.svg'));
+          // ACTIVE PAGE BUTTON: do NOT disable!
+          wrap.appendChild(btn(String(currentPage), currentPage, false));
           if (total > 2) wrap.appendChild(ellipsis());
-          if (total > 1) wrap.appendChild(btn(String(total), total, currentPage === total));
-          wrap.appendChild(btn('›', Math.min(total, currentPage + 1), currentPage === total));
-          wrap.appendChild(btn('»', total, currentPage === total));
+          if (total > 1) wrap.appendChild(btn(String(total), total, false));
+          wrap.appendChild(btn('»', total, currentPage === total, '/assets/icons/general/last.svg'));
           return;
         }
 
-        wrap.appendChild(btn('«', 1, currentPage === 1));
-        wrap.appendChild(btn('‹', Math.max(1, currentPage - 1), currentPage === 1));
+        wrap.appendChild(btn('«', 1, currentPage === 1, '/assets/icons/general/first.svg'));
+        wrap.appendChild(btn('‹', Math.max(1, currentPage - 1), currentPage === 1, '/assets/icons/general/left.svg'));
 
         let pagesToShow = [];
         if (currentPage < total - 2) {
@@ -244,7 +248,7 @@
         }
         pagesToShow = pagesToShow.filter(p => p >= 1 && p <= total);
 
-        pagesToShow.forEach(p => wrap.appendChild(btn(String(p), p, p === currentPage)));
+        pagesToShow.forEach(p => wrap.appendChild(btn(String(p), p, false)));
 
         if (currentPage < total - 2) {
           wrap.appendChild(ellipsis());
@@ -252,8 +256,8 @@
           wrap.appendChild(btn(String(total), total, currentPage === total));
         }
 
-        wrap.appendChild(btn('›', Math.min(total, currentPage + 1), currentPage === total));
-        wrap.appendChild(btn('»', total, currentPage === total));
+        wrap.appendChild(btn('›', Math.min(total, currentPage + 1), currentPage === total, '/assets/icons/general/right.svg'));
+        wrap.appendChild(btn('»', total, currentPage === total, '/assets/icons/general/last.svg'));
       }
 
       document.getElementById('searchInput')
