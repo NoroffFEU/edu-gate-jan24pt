@@ -149,7 +149,7 @@ footer{
     bottom: -250px;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 768px) {
 
    .burgermenu img{
     height: 25px;
@@ -202,27 +202,28 @@ footer{
         align-items: flex-end;
       }
 
-      .burgerlinks img{
-        float: right;
-        height: 28px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-      }
+        .burgerlinks img{
+            float: right;
+            height: 28px;
+            object-fit: contain;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
 
-      .burgerlinks ul li a {
-        color: #000000;
-        font-size: 20px;
-        font-family: 'Poppins';
-        font-weight: 400;
-      }
+        .burgerlinks ul li a {
+            color: #000000;
+            font-size: 20px;
+            font-family: 'Poppins';
+            font-weight: 400;
+        }
 
-        .burgerlinks {
-        position: absolute;
-        top: 70px;
-        background-color: #FFFFFF;
-        width: 100%;
-        padding: 2rem;
-  }
+            .burgerlinks {
+            position: absolute;
+            top: 70px;
+            background-color: #FFFFFF;
+            width: 100%;
+            padding: 2rem;
+    }
 
     .landingpageimg{
         height: 300px;
@@ -232,6 +233,7 @@ footer{
         flex-direction: column;
         margin-top: -280px;
         text-align: center;
+        top: 380px;
     }
         
     .landingpageimg #signup{
@@ -250,13 +252,13 @@ footer{
 
     #footercircles{
         max-width: 353px;
-        margin-top: 230px;
         padding-top: 40px;
-        float: right;
+        right: 0;
+        bottom: -50px;
     }
 }
 
-@media (min-width: 1025px) and (max-width: 1500px){
+@media (min-width: 769px) and (max-width: 1500px){
     .hamburger-icon, .burgermenu{
         display: none;
     }

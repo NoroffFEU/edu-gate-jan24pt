@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
   
     hamburgerIcon.addEventListener("click", function () {
       console.log("Hamburger clicked");
-      const isVisible = burgerLinks.style.display === "flex";
-      burgerLinks.style.display = isVisible ? "none" : "flex";
+      const isVisible = burgerLinks.style.display === "inline";
+      burgerLinks.style.display = isVisible ? "none" : "inline";
     });
 
     window.addEventListener("resize", function () {
