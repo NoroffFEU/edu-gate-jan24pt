@@ -199,9 +199,7 @@ nav.nav-bar .nav-link:first-of-type {
   content: none;
 }
 
-/* Optionally, remove any other border or underline for active nav links */
 .nav-desktop a.active {
-  /* Remove any border, background, or underline if present */
   border: none;
   background: none;
   text-decoration: none;
@@ -375,7 +373,6 @@ nav.nav-bar .logo {
   margin-bottom: 24px;
   display: flex;
   gap: 8px;
-  /* Ensure breadcrumbs are left-aligned and not centered */
   justify-content: flex-start;
   align-items: center;
   width: 100%;
