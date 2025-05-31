@@ -1,2 +1,13 @@
 /* Variables for the design system */
 /* This file contains the CSS variables used throughout the design system. */
+
+:root {
+  --primary: #4caf50;
+  --primary-dark: #388e3c;
+  --error: #ff5722;
+  --error-bg: #ffebee;
+  --text: #333333;
+  --border: #cccccc;
+  --radius: 6px;
+  --spacing: 8px;
+}
