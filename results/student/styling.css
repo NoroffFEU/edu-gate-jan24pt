@@ -140,6 +140,17 @@ nav.nav-bar {
   object-fit: contain;
 }
 
+header nav a {
+  text-decoration: none;
+  color: #333333;
+  font-weight: bold;
+  position: relative;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
 .nav-link {
   text-decoration: none;
   color: #333333;
@@ -153,7 +164,8 @@ nav.nav-bar {
   transition: color .2s;
 }
 
-.nav-bar .nav-link:first-of-type {
+/* Only push the first link after the logo to the right */
+nav.nav-bar .nav-link:first-of-type {
   margin-left: auto;
 }
 
@@ -745,3 +757,4 @@ input:focus {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
+
