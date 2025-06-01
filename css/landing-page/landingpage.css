@@ -32,6 +32,11 @@ nav a{
     header nav a {
     text-decoration: none;
   }
+
+  header nav ul a {
+    position: relative; 
+    text-decoration: none;
+  }
   
   header nav ul a::after {
     content: '';
@@ -76,7 +81,7 @@ h1{
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
-    padding-top: 30px;
+    padding-top: 20px;
 }
 
 p{
@@ -86,6 +91,7 @@ p{
     font-weight: 500;
     margin-right: auto;
     margin-left: auto;
+    margin-top: 30px;
     width: fit-content;
 }
 
@@ -189,8 +195,16 @@ footer{
     .burgerlinks ul {
         display: flex;
         flex-direction: column;
-        gap: 32px;
+        width: 100%;
+        align-items: end;
         margin: 0;
+      }
+
+      .burgerlinks li{
+        width: 150px;
+        height: 94px;
+        align-content: center;
+        text-align: end;
       }
 
       .burger-container {
@@ -204,10 +218,12 @@ footer{
 
         .burgerlinks img{
             float: right;
-            height: 28px;
+            height: 32px;
+            width: 32px;
+            padding: 0;
             object-fit: contain;
-            margin-top: 10px;
-            margin-bottom: 10px;
+            margin: 0;
+            margin-left: 25px;
         }
 
         .burgerlinks ul li a {
@@ -215,6 +231,7 @@ footer{
             font-size: 20px;
             font-family: 'Poppins';
             font-weight: 400;
+            padding: 0;
         }
 
             .burgerlinks {
@@ -223,6 +240,7 @@ footer{
             background-color: #FFFFFF;
             width: 100%;
             padding: 2rem;
+            z-index: 1;
     }
 
     .landingpageimg{
@@ -253,8 +271,8 @@ footer{
     #footercircles{
         max-width: 353px;
         padding-top: 40px;
-        right: 0;
-        bottom: -50px;
+        right: -45px;
+        bottom: -60px;
     }
 }
 
