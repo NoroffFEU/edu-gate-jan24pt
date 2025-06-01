@@ -2,3 +2,314 @@
 /* It includes styles for buttons, inputs, and other elements*/
 /* It is a simple CSS file that can be extended as needed. */
 /* All reusable styles should be added here. */
+
+
+
+/* Core components */
+
+/* Form elements */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="number"] {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color); 
+  border-radius: var(--radius);
+  padding: 12px 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+::placeholder {
+  color: var(--placeholder-text);
+  font-style: italic;
+}
+
+.form-content {
+  color: var(--secondary-text);
+}
+
+.form-content:focus {
+  color: var(--text-color);
+  font-style: normal;
+}
+
+/* Form layout helpers */
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.form-row input {
+  flex: 1;
+}
+
+/* Button styling */
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: var(--primary);
+  color: white;
+  border-radius: var(--radius);
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn:active {
+  background-color: var(--primary-darker);
+}
+
+/* Submit button - extends the btn class */
+.submit-btn {
+  width: 40%;
+  font-family: var(--primary-font);
+  font-size: clamp(16px, 4vw, 26px);
+  margin: 20px auto 0;
+  position: relative;
+}
+
+/* Layout Components */
+
+/* Container for registration */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 474px;
+  padding: 32px;
+  margin: 48px auto;
+  border: 3px solid var(--border-color);
+  background-color: var(--light-bg);
+}
+
+.form-box {
+  width: 315px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--light-bg);
+}
+
+.form-box h1 {
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.form-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Header Components */
+header {
+  position: sticky;
+  top: 0;
+  background-color: var(--light-bg);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1;
+}
+
+.register-header {
+  font-family: var(--secondary-font);
+  font-weight: bold;
+}
+
+/* Desktop Header */
+header .desktop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 176px;
+  padding-right: 80px;
+  padding-left: 48px;
+}
+
+.logo {
+  height: 100%;
+  display: block;
+}
+
+/* Navigation */
+.navbar {
+  display: flex;
+  padding: 0;
+}
+
+.navbar li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 247.67px;
+  height: 74px;
+  font-size: 20px;
+  font-weight: 600;
+  list-style: none;
+  border-bottom: 1px solid var(--light-bg);
+  transition: border-color 0.5s;
+}
+
+.navbar li:hover {
+  border-color: var(--primary);
+}
+
+.navbar a {
+  color: var(--text-color);
+}
+
+/* Mobile Header */
+.mobile-header {
+  display: none;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  overflow-y: hidden;
+}
+
+.header-bottom {
+  display: none;
+  flex-direction: row;
+  justify-content: flex-end;
+  background-color: var(--bg-color);
+  padding: 10px 16px;
+  gap: 32px;
+}
+
+.header-bottom ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 94px;
+}
+
+.header-bottom ul li a {
+  font-family: var(--secondary-font);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text-color);
+  padding: 10px;
+  display: block;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding: 3px 16px;
+  background-color: var(--light-bg);
+}
+
+.header-top .open-menu {
+  display: block;
+}
+
+.header-top .close-menu {
+  display: none;
+}
+
+.close-menu, .open-menu {
+  cursor: pointer;
+}
+
+/* Footer styling */
+footer {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+}
+
+footer .footer-img {
+  display: block;
+  width: 685px;
+  height: 246px;
+  object-fit: cover;
+  object-position: top;
+}
+
+footer .mobile-footer-img {
+  display: none;
+  width: 375px;
+  height: 209px;
+  object-fit: cover;
+  object-position: 24px 0px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  /* Form responsiveness */
+  .form-row {
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .form-group {
+    width: 100%;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="tel"],
+  input[type="number"] {
+    width: 100%;
+    max-width: 361px;
+  }
+  
+  .register-container {
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+  }
+  
+  .submit-btn {
+    font-size: 16px;
+  }
+  
+  /* Header responsiveness */
+  header .desktop-header {
+    display: none;
+  }
+  
+  header .mobile-header {
+    display: block;
+    justify-content: space-between;
+    overflow-y: visible;
+  }
+  
+  .close-menu {
+    display: none;
+  }
+  
+  .open-menu {
+    display: block;
+  }
+  
+  /* Footer responsiveness */
+  footer {
+    justify-content: flex-end;
+  }
+  
+  footer .footer-img {
+    display: none;
+  }
+  
+  footer .mobile-footer-img {
+    display: block;
+  }
+}

@@ -1,1 +1,4 @@
 /* Styles for the entire application */
+@import url('./variables.css');
+@import url('./base.css');
+@import url('./basic.css');
