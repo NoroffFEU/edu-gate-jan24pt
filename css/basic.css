@@ -275,6 +275,7 @@ footer .mobile-footer-img {
     box-shadow: none;
     border: none;
     border-radius: 0;
+    padding: 32px 0;
   }
   
   .submit-btn {
