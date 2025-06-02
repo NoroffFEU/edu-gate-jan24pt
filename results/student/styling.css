@@ -1,0 +1,757 @@
+/*------------------------------------------------------------------
+  0. RESET & LAYOUT
+-------------------------------------------------------------------*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: #f5f5f5;
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 64px;
+  box-sizing: border-box;
+}
+
+/* Center .table-wrap, .pagination, .btn-back, .footer on desktop */
+.table-wrap,
+.pagination,
+.btn-back {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: auto;
+  height: var(--footer-h);
+  background: var(--light);
+  overflow: hidden;
+  background-image: url('/assets/images/footer_circles.svg');
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: auto 150%;
+}
+
+.footer-img {
+  display: block;
+  width: 685px;
+  height: 246px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.mobile-footer-img {
+  display: none;
+  width: 375px;
+  height: 209px;
+  object-fit: cover;
+  object-position: 24px 0;
+}
+
+a:link,
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+/*------------------------------------------------------------------
+  1. CSS VARIABLES
+-------------------------------------------------------------------*/
+:root {
+  --primary: #4CAF50;
+  --primary-dark: #388E3C;
+  --secondary: #2196F3;
+  --light: #F5F5F5;
+  --medium: #757575;
+  --border: #e0e0e0;
+  --hdrh: 150px;
+  --footer-h: 300px;
+}
+
+/*------------------------------------------------------------------
+  2. HEADER & NAVIGATION
+-------------------------------------------------------------------*/
+header {
+  display: flex;
+  padding: 10px 20px;
+  border-bottom: 1px solid #cccccc;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #F5F5F5;
+  font-size: 20px;
+}
+
+nav.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo-header {
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+}
+
+.logo-header img,
+.logo img {
+  width: 150px;
+  height: auto;
+  display: block;
+}
+
+.logo-desktop {
+  display: block;
+  width: 176px;
+  height: auto;
+  object-fit: contain;
+}
+
+.logo-mobile {
+  display: none;
+  width: 64px;
+  height: auto;
+  object-fit: contain;
+}
+
+header nav a {
+  text-decoration: none;
+  color: #333333;
+  font-weight: bold;
+  position: relative;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333333;
+  font-weight: bold;
+  position: relative;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  transition: color .2s;
+}
+
+/* Only push the first link after the logo to the right */
+nav.nav-bar .nav-link:first-of-type {
+  margin-left: auto;
+}
+
+.nav-desktop {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-desktop li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-desktop a {
+  text-decoration: none;
+  color: #333333;
+  font-weight: bold;
+  position: relative;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  transition: color .2s;
+}
+
+.nav-desktop a.active::after {
+  content: none;
+}
+
+.nav-desktop a.active {
+  border: none;
+  background: none;
+  text-decoration: none;
+}
+
+.profile-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 0;
+}
+
+/* Hamburger menu button (mobile) */
+.hamburger,
+.menu-icon {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 16px;
+}
+.hamburger img,
+.menu-icon img {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+/*------------------------------------------------------------------
+  3. MOBILE NAV PANEL
+-------------------------------------------------------------------*/
+.nav-mobile {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  transform: translateX(100%);
+  transition: transform .3s ease;
+  overflow-y: auto;
+  z-index: 200;
+  text-align: right;
+}
+
+.nav-mobile.open {
+  transform: translateX(0);
+}
+
+.mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  background: var(--light);
+  padding: 0 8px 0 16px;
+  height: 64px;
+}
+
+.mobile-header a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.mobile-header img {
+  height: 64px;
+  width: 64px;
+  object-fit: contain;
+  margin: 0;
+  display: block;
+}
+
+.mobile-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: 44px;
+  font-weight: 900;
+  color: #111;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.mobile-close:hover,
+.mobile-close:focus {
+  color: #000;
+}
+
+.mobile-close img {
+  display: none;
+}
+
+.nav-mobile ul {
+  list-style: none;
+  padding: 16px;
+}
+
+.nav-mobile li.logout {
+  margin-top: 32px;
+  border-top: 1px solid #eee;
+  padding-top: 16px;
+}
+
+.nav-mobile a {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 24px;
+  padding: 4px 0;
+  transition: color .2s;
+}
+
+.nav-mobile a:hover {
+  color: var(--primary);
+}
+
+.nav-mobile ul img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.nav-mobile ul li a {
+  padding-bottom: 48px;
+}
+
+nav.nav-bar .logo {
+  display: block;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .logo-desktop { display: none; }
+  .logo-mobile { display: block; }
+  .nav-link,
+  .profile-icon {
+    display: none;
+  }
+  .menu-icon {
+    display: block;
+  }
+  .hamburger {
+    display: block;
+  }
+  .logo-header img {
+    width: 64px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  header {
+    height: 64px;
+  }
+}
+
+/*------------------------------------------------------------------
+  4. BREADCRUMBS & TITLES
+-------------------------------------------------------------------*/
+.breadcrumbs {
+  font-size: 14px;
+  letter-spacing: 0.32px;
+  color: var(--medium);
+  margin-bottom: 24px;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin-left: 0;
+  margin-right: auto;
+  padding-left: 0;
+  box-sizing: border-box;
+}
+
+.breadcrumbs a + span::before {
+  content: "›";
+  margin: 0 8px;
+  color: var(--medium);
+}
+
+.breadcrumbs span {
+  color: var(--primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--medium);
+  margin-bottom: 32px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+.view-icon {
+  display: block;
+  margin: 0 auto 16px;
+  width: 48px;
+}
+
+@media (min-width: 769px) {
+  .view-icon {
+    display: none;
+  }
+}
+
+/*------------------------------------------------------------------
+  5. SEARCH FIELD
+-------------------------------------------------------------------*/
+.search-wrap {
+  display: flex;
+  max-width: 480px;
+  margin: 0 auto 32px;
+  background: #fff;
+  border-radius: 999px;
+}
+
+.search-wrap input {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-right: none;
+  padding: 12px 16px;
+  font-size: 16px;
+  border-radius: 6px 0 0 6px;
+  appearance: none;
+}
+
+.search-wrap button {
+  border: 1px solid var(--primary);
+  background: #fff;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 0 6px 6px 0;
+}
+
+.search-wrap img {
+  width: 20px;
+  height: 20px;
+}
+
+/*------------------------------------------------------------------
+  6. RESULTS TABLE
+-------------------------------------------------------------------*/
+.table-wrap {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+thead th {
+  padding: 16px;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: var(--primary);
+  border-bottom: 2px solid var(--light);
+}
+
+tbody td {
+  padding: 16px;
+  border-bottom: 1px solid var(--light);
+  position: relative;
+}
+
+tbody tr:nth-child(even) {
+  background: #FAFAFA;
+}
+
+tbody tr:hover {
+  background: #F2F2F2;
+}
+
+/* Info button appears only on mobile for details overlay */
+.info-btn {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Make table reduce columns and show info icon at 768px and below --- */
+@media (max-width: 768px) {
+  .info-btn {
+    display: flex;
+  }
+  thead th:nth-child(1),
+  thead th:nth-child(2),
+  thead th:nth-child(5),
+  tbody td:nth-child(1),
+  tbody td:nth-child(2),
+  tbody td:nth-child(5) {
+    display: none;
+  }
+}
+
+/*------------------------------------------------------------------
+  7. PAGINATION
+-------------------------------------------------------------------*/
+.pagination {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: 32px 0;
+}
+
+.pagination button {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  border: 1px solid var(--medium);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--medium);
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 14px;
+  transition: border 0.2s, color 0.2s, background 0.2s;
+}
+
+.pagination button.active {
+  background: #fff;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  cursor: pointer;
+  opacity: 1;
+}
+
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: default;
+  color: #bbb !important;
+  border-color: #eee !important;
+}
+
+.pagination button:not(:disabled):not(.active) {
+  color: #424242;
+  border: 1px solid var(--medium);
+}
+
+.pagination button:hover:not(.active):not(:disabled) {
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--medium);
+  border-radius: 4px;
+  background: #fff;
+  color: #bbb;
+  font-weight: 500;
+  font-size: 14px;
+  pointer-events: none;
+  user-select: none;
+  margin: 0;
+}
+
+.pagination button:nth-child(1):disabled,
+.pagination button:nth-child(2):disabled {
+  color: #ccc;
+  border-color: #eee;
+}
+
+.pagination button:nth-last-child(2):not(:disabled):not(.active),
+.pagination button:nth-last-child(1):not(:disabled):not(.active) {
+  color: #424242;
+}
+
+.pagination button:disabled:focus {
+  outline: none;
+}
+
+.pagination button img {
+  width: 20px;
+  height: 20px;
+  display: block;
+  margin: 0 auto;
+  filter: none;
+}
+
+/*------------------------------------------------------------------
+  8. BACK-TO-DASHBOARD BUTTON
+-------------------------------------------------------------------*/
+.btn-back {
+  display: block;
+  width: fit-content;
+  margin: 32px auto;
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
+  text-decoration: none;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  padding: 12px 32px;
+  transition: background .2s;
+}
+
+/* Explicitly ensure link and visited states stay blue */
+.btn-back:link,
+.btn-back:visited {
+  color: var(--secondary);
+}
+
+.btn-back:hover {
+  background: rgba(33, 150, 243, 0.1);
+}
+
+/*------------------------------------------------------------------
+  9. INFO OVERLAY (MODAL)
+-------------------------------------------------------------------*/
+.info-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 300;
+}
+
+.info-overlay.open {
+  display: flex;
+}
+
+.info-dialog {
+  background: #fff;
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 320px;
+  width: 90%;
+  position: relative;
+}
+
+.info-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.info-grid h4 {
+  margin-bottom: 4px;
+  color: var(--primary);
+  font-family: 'Poppins', sans-serif;
+}
+
+/*------------------------------------------------------------------
+ 10. FOOTER & DECORATIVE OVERLAY
+-------------------------------------------------------------------*/
+footer {
+  position: relative;
+  flex-shrink: 0;
+  margin-top: auto;
+  height: var(--footer-h);
+  background: var(--light);
+  overflow: hidden;
+  background-image: url('/assets/images/footer_circles.svg');
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: auto 150%;
+}
+
+@media (max-width: 480px) {
+  footer {
+    background-position: -32% 16px;
+    background-size: auto 120%;
+  }
+  main {
+    padding: 16px;
+  }
+}
+
+/*------------------------------------------------------------------
+ 11. FOCUS STATES
+-------------------------------------------------------------------*/
+a:focus,
+button:focus,
+input:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+

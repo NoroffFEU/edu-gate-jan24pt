@@ -1,4 +1,5 @@
-/* variables should be defined in this file */
+/* Variables for the design system */
+/* This file contains the CSS variables used throughout the design system. */
 
 :root {
   /* Color palette */
@@ -33,3 +34,4 @@
   --primary-font: 'poppins', sans-serif;
   --secondary-font: 'roboto', sans-serif;
 }
+
