@@ -3,74 +3,68 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="css/landing-page/landingpage.css" />
     <title>Landing page Edugate</title>
   </head>
-
   <body>
     <header>
       <nav>
-        <a href="../templates/index.html">
-          <img src="assets/images/logo_header.png" alt="Edugate Logo" />
-        </a>
-
-        <!-- Hamburger Menu -->
-        <div>
-          <div>
+        <a href="index.html" class="logo"><img src="assets/images/logo_header.png" alt="Edugate Logo"/></a>
+        <div id="hamburgericon" class="burgermenu">
+          <img src="assets/icons/nav/menu.png" alt="hamburgermenu" />
+        </div>
+        <div class="burgerlinks">
             <ul>
-              <li>
-                <a href="../templates/login-page.html"> Login </a>
-              </li>
-              <li>
-                <a href="../templates/sign-up.html"> Signup </a>
-              </li>
-              <li>
-                <a href="../templates/about.html"> About </a>
-              </li>
-              <li>
-                <a href="../templates/contact.html"> Contact </a>
-              </li>
+                <li><a href="../login/index.html">Login</a>
+                  <img src="assets/icons/general/login.png" alt="Login icon" />
+                </li>
+                <li>
+                  <a href="../sign_up/index.html">Signup</a>
+                  <img src="assets/icons/general/signup.png" alt="Signup icon" />
+                </li>
+                <li>
+                  <a href="../templates/about.html">About</a>
+                  <img src="assets/icons/nav/about.png" alt="About icon" />
+                </li>
+                <li>
+                  <a href="../templates/contact.html">Contact</a>
+                  <img src="assets/icons/nav/contact.png" alt="Contact icon" />
+                </li>
+              </ul>
+          </div>
+          <div class="desktoplinks">
+            <ul>
+              <li><a href="../templates/about.html">About</a></li>
+              <li><a href="../templates/contact.html">Contact</a></li>
             </ul>
           </div>
-        </div>
-
-        <ul>
-          <li>
-            <a href="../templates/about.html">About</a>
-          </li>
-          <li>
-            <a href="../templates/contact.html">Contact</a>
-          </li>
-        </ul>
       </nav>
     </header>
-
     <main>
       <section>
-        <div>
+        <div class="landingpageimg">
           <h1>Edugate</h1>
           <p>
             Welcome to Edugate, the platform that lets you access your exam
-            results online
+            results online.
           </p>
-        </div>
-        <div>
-          <a href="../templates/sign-up.html">
-            <button>Sign Up</button>
-          </a>
-          <a href="../templates/login-page.html">
-            <button>Log In</button>
-          </a>
+          <div class="button-wrapper">
+            <a href="../templates/sign-up.html" id="signup" class="button">Sign Up</a>
+            <a href="../templates/login-page.html" id="login" class="button">Log In</a>
         </div>
       </section>
     </main>
 
     <footer>
       <img
-        src="../public/img/Circles_illustration_mobile.png"
-        alt="Edugate footer circles"
+        src="../assets/images/footer_circles.svg"
+        alt="Edugate footer circles" id="footercircles"
       />
-      <img src="../public/img/circle-footer.png" alt="Edugate footer circles" />
     </footer>
+    <script src="src/landingpage-mobile.js"></script>
   </body>
 </html>
