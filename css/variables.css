@@ -2,12 +2,36 @@
 /* This file contains the CSS variables used throughout the design system. */
 
 :root {
+  /* Color palette */
   --primary: #4caf50;
   --primary-dark: #388e3c;
+  --primary-darker: #2E7D32;
+  --secondary: #2196F3;
+  --accent: #FF5722;
+  
+  /* Error states */
   --error: #ff5722;
   --error-bg: #ffebee;
-  --text: #333333;
-  --border: #cccccc;
+  --error-dark: #C62828;
+  
+  /* Text colors */
+  --text-color: #333333;
+  --secondary-text: #757575;
+  --placeholder-text: #999999;
+  
+  /* UI elements */
+  --border-color: #cccccc;
+  --bg-color: #ffffff;
+  --light-bg: #f5f5f5;
+  --link-hover-color: #0070f3;
+  
+  /* Layout */
   --radius: 6px;
   --spacing: 8px;
+  --max-width: 1200px;
+  
+  /* Typography */
+  --primary-font: 'poppins', sans-serif;
+  --secondary-font: 'roboto', sans-serif;
 }
+
