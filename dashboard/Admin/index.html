@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Edugate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/admin-dashboard/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="desktop-header">
+        <a href="../../index.html"
+          ><img class="logo" src="../../assets/images/logo_header.png"
+        /></a>
+        <ul class="navbar">
+          <a href="index.html"><li class="active">Dashboard</li></a>
+          <a href=""><li>About</li></a>
+          <a href=""><li>Contact</li></a>
+          <a
+            ><img
+              src="../../assets/icons/socials/profile_icon.png"
+              class="header-profile"
+          /></a>
+        </ul>
+      </div>
+      <div class="mobile-header">
+        <div class="header-top">
+          <a href="index.html"
+            ><img src="../../assets/images/mobile_logo.png"
+          /></a>
+          <img
+            src="../../assets/icons/nav/menu.png"
+            class="open-menu"
+            id="open-menu"
+          />
+          <img
+            src="../../assets/icons/general/close_menu.png"
+            class="close-menu"
+            id="close-menu"
+          />
+        </div>
+        <div class="header-bottom">
+          <div class="header-links">
+            <ul>
+              <li><a href="#">Dashboard</a></li>
+              <li><a href="">Profile</a></li>
+              <li><a href="">Manage results</a></li>
+              <li><a href="">About</a></li>
+              <li><a href="">Contact</a></li>
+            </ul>
+            <ul class="list-icons">
+              <li><img src="../../assets/icons/nav/home.png" /></li>
+              <li><img src="../../assets/icons/socials/profile_icon.png" /></li>
+              <li><img src="../../assets/icons/general/view_results.png" /></li>
+              <li><img src="../../assets/icons/nav/about.png" /></li>
+              <li><img src="../../assets/icons/nav/contact.png" /></li>
+            </ul>
+          </div>
+          <div class="logout-link">
+            <a href="../../index.html">Logout</a>
+            <img src="../../assets/icons/general/sign_out.png" />
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="sidebar">
+      <ul class="sidebar-icons">
+        <li><img src="../../assets/icons/nav/home.png" /></li>
+        <li><img src="../../assets/icons/general/view_results.png" /></li>
+        <li><img src="../../assets/icons/general/manage_users.png" /></li>
+        <li>
+          <img src="../../assets/icons/general/school_management.png" />
+        </li>
+        <li>
+          <a href="../../index.html"
+            ><img src="../../assets/icons/general/sign_out.png"
+          /></a>
+        </li>
+      </ul>
+      <ul class="sidebar-links">
+        <li>Home</li>
+        <li>Results management</li>
+        <li>User management</li>
+        <li>School management</li>
+        <li><a href="../../index.html">Logout</a></li>
+      </ul>
+    </div>
+    <main>
+      <div class="admin-dashboard">
+        <h1>Dashboard</h1>
+        <div class="admin-info">
+          <div class="avatar">JB</div>
+          <div class="name">Joe Bloggs</div>
+          <div class="subtitle">Student at Edugate school</div>
+        </div>
+        <div class="dashboard-links">
+          <a class="link">
+            <img src="../../assets/icons/general/manage_users_2.png" />
+            <p>Manage users</p>
+          </a>
+          <a class="link">
+            <img src="../../assets/icons/general/add_students.png" />
+            <p>Add students</p>
+          </a>
+          <a class="link">
+            <img src="../../assets/icons/general/add_schools.png" />
+            <p>Add school</p>
+          </a>
+          <a class="link">
+            <img src="../../assets/icons/general/add_teachers.png" />
+            <p>Add teachers</p>
+          </a>
+          <a class="link">
+            <img src="../../assets/icons/socials/profile_icon.png" />
+            <p>See profile</p>
+          </a>
+          <a class="link" href="../../index.html">
+            <img src="../../assets/icons/general/sign_out.png" />
+            <p>Log out</p>
+          </a>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <img
+        src="../../assets/images/footer_circles.svg"
+        alt="Edugate footer circles"
+        class="mobile-footer-img"
+      />
+      <img
+        src="../../assets/images/footer_circles.svg"
+        alt="Edugate footer circles"
+        class="footer-img"
+      />
+    </footer>
+  </body>
+  <script src="../../src/login-check.js" type="module"></script>
+</html>
