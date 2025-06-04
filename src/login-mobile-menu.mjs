@@ -14,3 +14,5 @@ export function mobileMenu() {
     document.querySelector('.open-menu').style.display = 'block';
   });
 }
+
+mobileMenu();
