@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Top Performing Students | Edugate</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  </head>
+  <body>
+    <!-- Header / Navigation -->
+    <header>
+      <div class="desktop-header">
+        <a href="../index.html">
+          <img src="../assets/images/logo_header.png" alt="Edugate Logo" />
+        </a>
+        <ul class="navbar">
+          <li><a href="../dashboard/Student/index.html">Dashboard</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Contact</a></li>
+          <li><a href=""><img src="../assets/icons/socials/profile_icon.png" alt="Profile" class="profile-icon" style="width: 50px; height: 50px;"></a></li>
+        </ul>
+      </div>
+      <div class="mobile-header">
+        <div class="header-top">
+          <a href="../index.html">
+            <img src="../assets/images/mobile_logo.png" alt="Edugate Logo"/>
+          </a>
+          <img src="../assets/icons/nav/menu.png" class="open-menu" id="open-menu" alt="Open menu"/>
+          <img src="../assets/icons/general/close_menu.png" class="close-menu" id="close-menu" alt="Close menu"/>
+        </div>
+        <div class="header-bottom">
+          <ul>
+            <li><a href="/login/index.html">Login</a></li>
+            <li><a href="/sign_up/index.html">Signup</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+          </ul>
+          <ul class="list-icons">
+            <li><img src="/assets/icons/general/login.png" /></li>
+            <li><img src="/assets/icons/general/signup.png" /></li>
+            <li><img src="/assets/icons/nav/about.png" /></li>
+            <li><img src="/assets/icons/nav/contact.png" /></li>
+          </ul>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container" style="margin-top:48px; margin-bottom:48px;">
+      <h1>Top Performing Students</h1>
+      <!-- Table or content goes here later -->
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <img src="../assets/images/footer_circles.svg" alt="Edugate footer circles" class="mobile-footer-img"/>
+      <img src="../assets/images/footer_circles.svg" alt="Edugate footer circles" class="footer-img"/>
+    </footer>
+
+    <!-- Temporary Mobile Menu JavaScript -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const openMenu = document.getElementById('open-menu');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileHeader = document.querySelector('.mobile-header');
+        const headerBottom = document.querySelector('.header-bottom');
+        
+        if (openMenu && closeMenu && headerBottom) {
+          openMenu.addEventListener('click', function() {
+            headerBottom.style.display = 'flex';
+            openMenu.style.display = 'none';
+            closeMenu.style.display = 'block';
+            mobileHeader.style.height = '100vh';
+          });
+          
+          closeMenu.addEventListener('click', function() {
+            headerBottom.style.display = 'none';
+            openMenu.style.display = 'block';
+            closeMenu.style.display = 'none';
+            mobileHeader.style.height = '70px';
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
