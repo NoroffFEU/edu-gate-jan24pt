@@ -20,3 +20,16 @@ function toggleFixedSidebar() {
     const sidebar = document.getElementById("fixedSidebar");
     sidebar.classList.remove("sidebar-open");
   }
+  
+ 
+  document.addEventListener("click", function (event) {
+    const sidebar = document.getElementById("fixedSidebar");
+    const toggleButton = document.getElementById("open-fixedSidebar");
+  
+    const isClickInsideSidebar = sidebar.contains(event.target);
+    const isClickOnToggle = toggleButton.contains(event.target);
+  
+    if (!isClickInsideSidebar && !isClickOnToggle) {
+      sidebar.classList.remove("sidebar-open");
+    }
+  });

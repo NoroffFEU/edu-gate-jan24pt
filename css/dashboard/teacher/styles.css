@@ -34,8 +34,32 @@
     margin: 0;
     }
       
-.fixed-sidebar nav ul li {
-    margin: 20px 0;
+    .fixed-sidebar nav ul li {
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #333;
+      font-size: 14px;
+    }
+    
+    .fixed-sidebar {
+      width: 70px;
+      transition: width 0.3s ease;
+      overflow: hidden;
+    }
+    
+    .fixed-sidebar.sidebar-open {
+      width: 220px;
+    }
+
+    .sidebar-text {
+      display: none;
+    }
+    
+ 
+    .fixed-sidebar.sidebar-open .sidebar-text {
+      display: inline;
     }
       
 .fixed-sidebar nav ul li img {
