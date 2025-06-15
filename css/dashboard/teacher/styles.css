@@ -87,6 +87,13 @@
     margin-top: 20px; 
   }
 
+
+  @media (min-width: 768px) {
+    .fixed-sidebar {
+      display: none;
+    }
+  }
+
   @media (max-width: 768px) {
     .fixed-sidebar {
       transform: translateX(-100%);
