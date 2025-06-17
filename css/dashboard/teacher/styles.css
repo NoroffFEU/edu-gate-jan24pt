@@ -1,210 +1,143 @@
 @import url(/css/dashboard/student/styles.css);
 
 .hideOnDesktop {
-    display: none;
-  }
+  display: none;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  margin: 0;
+  padding: 0;
+}
+
+footer img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
 .teacher-dashboard-section {
-    margin-top: 48px;
-    padding: 32px;    
-    text-align: center;
-    flex: 1;
-    margin-left: 1dvb;
-  }
-  
-.fixed-sidebar {
-    position: fixed;
-    top: 100px;
-    left: 0;
-    width: 70px;
-    height: 100vh;
-    background-color: #f5f5f5;
-    border-right: 1px solid #ccc;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 100px;
-    transition: transform 0.3s ease;
-    z-index: 1000;
-    }
-      
-.fixed-sidebar nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    }
-      
-    .fixed-sidebar nav ul li {
-      margin: 20px 0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #333;
-      font-size: 14px;
-    }
-    
-    .fixed-sidebar {
-      width: 70px;
-      transition: width 0.3s ease;
-      overflow: hidden;
-    }
-    
-    .fixed-sidebar.sidebar-open {
-      width: 220px;
-    }
+  margin-top: 48px;
+  padding: 32px;    
+  text-align: center;
+  flex: 1;
+}
 
-    .sidebar-text {
-      display: none;
-    }
-    
- 
-    .fixed-sidebar.sidebar-open .sidebar-text {
-      display: inline;
-    }
-      
-.fixed-sidebar nav ul li img {
-    width: 32px;
-    height: 32px;
-    }
-      
-.open-fixedSidebar {
-    position: fixed;
-    top: 100px;
-    left: 10px;
-    font-size: 32px;
-    color: #4CAF50;
-    z-index: 1100;
-    cursor: pointer;
-    display: none; 
-    }
+.teacher-actions .action-item {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
 
-.fixed-sidebar.sidebar-open ~ .open-fixedSidebar {
-    display: none;
-    }
-      
-.close-fixedSidebar {
-    right: 10px;
-    font-size: 32px;
-    }
+.teacher-actions .action-item img {
+  width: 64px;
+  height: 64px;
+}
 
-  .teacher-actions .action-item{
-    display: flex;
-    align-items: center;
-    gap: 10px; 
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
+.main-actions,
+.user-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.user-actions {
+  margin-top: 20px; 
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    margin-left: 0;
   }
 
-  .teacher-actions .action-item img {
-    width: 64px;
-    height: 64px;
-  }
-  
-  .main-actions, .user-actions {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .user-actions {
-    margin-top: 20px; 
-  }
-
-
-  @media (min-width: 768px) {
-    .fixed-sidebar {
-      display: none;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .fixed-sidebar {
-      transform: translateX(-100%);
-    }
-  
-    .fixed-sidebar.sidebar-open {
-      transform: translateX(0);
-    }
-  
-    .wrapper {
-      margin-left: 0;
-    }
-
-    .open-fixedSidebar {
-        display: block; 
-      }
-
-    .hideOnDesktop {
+  .hideOnDesktop {
     display: block;
   }
-  }
+}
 
 @media (max-width: 480px) {
-    .hideOnDesktop {
-        display: block;
-      }
+  .hideOnDesktop {
+    display: block;
+  }
 
-    .teacher-dashboard-section {
-        padding: 24px 16px;
-        margin-top: 32px;
-      }
-    
-      .teacher-dashboard-section h1 {
-        font-size: 24px;
-        margin-bottom: 20px;
-      }
-    
-      .teacher-dashboard-section .avatar {
-        width: 72px;
-        height: 72px;
-        font-size: 20px;
-        margin: 20px auto;
-      }
-    
-      .teacher-dashboard-section .name {
-        font-size: 14px;
-        margin-top: 14px;
-      }
-    
-      .teacher-dashboard-section .subtitle {
-        font-size: 14px;
-        margin-top: 6px;
-        margin-bottom: 24px;
-      }
-    
-      .teacher-dashboard-section .main-actions,
-      .teacher-dashboard-section .user-actions {
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-        padding-top: 16px;
-      }
-    
-      .teacher-dashboard-section .action-item {
-        padding: 12px;
-        font-size: 16px;
-        font-weight: normal;
-        flex-direction: column;
-        text-align: center;
-      }
-    
-      .teacher-dashboard-section .action-item img {
-        width: 36px;
-        height: auto;
-        margin-bottom: 6px;
-      }
+  .teacher-dashboard-section {
+    padding: 24px 16px;
+    margin-top: 32px;
+  }
 
-      .hide-fixed-toggle {
-        display: none;
-      }
-    
-      #sidebar {
-        display: none;
-        flex-direction: column;
-      }
-    
-      #sidebar.visible {
-        display: flex;
-      } 
+  .teacher-dashboard-section h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .teacher-dashboard-section .avatar {
+    width: 72px;
+    height: 72px;
+    font-size: 20px;
+    margin: 20px auto;
+  }
+
+  .teacher-dashboard-section .name {
+    font-size: 14px;
+    margin-top: 14px;
+  }
+
+  .teacher-dashboard-section .subtitle {
+    font-size: 14px;
+    margin-top: 6px;
+    margin-bottom: 24px;
+  }
+
+  .teacher-dashboard-section .main-actions,
+  .teacher-dashboard-section .user-actions {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding-top: 16px;
+  }
+
+  .teacher-dashboard-section .action-item {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: normal;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .teacher-dashboard-section .action-item img {
+    width: 36px;
+    height: auto;
+    margin-bottom: 6px;
+  }
+
+  .hide-fixed-toggle {
+    display: none;
+  }
+
+  #sidebar {
+    display: none;
+    flex-direction: column;
+  }
+
+  #sidebar.visible {
+    display: flex;
+  } 
 }
