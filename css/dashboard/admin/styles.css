@@ -1,6 +1,7 @@
 @import url(../../base.css);
 @import url(../../variables.css);
-@import url(header-footer-sidebar.css);
+@import url(../../header.css);
+@import url(../../footer.css);
 
 * {
   padding: 0;
