@@ -1,12 +1,11 @@
 @import url(/css/base.css);
 @import url(/css/variables.css);
-@import url(footer.css);
 
 header {
   position: sticky;
   top: 0;
   background-color: var(--light-bg);
-  z-index: 1;
+  z-index: 2;
 }
 
 /* Desktop Header */
@@ -35,8 +34,10 @@ header {
   justify-content: center;
   align-items: center;
   height: 74px;
+  font-family: var(--primary-font);
   font-size: 20px;
   font-weight: 600;
+  color: var(--text-color);
   list-style: none;
   border-bottom: 1px solid var(--light-bg);
   transition: 0.5s;
@@ -67,7 +68,7 @@ header {
 
 /* Mobile Header */
 .mobile-header {
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
   position: sticky;
@@ -86,7 +87,7 @@ header {
 }
 
 .close-menu {
-  display: block;
+  display: none;
   position: absolute;
   top: 21px;
   right: 16px;
@@ -97,17 +98,19 @@ header {
 
 .mobile-menu {
   position: absolute;
-  display: flex;
+  display: none;
   flex-direction: column;
   top: 70px;
-  right: 0px;
-  height: 100vh;
-  width: 393px;
+  right: 0;
+  height: calc(100vh - 70px) !important;
+  width: 300px;
+  overflow-x: hidden;
   font-family: var(--secondary-font);
   font-size: 20px;
   font-weight: 400;
   color: var(--text-color);
   background-color: var(--bg-color);
+  box-shadow: -10px 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .mobile-menu .links {
@@ -115,7 +118,6 @@ header {
   flex-direction: row;
   justify-content: end;
   padding-right: 16px;
-  background-color: var(--bg-color);
   gap: 32px;
 }
 
@@ -181,7 +183,15 @@ header {
   }
 }
 
-@media (max-height: 620px) {
+@media (max-height: 480px) {
+  .desktop-header {
+    display: none;
+  }
+
+  .mobile-header {
+    display: flex;
+  }
+
   .mobile-menu {
     width: 100%;
     align-items: center;
@@ -191,7 +201,6 @@ header {
   .mobile-menu .links {
     flex-direction: column-reverse;
     gap: 48px;
-    margin-right: -11px;
   }
 
   .mobile-menu .links ul {

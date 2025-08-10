@@ -1,5 +1,6 @@
+@import url(../header.css);
+@import url(../footer.css);
 @import url(login-defaults.css);
-@import url(login-header-footer.css);
 @import url(login-alert.css);
 
 body {

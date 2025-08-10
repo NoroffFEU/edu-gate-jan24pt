@@ -21,17 +21,6 @@ p {
   font-weight: 400;
 }
 
-a {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-a:visited {
-  color: #000000;
-}
-
 label {
   display: flex;
   align-items: center;
