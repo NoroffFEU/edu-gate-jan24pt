@@ -1,4 +1,4 @@
-import { mobileMenu, headerLinksDisplay } from './header.mjs';
+import { mobileMenu } from './header.mjs';
 mobileMenu();
 
 const form = document.querySelector('#login-form');
