@@ -11,38 +11,46 @@
     <title>Landing page Edugate</title>
   </head>
   <body>
+    <!-- Header -->
     <header>
-      <nav>
-        <a href="index.html" class="logo"><img src="assets/images/logo_header.png" alt="Edugate Logo"/></a>
-        <div id="hamburgericon" class="burgermenu">
-          <img src="assets/icons/nav/menu.png" alt="hamburgermenu" />
+      <div class="desktop-header">
+        <div class="logo"><a href="index.html"><img src="/assets/images/logo_header.png" alt="Edugate logo."/></a></div>
+        <ul class="navbar">
+          <a href=""><li>About</li></a>
+          <a href=""><li>Contact</li></a>
+        </ul>
+      </div>
+      <div class="mobile-header">
+        <a href="index.html"
+          ><img src="../../assets/images/mobile_logo.png"
+        /></a>
+        <img
+          src="../../assets/icons/nav/menu.png"
+          class="open-menu"
+          id="open-menu"
+        />
+      </div>
+      <img
+        src="/assets/icons/general/close_menu.png"
+        class="close-menu"
+        id="close-menu"
+      />
+      <div class="mobile-menu">
+        <div class="links">
+          <ul class="link-text">
+            <li><a href="../login/index.html">Login</a></li>
+            <li><a href="../sign_up/index.html">Signup</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+          </ul>
+          <ul class="link-icons">
+            <li><img src="../../assets/icons/general/login.png" /></li>
+            <li><img src="../../assets/icons/general/signup.png" /></li>
+            <li><img src="../../assets/icons/nav/about.png" /></li>
+            <li><img src="../../assets/icons/nav/contact.png" /></li>
+          </ul>
         </div>
-        <div class="burgerlinks">
-            <ul>
-                <li><a href="../login/index.html">Login</a>
-                  <img src="assets/icons/general/login.png" alt="Login icon" />
-                </li>
-                <li>
-                  <a href="../sign_up/index.html">Signup</a>
-                  <img src="assets/icons/general/signup.png" alt="Signup icon" />
-                </li>
-                <li>
-                  <a href="../templates/about.html">About</a>
-                  <img src="assets/icons/nav/about.png" alt="About icon" />
-                </li>
-                <li>
-                  <a href="../templates/contact.html">Contact</a>
-                  <img src="assets/icons/nav/contact.png" alt="Contact icon" />
-                </li>
-              </ul>
-          </div>
-          <div class="desktoplinks">
-            <ul>
-              <li><a href="../templates/about.html">About</a></li>
-              <li><a href="../templates/contact.html">Contact</a></li>
-            </ul>
-          </div>
-      </nav>
+      </div>
     </header>
     <main>
       <section>
@@ -55,6 +63,7 @@
           <div class="button-wrapper">
             <a href="../templates/sign-up.html" id="signup" class="button">Sign Up</a>
             <a href="../templates/login-page.html" id="login" class="button">Log In</a>
+          </div>
         </div>
       </section>
     </main>

@@ -1,5 +1,6 @@
-import { mobileMenu } from "../../src/header.mjs"
+import { mobileMenu, navbarWidth } from "../../src/header.mjs"
 mobileMenu();
+
 
 function showSidebar(){
     const sidebar = document.querySelector(".sidebar")

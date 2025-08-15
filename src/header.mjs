@@ -15,12 +15,12 @@ export function mobileMenu() {
 
 const currentURL = window.location.href;
 
-export async function headerLinksDisplay() {
-  if (currentURL.includes('login') || currentURL.includes('sign_up') || currentURL.includes('register')) {
-    document.querySelector('.navbar').style.width = '495px';
+export async function navbarWidth() {
+  if (currentURL.includes('dashboard') || currentURL.includes('results')) {
+    document.querySelector('.navbar').style.width = '743px';
   }
 }
 
 mobileMenu();
 
-headerLinksDisplay();
+navbarWidth();

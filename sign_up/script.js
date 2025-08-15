@@ -1,6 +1,5 @@
 import { mobileMenu, headerLinksDisplay } from '../src/header.mjs'
 mobileMenu();
-headerLinksDisplay();
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.signup-form');
