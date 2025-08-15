@@ -16,7 +16,7 @@ export function mobileMenu() {
 const currentURL = window.location.href;
 
 export async function headerLinksDisplay() {
-  if (currentURL.includes('login') || currentURL.includes('sign_up')) {
+  if (currentURL.includes('login') || currentURL.includes('sign_up') || currentURL.includes('register')) {
     document.querySelector('.navbar').style.width = '495px';
   }
 }
