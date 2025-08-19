@@ -1,4 +1,4 @@
-import { mobileMenu, headerLinksDisplay } from '../src/header.mjs'
+import { mobileMenu } from '../src/header.mjs'
 mobileMenu();
 
 document.addEventListener('DOMContentLoaded', function() {

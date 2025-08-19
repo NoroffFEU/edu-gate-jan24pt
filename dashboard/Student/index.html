@@ -15,10 +15,11 @@
 
   <body>
     <div class="wrapper">
+    <!-- Header -->
     <header>
       <div class="desktop-header">
         <div class="logo"><a href="index.html"><img src="/assets/images/logo_header.png" alt="Edugate logo."/></a></div>
-        <ul class="navbar">
+        <ul class="navbar" aria-label="Desktop navigation">
           <a href=""><li class="active">Dashboard</li></a>
           <a href=""><li>About</li></a>
           <a href=""><li>Contact</li></a>
@@ -35,15 +36,17 @@
           src="../../assets/icons/nav/menu.png"
           class="open-menu"
           id="open-menu"
+          aria-label="Open menu."
         />
       </div>
       <img
         src="/assets/icons/general/close_menu.png"
         class="close-menu"
         id="close-menu"
+        aria-label="Close menu."
       />
       <div class="mobile-menu">
-        <div class="links">
+        <nav class="links" aria-label="Mobile navigation">
           <ul class="link-text">
             <li><a href="#">Dashboard</a></li>
             <li><a href="">Profile</a></li>
@@ -56,7 +59,7 @@
             <li><img src="../../assets/icons/nav/about.png" /></li>
             <li><img src="../../assets/icons/nav/contact.png" /></li>
           </ul>
-        </div>
+        </nav>
         <div class="logout-link">
           <a href="../../index.html">Logout</a>
           <img src="../../assets/icons/general/sign_out.png" />

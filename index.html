@@ -15,43 +15,46 @@
     <header>
       <div class="desktop-header">
         <div class="logo"><a href="index.html"><img src="/assets/images/logo_header.png" alt="Edugate logo."/></a></div>
-        <ul class="navbar">
+        <ul class="navbar" aria-label="Desktop navigation">
           <a href=""><li>About</li></a>
           <a href=""><li>Contact</li></a>
         </ul>
       </div>
       <div class="mobile-header">
         <a href="index.html"
-          ><img src="../../assets/images/mobile_logo.png"
+          ><img src="/assets/images/mobile_logo.png"
         /></a>
         <img
-          src="../../assets/icons/nav/menu.png"
+          src="/assets/icons/nav/menu.png"
           class="open-menu"
           id="open-menu"
+          aria-label="Open menu."
         />
       </div>
       <img
         src="/assets/icons/general/close_menu.png"
         class="close-menu"
         id="close-menu"
+        aria-label="Close menu."
       />
       <div class="mobile-menu">
-        <div class="links">
+        <nav class="links" aria-label="Mobile navigation">
           <ul class="link-text">
-            <li><a href="../login/index.html">Login</a></li>
-            <li><a href="../sign_up/index.html">Signup</a></li>
+            <li><a href="/login/index.html">Login</a></li>
+            <li><a href="/sign_up/index.html">Signup</a></li>
             <li><a href="">About</a></li>
             <li><a href="">Contact</a></li>
           </ul>
           <ul class="link-icons">
-            <li><img src="../../assets/icons/general/login.png" /></li>
-            <li><img src="../../assets/icons/general/signup.png" /></li>
-            <li><img src="../../assets/icons/nav/about.png" /></li>
-            <li><img src="../../assets/icons/nav/contact.png" /></li>
+            <li><img src="/assets/icons/general/login.png" /></li>
+            <li><img src="/assets/icons/general/signup.png" /></li>
+            <li><img src="/assets/icons/nav/about.png" /></li>
+            <li><img src="/assets/icons/nav/contact.png" /></li>
           </ul>
-        </div>
+        </nav>
       </div>
     </header>
+
     <main>
       <section>
         <div class="landingpageimg">
@@ -61,8 +64,8 @@
             results online.
           </p>
           <div class="button-wrapper">
-            <a href="sign_up/index.html" id="signup" class="button">Sign Up</a>
-            <a href="login/index.html" id="login" class="button">Log In</a>
+            <a href="/sign_up/index.html" id="signup" class="button">Sign Up</a>
+            <a href="/login/index.html" id="login" class="button">Log In</a>
           </div>
         </div>
       </section>
@@ -70,7 +73,7 @@
 
     <footer>
       <img
-        src="../assets/images/footer_circles.svg"
+        src="/assets/images/footer_circles.svg"
         alt="Edugate footer circles" id="footercircles"
       />
     </footer>
