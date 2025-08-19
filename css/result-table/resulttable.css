@@ -57,3 +57,48 @@ nav a{
     position: absolute;
     bottom: -250px;
 }
+
+.sidebar img {
+    width: 41px;
+    height: 41px;
+}
+
+h1{
+  text-align: center;
+  font-family: 'Poppins';
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.search-container {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#addresultbutton{
+    font-family: 'Poppins';
+    font-size: 24px;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #FFFFFF;
+    border: none;
+}
+
+#backtodashboardbutton{
+    font-family: 'Poppins';
+    font-size: 26px;
+    font-weight: 600;
+    color: #2196F3;
+    border-style: solid;
+    padding: 8px 18px;
+    border-radius: 6px;
+    border-color: #2196F3;
+    background: transparent;
+}
+
