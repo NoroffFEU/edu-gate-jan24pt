@@ -3,16 +3,24 @@ export function mobileMenu() {
   const close = document.querySelector('#close-menu');
 
   open.addEventListener('click', function openMenu() {
-    document.querySelector('.mobile-header').style.height = '100vh';
-    document.querySelector('.open-menu').style.display = 'none';
+    document.querySelector('.mobile-menu').style.display = 'flex';
     document.querySelector('.close-menu').style.display = 'block';
   });
 
   close.addEventListener('click', function closeMenu() {
-    document.querySelector('.mobile-header').style.height = '70px';
+    document.querySelector('.mobile-menu').style.display = 'none';
     document.querySelector('.close-menu').style.display = 'none';
-    document.querySelector('.open-menu').style.display = 'block';
   });
 }
 
+const currentURL = window.location.href;
+
+export async function navbarWidth() {
+  if (currentURL.includes('dashboard') || currentURL.includes('results')) {
+    document.querySelector('.navbar').style.width = '743px';
+  }
+}
+
 mobileMenu();
+
+navbarWidth();

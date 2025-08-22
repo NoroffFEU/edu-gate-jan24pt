@@ -4,107 +4,120 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register | Edugate</title>
-    <link rel="stylesheet" href="../css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
-    />  </head>
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
   <body>
+    <!-- Header -->
     <header>
       <div class="desktop-header">
-        <a href="../index.html"><img src="/assets/images/logo_header.png" /></a>
-        <ul class="navbar">
+        <div class="logo">
+          <a href="index.html"
+            ><img src="/assets/images/logo_header.png" alt="Edugate logo."
+          /></a>
+        </div>
+        <ul class="navbar" aria-label="Desktop navigation">
           <a href=""><li>About</li></a>
           <a href=""><li>Contact</li></a>
         </ul>
       </div>
       <div class="mobile-header">
-        <div class="header-top">
-          <a href="index.html"
-            ><img class="logo" src="/assets/images/mobile_logo.png"
-          /></a>
-          <img
-            src="/assets/icons/nav/menu.png"
-            class="open-menu"
-            id="open-menu"
-          />
-          <img
-            src="/assets/icons/general/close_menu.png"
-            class="close-menu"
-            id="close-menu"
-            style="display: none;"
-          />
-        </div>
-        <div class="header-bottom">
-          <ul>
-            <li><a href="/login/index.html">Login</a></li>
-            <li><a href="/sign_up/index.html">Signup</a></li>
+        <a href="index.html"
+          ><img src="../../assets/images/mobile_logo.png"
+        /></a>
+        <img
+          src="../../assets/icons/nav/menu.png"
+          class="open-menu"
+          id="open-menu"
+          aria-label="Open menu."
+        />
+      </div>
+      <img
+        src="/assets/icons/general/close_menu.png"
+        class="close-menu"
+        id="close-menu"
+        aria-label="Close menu."
+      />
+      <div class="mobile-menu">
+        <nav class="links" aria-label="Mobile navigation">
+          <ul class="link-text">
+            <li><a href="../login/index.html">Login</a></li>
+            <li><a href="../sign_up/index.html">Signup</a></li>
             <li><a href="">About</a></li>
             <li><a href="">Contact</a></li>
           </ul>
-          <ul class="list-icons">
-            <li><img src="/assets/icons/general/login.png" /></li>
-            <li><img src="/assets/icons/general/signup.png" /></li>
-            <li><img src="/assets/icons/nav/about.png" /></li>
-            <li><img src="/assets/icons/nav/contact.png" /></li>
+          <ul class="link-icons">
+            <li><img src="../../assets/icons/general/login.png" /></li>
+            <li><img src="../../assets/icons/general/signup.png" /></li>
+            <li><img src="../../assets/icons/nav/about.png" /></li>
+            <li><img src="../../assets/icons/nav/contact.png" /></li>
           </ul>
-        </div>
+        </nav>
       </div>
-
     </header>
-   
-  <div class="register-container">
-    <div class="form-box">
-      <h1>Register</h1>
-      <form>
-        <div class="form-group">
-          <label for="school">School</label>
-          <input type="text" class="form-content" placeholder="Edugate" />
-        </div>
- 
-        <div class="form-group">
-          <label for="address1">Address line 1</label>
-          <input type="text" class="form-content" placeholder="Address" />
-        </div>
- 
-        <div class="form-group">
-          <label for="address2">Address line 2</label>
-          <input type="text" class="form-content" placeholder="Address" />
-        </div>
- 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="city">City</label>
-            <input type="text" class="form-content" id="city" placeholder="Oslo" />
-          </div>
- 
-          <div class="form-group">
-            <label for="postal">Postal Code</label>
-            <input type="text" class="form-content" id="postal" placeholder="0000" />
-          </div>
-        </div>
- 
-        <button class="btn submit-btn">Submit</button>
-      </form>
 
-      
-      
+    <div class="register-container">
+      <div class="form-box">
+        <h1>Register</h1>
+        <form>
+          <div class="form-group">
+            <label for="school">School</label>
+            <input type="text" class="form-content" placeholder="Edugate" />
+          </div>
+
+          <div class="form-group">
+            <label for="address1">Address line 1</label>
+            <input type="text" class="form-content" placeholder="Address" />
+          </div>
+
+          <div class="form-group">
+            <label for="address2">Address line 2</label>
+            <input type="text" class="form-content" placeholder="Address" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="city">City</label>
+              <input
+                type="text"
+                class="form-content"
+                id="city"
+                placeholder="Oslo"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="postal">Postal Code</label>
+              <input
+                type="text"
+                class="form-content"
+                id="postal"
+                placeholder="0000"
+              />
+            </div>
+          </div>
+
+          <button class="btn submit-btn">Submit</button>
+        </form>
+      </div>
     </div>
-  </div>
-  <footer>
-    <img
-      src="/assets/images/footer_circles.svg"
-      alt="Edugate footer circles"
-      class="mobile-footer-img"
-    />
-    <img
-      src="/assets/images/footer_circles.svg"
-      alt="Edugate footer circles"
-      class="footer-img"
-    />
-  </footer>
-  <script type="module" src="../src/register-check.js"></script>
+    <footer>
+      <img
+        src="/assets/images/footer_circles.svg"
+        alt="Edugate footer circles"
+        class="mobile-footer-img"
+      />
+      <img
+        src="/assets/images/footer_circles.svg"
+        alt="Edugate footer circles"
+        class="footer-img"
+      />
+    </footer>
+    <script type="module" src="../src/register-check.js"></script>
   </body>
 </html>

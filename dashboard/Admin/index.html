@@ -13,60 +13,63 @@
     <link rel="stylesheet" href="../../css/dashboard/admin/styles.css" />
   </head>
   <body>
+    <!-- Header -->
     <header>
       <div class="desktop-header">
-        <a href="../../index.html"
-          ><img class="logo" src="../../assets/images/logo_header.png"
-        /></a>
-        <ul class="navbar">
-          <a href="index.html"><li class="active">Dashboard</li></a>
+        <div class="logo">
+          <a href="index.html"
+            ><img src="/assets/images/logo_header.png" alt="Edugate logo."
+          /></a>
+        </div>
+        <ul class="navbar" aria-label="Desktop navigation">
+          <a href=""><li class="active">Dashboard</li></a>
           <a href=""><li>About</li></a>
           <a href=""><li>Contact</li></a>
-          <a
-            ><img
-              src="../../assets/icons/socials/profile_icon.png"
-              class="header-profile"
-          /></a>
         </ul>
+        <a href="" class="header-profile">
+          <img src="../../assets/icons/socials/profile_icon.png" />
+        </a>
       </div>
       <div class="mobile-header">
-        <div class="header-top">
-          <a href="index.html"
-            ><img src="../../assets/images/mobile_logo.png"
-          /></a>
-          <img
-            src="../../assets/icons/nav/menu.png"
-            class="open-menu"
-            id="open-menu"
-          />
-          <img
-            src="../../assets/icons/general/close_menu.png"
-            class="close-menu"
-            id="close-menu"
-          />
-        </div>
-        <div class="header-bottom">
-          <div class="header-links">
-            <ul>
-              <li><a href="#">Dashboard</a></li>
-              <li><a href="">Profile</a></li>
-              <li><a href="">About</a></li>
-              <li><a href="">Contact</a></li>
-            </ul>
-            <ul class="list-icons">
-              <li><img src="../../assets/icons/nav/home.png" /></li>
-              <li><img src="../../assets/icons/socials/profile_icon.png" /></li>
-              <li><img src="../../assets/icons/nav/about.png" /></li>
-              <li><img src="../../assets/icons/nav/contact.png" /></li>
-            </ul>
-          </div>
-          <div class="logout-link">
-            <a href="../../index.html">Logout</a>
-            <img src="../../assets/icons/general/sign_out.png" />
-          </div>
+        <a href="index.html"
+          ><img src="../../assets/images/mobile_logo.png"
+        /></a>
+        <img
+          src="../../assets/icons/nav/menu.png"
+          class="open-menu"
+          id="open-menu"
+          aria-label="Open menu."
+        />
+      </div>
+      <img
+        src="/assets/icons/general/close_menu.png"
+        class="close-menu"
+        id="close-menu"
+        aria-label="Close menu."
+      />
+      <div class="mobile-menu">
+        <nav class="links" aria-label="Mobile navigation">
+          <ul class="link-text">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="">Profile</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+          </ul>
+          <ul class="link-icons">
+            <li><img src="../../assets/icons/nav/home.png" /></li>
+            <li><img src="../../assets/icons/socials/profile_icon.png" /></li>
+            <li><img src="../../assets/icons/nav/about.png" /></li>
+            <li><img src="../../assets/icons/nav/contact.png" /></li>
+          </ul>
+        </nav>
+        <div class="logout-link">
+          <a href="../../index.html">Logout</a>
+          <img src="../../assets/icons/general/sign_out.png" />
         </div>
       </div>
     </header>
+
+    <!-- Main Content -->
     <main>
       <div class="admin-dashboard">
         <h1>Dashboard</h1>
@@ -103,6 +106,7 @@
         </div>
       </div>
     </main>
+    <!-- Footer -->
     <footer>
       <img
         src="../../assets/images/footer_circles.svg"
@@ -116,5 +120,5 @@
       />
     </footer>
   </body>
-  <script src="../../src/login-mobile-menu.mjs" type="module"></script>
+  <script src="../../src/header.mjs" type="module"></script>
 </html>

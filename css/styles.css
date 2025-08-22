@@ -2,4 +2,5 @@
 @import url('./variables.css');
 @import url('./base.css');
 @import url('./basic.css');
-
+@import url('./header.css');
+@import url('./footer.css');

@@ -3,97 +3,112 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/dashboard/student/styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/dashboard/student/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <title>Student dashboard</title>
   </head>
 
   <body>
     <div class="wrapper">
-    <header>
-      <nav class="nav-items">
-        <div class="logo-header">
-          <img src="/assets/images/logo_header.png" class="logo-desktop" alt="Logo">
-          <img src="/assets/images/mobile_logo.png" class="logo-mobile" alt="mobile_logo">
+      <!-- Header -->
+      <header>
+        <div class="desktop-header">
+          <div class="logo">
+            <a href="index.html"
+              ><img src="/assets/images/logo_header.png" alt="Edugate logo."
+            /></a>
+          </div>
+          <ul class="navbar" aria-label="Desktop navigation">
+            <a href=""><li class="active">Dashboard</li></a>
+            <a href=""><li>About</li></a>
+            <a href=""><li>Contact</li></a>
+          </ul>
+          <a href="" class="header-profile">
+            <img src="../../assets/icons/socials/profile_icon.png" />
+          </a>
         </div>
-        <a href="#" class="hideOnMobile active">Dashboard</a>
-        <a href="#" class="hideOnMobile">About</a>
-        <a href="#" class="hideOnMobile">Contact</a>
-        <a href="#" class="hideOnMobile">
-          <img src="/assets/icons/socials/profile_icon.png" alt="profile-icon" class="profile-icon">
-        </a>
-        <div class="menu-icon" onclick="showSidebar()">
-          <img src="/assets/icons/nav/menu.png" alt="menu">
+        <div class="mobile-header">
+          <a href="index.html"
+            ><img src="../../assets/images/mobile_logo.png"
+          /></a>
+          <img
+            src="../../assets/icons/nav/menu.png"
+            class="open-menu"
+            id="open-menu"
+            aria-label="Open menu."
+          />
         </div>
-      </nav>
-  
-      <div class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-          <img src="/assets/images/mobile_logo.png" alt="Logo" class="sidebar-logo">
-          <div class="sidebar-close" onclick="hideSidebar()">
-            <i class="fa-solid fa-xmark"></i>
+        <img
+          src="/assets/icons/general/close_menu.png"
+          class="close-menu"
+          id="close-menu"
+          aria-label="Close menu."
+        />
+        <div class="mobile-menu">
+          <nav class="links" aria-label="Mobile navigation">
+            <ul class="link-text">
+              <li><a href="#">Dashboard</a></li>
+              <li><a href="">Profile</a></li>
+              <li><a href="">About</a></li>
+              <li><a href="">Contact</a></li>
+            </ul>
+            <ul class="link-icons">
+              <li><img src="../../assets/icons/nav/home.png" /></li>
+              <li><img src="../../assets/icons/socials/profile_icon.png" /></li>
+              <li><img src="../../assets/icons/nav/about.png" /></li>
+              <li><img src="../../assets/icons/nav/contact.png" /></li>
+            </ul>
+          </nav>
+          <div class="logout-link">
+            <a href="../../index.html">Logout</a>
+            <img src="../../assets/icons/general/sign_out.png" />
           </div>
         </div>
+      </header>
 
-        <div class="sidebar-links">
-          <a href="#" class="active">
-            <span>Dashboard</span>
-            <img src="/assets/icons/nav/home.png" alt="Home">
-          </a>
-          <a href="#">
-            <span>Profile</span>
-            <img src="/assets/icons/socials/profile_icon.png" alt="Profile">
-          </a>
-          <a href="#">
-            <span>About</span>
-            <img src="/assets/icons/nav/about.png" alt="About">
-          </a>
-          <a href="#">
-            <span>Contact</span>
-            <img src="/assets/icons/nav/contact.png" alt="Contact">
-          </a>
-        </div>
-  
-        <div class="sidebar-divider"></div>
-        
-        <a href="#" class="logout">
-          <span>Log out</span>
-          <img src="/assets/icons/general/sign_out.png" alt="Logout">
-        </a>
-      </div>
-    </header>
+      <main>
+        <section class="dashboard-section">
+          <h1>Dashboard</h1>
+          <div class="avatar">JB</div>
+          <div class="name">Joe Bloggs</div>
+          <div class="subtitle">Student at Edugate school</div>
 
-  <main>
-  <section class="dashboard-section">
-    <h1>Dashboard</h1>
-    <div class="avatar">JB</div>
-    <div class="name">Joe Bloggs</div>
-    <div class="subtitle">Student at Edugate school</div>
+          <div class="actions">
+            <a href="#" class="action-item">
+              <img src="/assets/icons/socials/profile_icon.png" alt="Profile" />
+              See profile
+            </a>
+            <a href="#" class="action-item">
+              <img src="/assets/icons/general/view_results.png" alt="Results" />
+              My results
+            </a>
+            <a href="#" class="action-item">
+              <img src="/assets/icons/general/sign_out.png" alt="Logout" />
+              Log out
+            </a>
+          </div>
+        </section>
+      </main>
 
-    <div class="actions">
-      <a href="#" class="action-item">
-        <img src="/assets/icons/socials/profile_icon.png" alt="Profile">
-        See profile
-      </a>
-      <a href="#" class="action-item">
-        <img src="/assets/icons/general/view_results.png" alt="Results">
-        My results
-      </a>
-      <a href="#" class="action-item">
-        <img src="/assets/icons/general/sign_out.png" alt="Logout">
-        Log out
-      </a>
+      <!-- Footer -->
+      <footer>
+        <img
+          src="../../assets/images/footer_circles.svg"
+          alt="Edugate footer circles"
+          class="mobile-footer-img"
+        />
+        <img
+          src="../../assets/images/footer_circles.svg"
+          alt="Edugate footer circles"
+          class="footer-img"
+        />
+      </footer>
     </div>
-  </section>
-  </main>
-  
-  <footer>
-    <img src="/assets/images/footer_circles.svg" alt="Edugate footer circles" class="footer-img"/>
-    <img src="/assets/images/footer_circles.svg" alt="Edugate footer circles" class="mobile-footer-img"/>
-  </footer>
-  </div>
-  <script src="student.js"></script>
-
-</body>
+    <script type="module" src="../../src/header.mjs"></script>
+  </body>
 </html>
