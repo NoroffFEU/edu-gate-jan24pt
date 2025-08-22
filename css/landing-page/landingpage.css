@@ -1,130 +1,115 @@
+@import url(../variables.css);
+@import url(../base.css);
+@import url(../basic.css);
 @import url(../header.css);
 @import url(../footer.css);
 
-
-header{
-    margin-bottom: 120px;
+header {
+  margin-bottom: 120px;
 }
 
-body{
-    background-color: #F5F5F5;
+body {
+  background-color: #f5f5f5;
 }
 
-.landingpageimg{
-    background-image: url('../../assets/images/hero.png');
-    height: 720px;
-    width: 100%;
-    margin-top: 0px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+.landingpageimg {
+  background-image: url('../../assets/images/hero.png');
+  height: 720px;
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 48px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
-h1{
-    color: #333333;
-    font-size: 32px;
-    font-weight: 700;
-    font-family: 'Poppins';
-    margin-left: auto;
-    margin-right: auto;
-    width: fit-content;
-    padding-top: 20px;
+h1 {
+  color: #333333;
+  font-size: 32px;
+  font-weight: 700;
+  font-family: 'Poppins';
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  padding-top: 20px;
 }
 
-p{
-    font-family: 'Roboto';
-    font-size: 16px;
-    color: #333333;
-    font-weight: 500;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 30px;
-    width: fit-content;
+p {
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: #333333;
+  font-weight: 500;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 30px;
+  width: fit-content;
 }
 
 .button-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;                
-    position: relative;
-    top: 530px;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  top: 530px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #login {
-    font-family: 'Poppins';
-    font-size: 24px;
-    font-weight: 700;
-    color: #2196F3;
-    border-style: solid;
-    padding: 8px 18px;
-    border-radius: 6px;
-    border-color: #2196F3;
-    background: transparent;
+  font-family: 'Poppins';
+  font-size: 24px;
+  font-weight: 700;
+  color: #2196f3;
+  border-style: solid;
+  padding: 8px 18px;
+  border-radius: 6px;
+  border-color: #2196f3;
+  background: transparent;
 }
 
 #signup {
-    font-family: 'Poppins';
-    font-size: 24px;
-    font-weight: 700;
-    border-radius: 6px;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: #FFFFFF;
-    border: none;
+  font-family: 'Poppins';
+  font-size: 24px;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #ffffff;
+  border: none;
 }
 
-#signup:hover{
-    background-color: #388E3C;
+#signup:hover {
+  background-color: #388e3c;
 }
 
-#login:hover{
-    background-color: #BBDEFB;
-}
-
-footer{
-    background-color: #F5F5F5;
-    height: 250px;
-    margin-top: 200px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#footercircles{
-    text-align: center;
-    margin: 0 auto;
-    position: absolute;
-    bottom: -250px;
+#login:hover {
+  background-color: #bbdefb;
 }
 
 @media only screen and (max-width: 768px) {
-    .landingpageimg{
-        height: 300px;
-    }
+  .landingpageimg {
+    height: 300px;
+  }
 
-    .button-wrapper {
-        flex-direction: column;
-        margin-top: -280px;
-        text-align: center;
-        top: 380px;
-    }
-        
-    .landingpageimg #signup{
-        font-size: 16px;
-        font-weight: 600;
-        width: 110px;
-        left: 50%;
-    }
+  .button-wrapper {
+    flex-direction: column;
+    margin-top: -280px;
+    text-align: center;
+    top: 380px;
+  }
 
-    .landingpageimg #login{
-        font-size: 16px;
-        font-weight: 600;
-        width: 110px;
-        left: 50%;
-    }
+  .landingpageimg #signup {
+    font-size: 16px;
+    font-weight: 600;
+    width: 110px;
+    left: 50%;
+  }
+
+  .landingpageimg #login {
+    font-size: 16px;
+    font-weight: 600;
+    width: 110px;
+    left: 50%;
+  }
 }
