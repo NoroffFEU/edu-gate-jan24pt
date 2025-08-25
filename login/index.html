@@ -13,48 +13,54 @@
     <link rel="stylesheet" href="../css/login-page/login.css" />
   </head>
   <body>
+    <!-- Header -->
     <header>
       <div class="desktop-header">
-        <a href="../index.html"
-          ><img src="../assets/images/logo_header.png"
-        /></a>
-        <ul class="navbar">
+        <div class="logo">
+          <a href="index.html"
+            ><img src="/assets/images/logo_header.png" alt="Edugate logo."
+          /></a>
+        </div>
+        <ul class="navbar" aria-label="Desktop navigation">
           <a href=""><li>About</li></a>
           <a href=""><li>Contact</li></a>
         </ul>
       </div>
       <div class="mobile-header">
-        <div class="header-top">
-          <a href="index.html"
-            ><img src="../assets/images/mobile_logo.png"
-          /></a>
-          <img
-            src="../assets/icons/nav/menu.png"
-            class="open-menu"
-            id="open-menu"
-          />
-          <img
-            src="../assets/icons/general/close_menu.png"
-            class="close-menu"
-            id="close-menu"
-          />
-        </div>
-        <div class="header-bottom">
-          <ul>
+        <a href="index.html"
+          ><img src="../../assets/images/mobile_logo.png"
+        /></a>
+        <img
+          src="../../assets/icons/nav/menu.png"
+          class="open-menu"
+          id="open-menu"
+          aria-label="Open menu."
+        />
+      </div>
+      <img
+        src="/assets/icons/general/close_menu.png"
+        class="close-menu"
+        id="close-menu"
+        aria-label="Close menu."
+      />
+      <div class="mobile-menu">
+        <nav class="links" aria-label="Mobile navigation">
+          <ul class="link-text">
             <li><a href="../login/index.html">Login</a></li>
             <li><a href="../sign_up/index.html">Signup</a></li>
             <li><a href="">About</a></li>
             <li><a href="">Contact</a></li>
           </ul>
-          <ul class="list-icons">
-            <li><img src="../assets/icons/general/login.png" /></li>
-            <li><img src="../assets/icons/general/signup.png" /></li>
-            <li><img src="../assets/icons/nav/about.png" /></li>
-            <li><img src="../assets/icons/nav/contact.png" /></li>
+          <ul class="link-icons">
+            <li><img src="../../assets/icons/general/login.png" /></li>
+            <li><img src="../../assets/icons/general/signup.png" /></li>
+            <li><img src="../../assets/icons/nav/about.png" /></li>
+            <li><img src="../../assets/icons/nav/contact.png" /></li>
           </ul>
-        </div>
+        </nav>
       </div>
     </header>
+    <!-- Main Content -->
     <main>
       <div class="login-container">
         <div class="login-form" id="login-form">
@@ -85,11 +91,12 @@
             <p class="forgot-password">
               Forgot your password? Click<a href="">&nbsp;here</a>
             </p>
-            <input type="submit" id="submit" value="Submit" />
+            <input type="submit" id="submit" class="" value="Submit" />
           </form>
         </div>
       </div>
     </main>
+    <!-- Footer -->
     <footer>
       <img
         src="../assets/images/footer_circles.svg"

@@ -1,0 +1,38 @@
+/* Footer styling */
+footer {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+}
+
+footer .footer-img {
+  display: block;
+  width: 685px;
+  height: 246px;
+  object-fit: cover;
+  object-position: top;
+}
+
+footer .mobile-footer-img {
+  display: none;
+  width: 375px;
+  height: 209px;
+  object-fit: cover;
+  object-position: 24px 0px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  /* Footer responsiveness */
+  footer {
+    justify-content: flex-end;
+  }
+
+  footer .footer-img {
+    display: none;
+  }
+
+  footer .mobile-footer-img {
+    display: block;
+  }
+}
