@@ -1,3 +1,8 @@
+.container {
+  width: auto; /* fjernet fast bredde (90%) fra base.css */
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
 .dashboard-container {
   display: flex;
 }
@@ -26,6 +31,9 @@
 
 .sidebar li {
   margin: 1.5rem 0;
+}
+.sidebar .logout {
+  margin-top: 50px;
 }
 
 .sidebar a {
@@ -94,11 +102,11 @@
     transform: translateX(-100%); /* Hide sidebar by default */
     transition: transform 0.3s ease;
     position: fixed;
-    top: 0;
+    top: 70px; /* justert så den kommer under header*/
     left: 0;
     height: 100vh;
     z-index: 999;
-    width: 200px; /* bred når den åpnes på mobil */
+    width: fit-content; /* bred når den åpnes på mobil */
   }
 
   .sidebar.show {
