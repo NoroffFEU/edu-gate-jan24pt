@@ -1,10 +1,12 @@
+/* =========================
+   Existing styles (untouched)
+   ========================= */
 header{
     background-color: #F5F5F5;
     border-bottom: solid #CCCCCC;
     height: 176px;
     margin-bottom: 120px;
 }
-
 nav img{
     padding-left: 48px;
     height: 176px;
@@ -15,14 +17,12 @@ nav img{
     margin-top: -100px;
     margin-left: 20px;
 }
-
 nav ul{
     display: inline-flex;
     float: right;
     margin-top: -130px;
     margin-right: 50px;
 }
-
 nav a{
     padding: 80px;
     font-weight: 600;
@@ -30,17 +30,10 @@ nav a{
     font-family: 'Poppins';
     color: #333333;
 }
+header nav a { text-decoration: none; }
+header nav ul a { position: relative; text-decoration: none; }
 
-    header nav a {
-    text-decoration: none;
-  }
-
-  header nav ul a {
-    position: relative; 
-    text-decoration: none;
-  }
-
-  footer{
+footer{
     background-color: #F5F5F5;
     height: 250px;
     margin-top: 200px;
@@ -50,26 +43,19 @@ nav a{
     justify-content: center;
     align-items: center;
 }
-
 #footercircles{
     text-align: center;
     margin: 0 auto;
     position: absolute;
     bottom: -250px;
 }
-
-.sidebar img {
-    width: 41px;
-    height: 41px;
-}
-
+.sidebar img { width: 41px; height: 41px; }
 h1{
   text-align: center;
   font-family: 'Poppins';
-    font-size: 32px;
-    font-weight: 700;
+  font-size: 32px;
+  font-weight: 700;
 }
-
 .search-container {
     position: absolute;
     left: 50%;
@@ -78,7 +64,6 @@ h1{
     justify-content: center;
     align-items: center;
 }
-
 #addresultbutton{
     font-family: 'Poppins';
     font-size: 24px;
@@ -89,7 +74,7 @@ h1{
     color: #FFFFFF;
     border: none;
 }
-
+#addresultbutton:hover{ filter: brightness(0.95); }
 #backtodashboardbutton{
     font-family: 'Poppins';
     font-size: 26px;
@@ -101,4 +86,231 @@ h1{
     border-color: #2196F3;
     background: transparent;
 }
+#backtodashboardbutton:hover{ background: rgba(33,150,243,0.08); }
 
+/* =========================
+   Results module (my JS output)
+   ========================= */
+
+/* Subtitle injected by JS under H1 */
+.results-subtitle{
+  text-align: center;
+  color: #6B7280;
+  margin: 8px 0 16px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+/* Table card */
+.tablecard{
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(16,24,40,.04), 0 1px 3px rgba(16,24,40,.08);
+}
+
+/* Table */
+#resultsTable{ width: 100%; border-collapse: collapse; font-size: 15px; }
+#resultsTable thead th{
+  padding: 16px;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #4CAF50;
+  border-bottom: 2px solid #F5F5F5;
+  user-select: none;
+}
+#resultsTable th.sortable{ cursor: pointer; }
+#resultsTable tbody td{ padding: 16px; border-bottom: 1px solid #F5F5F5; }
+#resultsTable tbody tr:nth-child(even){ background: #FAFAFA; }
+#resultsTable tbody tr:hover{ background: #F2F2F2; }
+
+/* Row actions */
+.actions{ display: flex; gap: 10px; }
+.actions .editlink{ color: #4CAF50; font-weight: 600; text-decoration: none; }
+.actions .editlink:hover{ text-decoration: underline; }
+.actions .deletebtn{
+  background: #F4511E;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.actions .deletebtn:hover{ filter: brightness(0.95); }
+
+/* Pagination */
+.pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 14px auto 24px;
+}
+.pagination button{
+  width: 32px; height: 32px; line-height: 32px;
+  border: 1px solid #757575;
+  border-radius: 4px;
+  background: #fff;
+  color: #757575;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+}
+.pagination button img {
+  width: 16px;   /* match Figma icon size */
+  height: 16px;
+  display: block;
+  margin: 0 auto;
+  pointer-events: none; /* so clicks hit the button, not the img */
+}
+.pagination button.active{
+  background: #fff;
+  border: 2px solid #4CAF50;
+  color: #4CAF50;
+}
+.pagination button:disabled{
+  opacity: .4;
+  cursor: default;
+  color: #bbb;
+  border-color: #eee;
+}
+
+/* Overlays (shared) */
+.overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 50;
+}
+.overlay[aria-hidden="false"]{ display: flex; }
+.overlay .dialog{
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #E5E7EB;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.12);
+}
+.overlay .dialog .dialogheader{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.overlay .dialog .dialogheader h2{
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  color: #111827;
+}
+.overlay .dialog .closebtn{
+  width: 24px; height: 24px;
+  border-radius: 6px;
+  border: 1px solid #3B82F6;
+  color: #2563EB;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* Edit form */
+.overlay .dialog .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.overlay .dialog .field{ display:flex; flex-direction:column; gap:6px; }
+.overlay .dialog .field span{
+  font-size:13px;
+  color:#4CAF50 !important;   /* QA sets label color globally */
+  font-weight:700;
+}
+.overlay .dialog .field input,
+.overlay .dialog .field select{
+  height:40px;
+  border:1px solid #E5E7EB;
+  border-radius:6px;
+  padding:0 10px;
+  font-size:14px;
+  outline:none;
+  background:#fff;
+  box-sizing:border-box;
+}
+
+/* Buttons aligned to fields (same size & grid) */
+#editOverlay .dialog .dialogactions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:10px;
+}
+#editOverlay .dialog .dialogactions .btn-green,
+#editOverlay .dialog .dialogactions .btn-ghost{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height:40px;
+  border-radius:6px;
+  font-weight:600;
+  font-size:14px;
+  padding:0;
+  box-sizing:border-box;
+}
+#editOverlay .dialog .dialogactions .btn-green{ background:#4CAF50; color:#fff; border:none; }
+#editOverlay .dialog .dialogactions .btn-ghost{ background:#fff; color:#333; border:1px solid #E5E7EB; }
+#editOverlay .dialog .dialogactions .btn-green:hover{ filter:brightness(0.95); }
+#editOverlay .dialog .dialogactions .btn-ghost:hover{ background:#F8FAFC; }
+
+/* Delete dialog */
+#deleteOverlay .dialog{ max-width: 380px; padding: 16px; }
+#deleteOverlay .dialog .dialogheader h2{ font-size:16px; font-weight:600; }
+#deleteOverlay .dialog .closebtn{ border-color:#3B82F6; color:#2563EB; }
+#deleteOverlay .dialog .closebtn:hover{ background:#EFF6FF; }
+#deleteOverlay .dialog .dangertext{
+  margin:10px 0 16px;
+  font-size:14px;
+  line-height:1.5;
+  color:#6B7280 !important;   /* QA forces paragraph color */
+}
+#deleteOverlay .dialog .dialogactions{ gap:10px; justify-content:flex-end; }
+#deleteOverlay .dialog .btn-danger{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:40px;
+  background:#F4511E;
+  color:#fff;
+  padding:0 16px;
+  border:none;
+  border-radius:6px;
+  font-weight:700;
+  font-size:14px;
+}
+#deleteOverlay .dialog .btn-ghost{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:40px;
+  border:1px solid #3B82F6;
+  color:#2563EB;
+  background:#fff;
+  padding:0 16px;
+  border-radius:6px;
+  font-weight:600;
+  font-size:14px;
+}
+
+/* Responsive table */
+@media (max-width: 640px){
+  #resultsTable thead{ display:none; }
+  #resultsTable, #resultsTable tbody, #resultsTable tr, #resultsTable td{ display:block; width:100%; }
+  #resultsTable tbody tr{ border-bottom:1px solid #E5E7EB; }
+  #resultsTable td{ display:flex; justify-content:space-between; align-items:center; padding:10px 14px; }
+  #resultsTable td::before{ content: attr(data-label); font-weight:600; color:#6b7280; margin-right:12px; }
+  .actions{ justify-content:flex-end; }
+}

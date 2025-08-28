@@ -1,74 +1,470 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../css/base.css" />
-        <link rel="stylesheet" href="../css/result-table/resulttable.css" />
-        <title>Result Table</title>
-    </head>
-    <body>
-        <header>
-            <nav>
-                <a href="index.html" class="logo"><img src="../assets/images/logo_header.png" alt="Edugate Logo"/></a>
-                <div class="desktoplinks">
-                    <ul>
-                        <li><a href="../templates/dashboard.html">Dashboard</a></li>
-                        <li><a href="../templates/about.html">About</a></li>
-                        <li><a href="../templates/contact.html">Contact</a></li>
-                        <a href="../index.html"><img src="../assets/icons/socials/profile_icon.png" id="profileicon"></a>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-                <div class="sidebar">
-                    <ul>
-                        <li><a href="../index.html">Home</a>
-                            <img src="../assets/icons/nav/home.png" alt="Login icon" />
-                        </li>
-                        <li>
-                            <a href="../index.html">Results management</a>
-                            <img src="../assets/icons/general/view_results.png" alt="Signup icon" />
-                        </li>
-                        <li>
-                            <a href="../templates/about.html">User management</a>
-                            <img src="../assets/icons/general/manage_users.png" alt="About icon" />
-                        </li>
-                        <li>
-                            <a href="../templates/contact.html">School management</a>
-                            <img src="../assets/icons/general/school_management.png" alt="Contact icon" />
-                        </li>
-                        <li>
-                            <a href="../templates/dashboard.html">Logout</a>
-                            <img src="../assets/icons/general/sign_out.png" alt="Dashboard icon" />
-                        </li>
-                    </ul>
-                </div>
-        <main>
-            <section>
-                    <h1>Student Results</h1>
-                    <p></p>
-                <div class="search-container">
-                    <input type="text" placeholder="Search for results..">
-                    <button type="button"><img src="../assets/icons/general/search.svg"></button>
-                </div>
-            </section>
-            <button type="button" id="addresultbutton">Add result</button>
-            
 
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/result-table/resulttable.css" />
+    <title>Result Table</title>
+</head>
 
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo"><img src="../assets/images/logo_header.png" alt="Edugate Logo" /></a>
+            <div class="desktoplinks">
+                <ul>
+                    <li><a href="../templates/dashboard.html">Dashboard</a></li>
+                    <li><a href="../templates/about.html">About</a></li>
+                    <li><a href="../templates/contact.html">Contact</a></li>
+                    <a href="../index.html"><img src="../assets/icons/socials/profile_icon.png" id="profileicon"
+                            alt="Profile"></a>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="sidebar">
+        <ul>
+            <li><a href="../index.html">Home</a>
+                <img src="../assets/icons/nav/home.png" alt="Login icon" />
+            </li>
+            <li>
+                <a href="../index.html">Results management</a>
+                <img src="../assets/icons/general/view_results.png" alt="Signup icon" />
+            </li>
+            <li>
+                <a href="../templates/about.html">User management</a>
+                <img src="../assets/icons/general/manage_users.png" alt="About icon" />
+            </li>
+            <li>
+                <a href="../templates/contact.html">School management</a>
+                <img src="../assets/icons/general/school_management.png" alt="Contact icon" />
+            </li>
+            <li>
+                <a href="../templates/dashboard.html">Logout</a>
+                <img src="../assets/icons/general/sign_out.png" alt="Dashboard icon" />
+            </li>
+        </ul>
+    </div>
+
+    <main>
+        <section>
+            <h1>Student Results</h1>
+            <!-- subtitle is injected by JS below -->
+            <p></p>
+
+            <div class="search-container">
+                <input type="text" placeholder="Search for results..">
+                <button type="button" aria-label="Search"><img src="../assets/icons/general/search.svg" alt=""></button>
+            </div>
+        </section>
+
+        <button type="button" id="addresultbutton">Add result</button>
 
         <button type="button" id="backtodashboardbutton">Back to dashboard</button>
-        </main>
-        <footer>
-            <img
-                src="../assets/images/footer_circles.svg"
-                alt="Edugate footer circles" id="footercircles"
-            />
-        </footer>
-        <script src="../js/script.js"></script>
-    </body>
+    </main>
+
+    <footer>
+        <img src="../assets/images/footer_circles.svg" alt="Edugate footer circles" id="footercircles" />
+    </footer>
+
+    <script>
+        // -- Inline for this ticket only. Normally I'd keep JS in /js.
+
+        (function () {
+            /* =========================================================
+               Edugate – Student Results (single-file JS)
+               - Generates 56 random-ish entries (8 pages × 7 rows)
+               - Injects "Here are the results for <user>" subtitle
+               - Builds table + pagination (Figma compact style)
+               - Search, sort, edit, delete, add result
+               ========================================================= */
+
+            // ---------------- Student context (shown in subtitle) ----------------
+            const STUDENT = { name: "Alex Johnson", username: "ajohnson" };
+
+            // ---------------- Config ----------------
+            const PER_PAGE = 7;
+
+            // ---------------- Elements ----------------
+            const mainEl = document.querySelector("main");
+            const titleEl = document.querySelector("main section h1");
+            const subtitleAnchor = titleEl?.nextElementSibling; // the <p> right after H1
+            const searchBox = document.querySelector(".search-container input[type='text'], .search-container input[type='search']");
+            const searchBtn = document.querySelector(".search-container button");
+            const addBtn = document.getElementById("addresultbutton");
+            const backBtn = document.getElementById("backtodashboardbutton");
+
+            // ---------------- Inject subtitle ----------------
+            const nameFromGlobal = (window.currentUser && window.currentUser.name) || null;
+            const nameFromStorage = localStorage.getItem("edugate.currentUserName") || null;
+            const nameFromMeta = document.querySelector("meta[name='current-user']")?.getAttribute("content") || null;
+
+            const userName =
+                (STUDENT.name && STUDENT.name.trim()) ||
+                (STUDENT.username && STUDENT.username.trim()) ||
+                (nameFromGlobal && nameFromGlobal.trim()) ||
+                (nameFromStorage && nameFromStorage.trim()) ||
+                (nameFromMeta && nameFromMeta.trim()) ||
+                "user";
+
+            if (subtitleAnchor) {
+                subtitleAnchor.className = "results-subtitle";
+                subtitleAnchor.textContent = `Here are the results for ${userName}`;
+            }
+
+            // ---------------- Random data generator (56 entries = 8 pages) ----------------
+            const SUBJECTS = ["Mathematics", "Physics", "English", "Biology", "History", "Chemistry"];
+            const TOTALS = [120, 110, 100];
+
+            function randInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+
+            function scoreToGrade(pct) {
+                if (pct >= 90) return "A";
+                if (pct >= 80) return "B";
+                if (pct >= 70) return "C";
+                if (pct >= 60) return "D";
+                if (pct >= 50) return "E";
+                return "F";
+            }
+
+            function genExamCode(subject, idx) {
+                const codeMap = { Mathematics: "M", Physics: "P", English: "E", Biology: "B", History: "H", Chemistry: "C" };
+                const prefix = codeMap[subject] || "X";
+                return `${prefix}${(idx % 8) + 1}`;
+            }
+
+            function generateResults(count = 56) {
+                const out = [];
+                for (let i = 0; i < count; i++) {
+                    const id = i + 1;
+                    const year = 2019 + (i % 4);
+                    const term = (i % 3) + 1;
+                    const subject = SUBJECTS[i % SUBJECTS.length];
+                    const total = TOTALS[i % TOTALS.length];
+
+                    const base = 0.55 + ((i % 7) * 0.05);
+                    const jitter = (Math.random() * 0.2) - 0.1;
+                    const pct = Math.max(0.35, Math.min(0.98, base + jitter));
+                    const score = Math.round(pct * total);
+                    const grade = scoreToGrade((score / total) * 100);
+                    const exam = genExamCode(subject, i);
+
+                    out.push({ id, year, term, subject, exam, result: `${score}/${total}`, grade });
+                }
+                return out;
+            }
+
+            const DATA = generateResults(56); // 8 pages at 7 per page
+
+            // ---------------- State ----------------
+            let rows = [...DATA];
+            let sortKey = "year";
+            let sortDir = "asc";
+            let page = 1;
+            let deletingId = null;
+
+            // ---------------- Build dynamic UI (table + pagination + overlays) ----------------
+            const tableCard = document.createElement("section");
+            tableCard.className = "tablecard";
+            tableCard.innerHTML = `
+      <table id="resultsTable" aria-describedby="tableHelp">
+        <thead>
+          <tr>
+            <th data-key="year" class="sortable">Year</th>
+            <th data-key="term" class="sortable">Term</th>
+            <th data-key="subject" class="sortable">Subject</th>
+            <th data-key="exam" class="sortable">Exam</th>
+            <th data-key="result" class="sortable">Result</th>
+            <th data-key="grade" class="sortable">Grade</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <p id="tableHelp" class="sr-only">Click a column header to sort. Use the search above to filter.</p>
+    `;
+            mainEl.insertBefore(tableCard, backBtn);
+
+            const pagination = document.createElement("div");
+            pagination.id = "pagination";
+            pagination.className = "pagination";
+            pagination.setAttribute("role", "navigation");
+            pagination.setAttribute("aria-label", "Results pages");
+            mainEl.insertBefore(pagination, backBtn);
+
+            // Overlays (Edit + Delete)
+            const editOverlay = document.createElement("div");
+            editOverlay.className = "overlay";
+            editOverlay.id = "editOverlay";
+            editOverlay.setAttribute("aria-hidden", "true");
+            editOverlay.setAttribute("role", "dialog");
+            editOverlay.setAttribute("aria-modal", "true");
+            editOverlay.innerHTML = `
+      <div class="dialog">
+        <div class="dialogheader">
+          <h2>Edit Result</h2>
+          <button class="closebtn" data-close-edit aria-label="Close">×</button>
+        </div>
+        <form id="editForm">
+          <div class="grid2">
+            <label class="field"><span>Year</span><input type="number" id="fYear" min="2000" max="2100" required></label>
+            <label class="field"><span>Term</span><input type="number" id="fTerm" min="1" max="3" required></label>
+            <label class="field"><span>Subject</span><input type="text" id="fSubject" required></label>
+            <label class="field"><span>Exam</span><input type="text" id="fExam" required></label>
+            <label class="field"><span>Result</span><input type="text" id="fResult" placeholder="e.g. 90/120" required></label>
+            <label class="field"><span>Grade</span>
+              <select id="fGrade" required>
+                <option value="">Select</option>
+                <option>A</option><option>B</option><option>C</option>
+                <option>D</option><option>E</option><option>F</option>
+              </select>
+            </label>
+          </div>
+          <div class="dialogactions">
+            <button type="submit" class="btn-green">Update</button>
+            <button type="button" class="btn-ghost" data-close-edit>Cancel</button>
+          </div>
+          <input type="hidden" id="rowId">
+        </form>
+      </div>
+    `;
+            document.body.appendChild(editOverlay);
+
+            const deleteOverlay = document.createElement("div");
+            deleteOverlay.className = "overlay";
+            deleteOverlay.id = "deleteOverlay";
+            deleteOverlay.setAttribute("aria-hidden", "true");
+            deleteOverlay.setAttribute("role", "dialog");
+            deleteOverlay.setAttribute("aria-modal", "true");
+            deleteOverlay.innerHTML = `
+      <div class="dialog">
+        <div class="dialogheader">
+          <h2>Delete This Student’s Results?</h2>
+          <button class="closebtn" data-close-delete aria-label="Close">×</button>
+        </div>
+        <p class="dangertext">Are you sure you want to delete this student’s selected results? This action is permanent and cannot be undone.</p>
+        <div class="dialogactions">
+          <button class="btn-danger" id="confirmDeleteBtn">Yes, delete results</button>
+          <button class="btn-ghost" data-close-delete>Cancel</button>
+        </div>
+      </div>
+    `;
+            document.body.appendChild(deleteOverlay);
+
+            // ---------------- Hooks ----------------
+            const table = document.getElementById("resultsTable");
+            const tbody = document.getElementById("tbody");
+            const confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
+
+            // ---------------- Helpers ----------------
+            function setHidden(el, hidden) { el.setAttribute("aria-hidden", hidden ? "true" : "false"); }
+            function paginate(list) { const start = (page - 1) * PER_PAGE; return list.slice(start, start + PER_PAGE); }
+
+            // Figma compact pagination: «« ‹ 1 2 … (middle/optional) … 7 8 › » 
+            function updatePagination(total) {
+                const totalPages = Math.max(1, Math.ceil(total / PER_PAGE));
+                page = Math.min(page, totalPages);
+                pagination.innerHTML = "";
+
+                const mkBtn = (label, p, disabled = false, active = false) => {
+                    const b = document.createElement("button");
+                    b.innerHTML = label;
+                    if (disabled) b.disabled = true;
+                    if (active) b.classList.add("active");
+                    if (!disabled && !active) b.addEventListener("click", () => { page = p; render(); });
+                    return b;
+                };
+
+                const ellipsisBtn = () => {
+                    const b = document.createElement("button");
+                    b.textContent = "…";
+                    b.disabled = true; // uses disabled button styling (grey)
+                    return b;
+                };
+
+                // nav: first + prev
+                pagination.appendChild(mkBtn(`<img src="../assets/icons/general/first.svg" alt="First">`, 1, page === 1));
+                pagination.appendChild(mkBtn(`<img src="../assets/icons/general/left.svg" alt="Previous">`, Math.max(1, page - 1), page === 1));
+
+                // Always show first two pages (if exist)
+                pagination.appendChild(mkBtn("1", 1, false, page === 1));
+                if (totalPages >= 2) pagination.appendChild(mkBtn("2", 2, false, page === 2));
+
+                // Middle section
+                if (totalPages > 4) {
+                    const showLeftEllipsis = page > 3;                 // gap after 2
+                    const showRightEllipsis = page < totalPages - 2;   // gap before last-1
+
+                    if (showLeftEllipsis) pagination.appendChild(ellipsisBtn());
+
+                    // Optional current page in the middle (only when not near edges)
+                    if (page >= 3 && page <= totalPages - 2) {
+                        // If current is already 1 or 2, we skip (handled above)
+                        // If current is one of the last two, it's shown later
+                        if (page !== 1 && page !== 2 && page !== totalPages - 1 && page !== totalPages) {
+                            pagination.appendChild(mkBtn(String(page), page, false, true));
+                        }
+                    }
+
+                    if (showRightEllipsis) pagination.appendChild(ellipsisBtn());
+                }
+
+                // Always show last two pages (if they aren't the same as the first two)
+                if (totalPages >= 3) pagination.appendChild(mkBtn(String(totalPages - 1), totalPages - 1, false, page === totalPages - 1));
+                if (totalPages >= 2) pagination.appendChild(mkBtn(String(totalPages), totalPages, false, page === totalPages));
+
+                // nav: next + last
+                pagination.appendChild(mkBtn(`<img src="../assets/icons/general/right.svg" alt="Next">`, Math.min(totalPages, page + 1), page === totalPages));
+                pagination.appendChild(mkBtn(`<img src="../assets/icons/general/last.svg" alt="Last">`, totalPages, page === totalPages));
+            }
+
+            // ---------------- Render ----------------
+            function render() {
+                const sorted = [...rows].sort((a, b) => {
+                    const A = ("" + a[sortKey]).toLowerCase();
+                    const B = ("" + b[sortKey]).toLowerCase();
+                    if (A < B) return sortDir === "asc" ? -1 : 1;
+                    if (A > B) return sortDir === "asc" ? 1 : -1;
+                    return 0;
+                });
+
+                updatePagination(sorted.length);
+                const slice = paginate(sorted);
+
+                tbody.innerHTML = slice.map((r) => `
+        <tr>
+          <td data-label="Year">${r.year}</td>
+          <td data-label="Term">${r.term}</td>
+          <td data-label="Subject">${r.subject}</td>
+          <td data-label="Exam">${r.exam}</td>
+          <td data-label="Result">${r.result}</td>
+          <td data-label="Grade">${r.grade}</td>
+          <td class="actions" data-label="Actions">
+            <a href="#edit" class="editlink" data-id="${r.id}">Edit</a>
+            <button class="deletebtn" data-id="${r.id}">Delete</button>
+          </td>
+        </tr>
+      `).join("");
+
+                tbody.querySelectorAll(".editlink").forEach((a) =>
+                    a.addEventListener("click", (e) => { e.preventDefault(); openEdit(+a.dataset.id); })
+                );
+                tbody.querySelectorAll(".deletebtn").forEach((b) =>
+                    b.addEventListener("click", () => openDelete(+b.dataset.id))
+                );
+            }
+
+            // ---------------- Sorting ----------------
+            table.querySelectorAll("th.sortable").forEach((th) => {
+                th.addEventListener("click", () => {
+                    const key = th.dataset.key;
+                    if (sortKey === key) sortDir = sortDir === "asc" ? "desc" : "asc";
+                    else { sortKey = key; sortDir = "asc"; }
+                    render();
+                });
+            });
+
+            // ---------------- Search ----------------
+            function applySearch() {
+                const q = (searchBox?.value || "").trim().toLowerCase();
+                rows = DATA.filter((r) =>
+                    `${r.year} ${r.term} ${r.subject} ${r.exam} ${r.result} ${r.grade}`.toLowerCase().includes(q)
+                );
+                page = 1;
+                render();
+            }
+            if (searchBox) searchBox.addEventListener("input", applySearch);
+            if (searchBtn) searchBtn.addEventListener("click", applySearch);
+
+            // ---------------- Edit ----------------
+            const fYear = document.getElementById("fYear");
+            const fTerm = document.getElementById("fTerm");
+            const fSubject = document.getElementById("fSubject");
+            const fExam = document.getElementById("fExam");
+            const fResult = document.getElementById("fResult");
+            const fGrade = document.getElementById("fGrade");
+            const rowId = document.getElementById("rowId");
+            const editOverlayEl = document.getElementById("editOverlay");
+
+            function openEdit(id) {
+                const r = DATA.find((x) => x.id === id);
+                if (!r) return;
+                rowId.value = r.id;
+                fYear.value = r.year;
+                fTerm.value = r.term;
+                fSubject.value = r.subject;
+                fExam.value = r.exam;
+                fResult.value = r.result;
+                fGrade.value = r.grade;
+                setHidden(editOverlayEl, false);
+            }
+            function closeEdit() { setHidden(editOverlayEl, true); }
+            editOverlayEl.addEventListener("click", (e) => { if (e.target === editOverlayEl) closeEdit(); });
+            editOverlayEl.querySelectorAll("[data-close-edit]").forEach((b) => b.addEventListener("click", closeEdit));
+
+            document.getElementById("editForm").addEventListener("submit", (e) => {
+                e.preventDefault();
+                const id = +rowId.value;
+                const idx = DATA.findIndex((x) => x.id === id);
+                if (idx > -1) {
+                    DATA[idx] = {
+                        id,
+                        year: +fYear.value,
+                        term: +fTerm.value,
+                        subject: fSubject.value.trim(),
+                        exam: fExam.value.trim(),
+                        result: fResult.value.trim(),
+                        grade: fGrade.value
+                    };
+                    applySearch();
+                    closeEdit();
+                }
+            });
+
+            // "Add result" opens same form blank
+            if (addBtn) {
+                addBtn.addEventListener("click", () => {
+                    rowId.value = "";
+                    fYear.value = new Date().getFullYear();
+                    fTerm.value = 1;
+                    fSubject.value = "";
+                    fExam.value = "";
+                    fResult.value = "";
+                    fGrade.value = "";
+                    setHidden(editOverlayEl, false);
+                });
+            }
+
+            // ---------------- Delete ----------------
+            const deleteOverlayEl = document.getElementById("deleteOverlay");
+            function openDelete(id) { deletingId = id; setHidden(deleteOverlayEl, false); }
+            function closeDelete() { setHidden(deleteOverlayEl, true); }
+            deleteOverlayEl.addEventListener("click", (e) => { if (e.target === deleteOverlayEl) closeDelete(); });
+            deleteOverlayEl.querySelectorAll("[data-close-delete]").forEach((b) => b.addEventListener("click", closeDelete));
+
+            confirmDeleteBtn.addEventListener("click", () => {
+                if (deletingId != null) {
+                    const i = DATA.findIndex((x) => x.id === deletingId);
+                    if (i > -1) DATA.splice(i, 1);
+                    deletingId = null;
+                    applySearch();
+                    closeDelete();
+                }
+            });
+
+            // ---------------- Init ----------------
+            render();
+        })();
+    </script>
+
+</body>
+
 </html>
