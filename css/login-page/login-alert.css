@@ -23,6 +23,11 @@
   margin-left: 26px;
   color: #c62828;
 
+    img {
+      width: 80px;
+      height: 80px;
+    }
+
   .error-msg {
     h2 {
       font-size: 32px;

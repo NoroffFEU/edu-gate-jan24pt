@@ -1,0 +1,153 @@
+@import url(../../base.css);
+@import url(../../basic.css);
+@import url(../../variables.css);
+@import url(../../header.css);
+@import url(../../footer.css);
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  height: 100vh;
+}
+
+main {
+  width: min-content;
+  margin: auto;
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+a:hover {
+  color: var(--primary-font);
+}
+
+h1 {
+  font-weight: 700;
+  text-align: center;
+}
+
+.admin-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 300px;
+  margin: auto;
+  margin-top: 48px;
+  margin-bottom: 48px;
+  text-align: center;
+
+  .avatar {
+    width: 150px;
+    height: 150px;
+    padding-top: 50px;
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    background-color: var(--primary);
+    border-radius: 100px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+  }
+
+  .name {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .subtitle {
+    font-size: 20px;
+    font-weight: 500;
+  }
+}
+
+.dashboard-links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 48px;
+  width: 694px;
+  padding-left: 48px;
+  padding-right: 48px;
+  margin: auto;
+
+  .link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 160px;
+    height: 152px;
+
+    img {
+      width: max-content;
+    }
+
+    p {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      font-size: 24px;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .admin-info {
+    margin-bottom: 16px;
+    gap: 16px;
+
+    h2 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .avatar {
+      width: 71px;
+      height: 71px;
+      padding-top: 10px;
+    }
+
+    .name {
+    font-size: 20px;
+    font-weight: 700;
+    }
+
+    .subtitle {
+    font-size: 14px;
+    font-weight: 400;
+    }
+  }
+
+  .dashboard-links {
+    flex-direction: column;
+    gap: 25px;
+    width: min-content;
+
+    .link {
+      gap: 0px;
+      width: 110px;
+      height: 90px;
+      justify-content: end;
+
+      img {
+        width: 48px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+}
