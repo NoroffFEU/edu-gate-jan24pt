@@ -6,6 +6,7 @@
     <title>Top Performing Students | Edugate</title>
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="/css/sidebar-menu/sidebar-menu.css" />
+    <link rel="stylesheet" href="../results/student/styling.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -27,6 +28,9 @@
           <a href=""><li>About</li></a>
           <a href=""><li>Contact</li></a>
         </ul>
+        <a href="" class="header-profile">
+          <img src="/assets/icons/socials/profile_icon.png" />
+        </a>
       </div>
       <div class="mobile-header">
         <a href="index.html"><img src="/assets/images/mobile_logo.png" /></a>
@@ -52,15 +56,15 @@
             <li><a href="">Contact</a></li>
           </ul>
           <ul class="link-icons">
-            <li><img src="../../assets/icons/nav/home.png" /></li>
-            <li><img src="../../assets/icons/socials/profile_icon.png" /></li>
-            <li><img src="../../assets/icons/nav/about.png" /></li>
-            <li><img src="../../assets/icons/nav/contact.png" /></li>
+            <li><img src="/assets/icons/nav/home.png" /></li>
+            <li><img src="/assets/icons/socials/profile_icon.png" /></li>
+            <li><img src="/assets/icons/nav/about.png" /></li>
+            <li><img src="/assets/icons/nav/contact.png" /></li>
           </ul>
         </nav>
         <div class="logout-link">
-          <a href="../../index.html">Logout</a>
-          <img src="../../assets/icons/general/sign_out.png" />
+          <a href="../index.html">Logout</a>
+          <img src="/assets/icons/general/sign_out.png" />
         </div>
       </div>
     </header>
@@ -121,9 +125,40 @@
       </aside>
 
       <!-- Main Content -->
-      <main class="container">
+      <main>
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="../dashboard/Teacher/index.html">Dashboard</a><span>Top performing students</span>
+        </nav>
+
         <h1>Top Performing Students</h1>
-        <!-- Table or content goes here later -->
+        <img class="view-icon" src="/assets/icons/general/top_students.png" alt="" aria-hidden="true">
+        <p class="subtitle">View the top performing students in your classes</p>
+
+        <div class="search-wrap">
+          <input id="searchInput" type="search" placeholder="Search for student..." aria-label="Search students">
+          <button id="searchBtn" aria-label="Search">
+            <img src="/assets/icons/general/search.svg" alt="">
+          </button>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Student ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Year</th>
+                <th>Subject</th>
+                <th>Grade</th>
+              </tr>
+            </thead>
+            <tbody id="studentsBody"></tbody>
+          </table>
+        </div>
+
+        <div id="pagination" class="pagination"></div>
+        <a href="../dashboard/Teacher/index.html" class="btn-back">Back to dashboard</a>
       </main>
     </div>
 
@@ -141,16 +176,8 @@
       />
     </footer>
 
-    <!-- Temporary Mobile Menu JavaScript -->
+    <!-- Mobile Menu JavaScript -->
     <script type="module" src="../src/header.mjs"></script>
-
-    <script>
-      const toggleButton = document.querySelector('.sidebar-toggle');
-      const sidebar = document.querySelector('.sidebar');
-
-      toggleButton.addEventListener('click', () => {
-        sidebar.classList.toggle('show');
-      });
-    </script>
+    <script src="./top-student.js"></script>
   </body>
 </html>
