@@ -8,6 +8,14 @@ th.col-info, td.col-info { display: none; }
 /* Page-specific override for blue back button weight */
 .btn-back { font-weight: 600; }
 
+/* Hide the left sidebar toggle on this page */
+.sidebar-toggle { display: none !important; }
+
+/* On mobile, hide the left sidebar entirely; use only the header menu */
+@media (max-width: 768px) {
+  .sidebar { display: none !important; }
+}
+
 /* Modal typography overrides: titles bold/green, values regular */
 .info-grid h4 {
   color: var(--primary);
