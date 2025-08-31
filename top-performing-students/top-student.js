@@ -1,4 +1,3 @@
-// Top Performing Students – simple, beginner-friendly version
 // This file fills the table with repeated mock data, adds search,
 // and shows pagination that adapts to mobile/desktop sizes.
 
@@ -59,6 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <td>${r.year}</td>
         <td>${r.subject}</td>
         <td>${r.grade}</td>
+        <td class="col-info">
+          <button class="info-btn" title="More info" aria-label="Show details" data-id="${r.id}">i</button>
+        </td>
       `;
       tbody.appendChild(tr);
     }
@@ -194,6 +196,45 @@ document.addEventListener('DOMContentLoaded', () => {
   if (toggleButton && sidebar) {
     toggleButton.addEventListener('click', () => {
       sidebar.classList.toggle('show');
+    });
+  }
+
+  // 9) Modal wiring (optional; graceful if elements not present)
+  const overlay = document.getElementById('infoOverlay');
+  const closeBtn = document.getElementById('infoClose');
+  function openModal(data) {
+    if (!overlay) return;
+    const map = {
+      m_id: data.id,
+      m_year: data.year,
+      m_first: data.first,
+      m_last: data.last,
+      m_subject: data.subject,
+      m_grade: data.grade,
+    };
+    for (const [k, v] of Object.entries(map)) {
+      const el = document.getElementById(k);
+      if (el) el.textContent = v;
+    }
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+  }
+  function closeModal() {
+    if (!overlay) return;
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden', 'true');
+  }
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (overlay) overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+
+  // Delegate clicks on info buttons inside the table body
+  if (tbody) {
+    tbody.addEventListener('click', (e) => {
+      const btn = e.target.closest('.info-btn');
+      if (!btn) return;
+      const id = btn.getAttribute('data-id');
+      const rec = filteredData.find((r) => r.id === id) || null;
+      if (rec) openModal(rec);
     });
   }
 });
