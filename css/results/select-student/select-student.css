@@ -218,3 +218,19 @@ body {
     display: none;
   }
 
+  #leftSidebarOverlay {
+    position: fixed;
+    inset: 0; 
+    display: none;
+    z-index: 90; 
+    pointer-events: auto;
+  }
+  
+  #leftSidebarOverlay.active {
+    display: block;
+  }
+  
+  body.sidebar-open {
+    overflow: hidden;
+    height: 100vh;
+  }
